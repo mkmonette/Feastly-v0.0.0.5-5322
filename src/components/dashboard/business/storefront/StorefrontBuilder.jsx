@@ -31,8 +31,8 @@ const TEMPLATE_CONFIG = {
   }
 };
 
-const GlobalSettings = () => {
-  const { overrideTokens, setOverrideTokens, resetTokens } = useStorefront();
+const GlobalSettings = ({ useContextHook }) => {
+  const { overrideTokens, setOverrideTokens, resetTokens } = useContextHook();
 
   const updateToken = (path, value) => {
     setOverrideTokens(prev => {
@@ -170,8 +170,8 @@ const GlobalSettings = () => {
   );
 };
 
-const ContentControls = ({ sectionId }) => {
-  const { sectionsConfig, updateSection } = useStorefront();
+const ContentControls = ({ sectionId, useContextHook }) => {
+  const { sectionsConfig, updateSection } = useContextHook();
   const section = sectionsConfig.find(s => s.id === sectionId);
 
   if (!section || !section.content) return null;
@@ -222,8 +222,8 @@ const ContentControls = ({ sectionId }) => {
   );
 };
 
-const VisibilityControls = ({ sectionId }) => {
-  const { sectionsConfig, updateSection } = useStorefront();
+const VisibilityControls = ({ sectionId, useContextHook }) => {
+  const { sectionsConfig, updateSection } = useContextHook();
   const section = sectionsConfig.find(s => s.id === sectionId);
 
   if (!section) return null;
@@ -312,9 +312,9 @@ const VisibilityControls = ({ sectionId }) => {
   );
 };
 
-const SectionSettings = ({ sectionId, onBack }) => {
+const SectionSettings = ({ sectionId, onBack, useContextHook }) => {
   const [activeTab, setActiveTab] = useState('content');
-  const { sectionsConfig } = useStorefront();
+  const { sectionsConfig } = useContextHook();
   const section = sectionsConfig.find(s => s.id === sectionId);
 
   if (!section) return null;
@@ -354,7 +354,7 @@ const SectionSettings = ({ sectionId, onBack }) => {
 
       <div className="py-4">
         {activeTab === 'content' && (
-          <ContentControls sectionId={sectionId} />
+          <ContentControls sectionId={sectionId} useContextHook={useContextHook} />
         )}
         {activeTab === 'design' && (
           <div className="bg-gray-50 rounded-2xl p-8 text-center border border-dashed border-gray-200">
@@ -363,7 +363,7 @@ const SectionSettings = ({ sectionId, onBack }) => {
           </div>
         )}
         {activeTab === 'visibility' && (
-          <VisibilityControls sectionId={sectionId} />
+          <VisibilityControls sectionId={sectionId} useContextHook={useContextHook} />
         )}
       </div>
     </div>
@@ -477,11 +477,12 @@ const BuilderContent = ({ useContextHook, Renderer, templateSlug, templateTitle 
 
           <div className="flex-1 overflow-y-auto p-6 bg-white">
             {activePanelTab === 'global' ? (
-              <GlobalSettings />
+              <GlobalSettings useContextHook={useContextHook} />
             ) : editingSectionId ? (
-              <SectionSettings 
-                sectionId={editingSectionId} 
-                onBack={() => setEditingSectionId(null)} 
+              <SectionSettings
+                sectionId={editingSectionId}
+                onBack={() => setEditingSectionId(null)}
+                useContextHook={useContextHook}
               />
             ) : (
               <div className="space-y-3">
