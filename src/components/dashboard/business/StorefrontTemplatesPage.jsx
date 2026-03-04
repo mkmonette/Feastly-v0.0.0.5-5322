@@ -5,6 +5,8 @@ import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '@/common/SafeIcon';
 import TemplateRenderer from './storefront/TemplateRenderer';
 import { StorefrontProvider } from './storefront/StorefrontContext';
+import ModernClassicRenderer from './storefront/modernClassic/ModernClassicRenderer';
+import { ModernClassicProvider } from './storefront/modernClassic/ModernClassicContext';
 
 const CATEGORIES = [
   { id: 'classic', label: 'Classic' },
@@ -13,7 +15,7 @@ const CATEGORIES = [
   { id: 'ordering_form', label: 'Ordering Form' }
 ];
 
-const TemplatePreviewCard = ({ categoryId, templateSlug, title, label, description }) => {
+const TemplatePreviewCard = ({ categoryId, templateSlug, title, label, description, ProviderComponent, RendererComponent }) => {
   const navigate = useNavigate();
 
   const handleAction = (type) => {
@@ -24,8 +26,11 @@ const TemplatePreviewCard = ({ categoryId, templateSlug, title, label, descripti
     }
   };
 
+  const Provider = ProviderComponent || StorefrontProvider;
+  const Renderer = RendererComponent || TemplateRenderer;
+
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       className="group bg-white rounded-[32px] overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-500"
@@ -33,9 +38,9 @@ const TemplatePreviewCard = ({ categoryId, templateSlug, title, label, descripti
       <div className="aspect-[4/3] bg-gray-50 relative overflow-hidden">
         {/* Real Scaled Preview */}
         <div className="absolute inset-0 scale-[0.25] origin-top-left pointer-events-none select-none overflow-hidden" style={{ width: '400%', height: '400%' }}>
-          <StorefrontProvider>
-            <TemplateRenderer />
-          </StorefrontProvider>
+          <Provider>
+            <Renderer />
+          </Provider>
         </div>
 
         {/* Overlay Actions */}
@@ -100,12 +105,21 @@ const StorefrontTemplatesPage = () => {
       <div className="min-h-[500px]">
         {activeTab === 'classic' ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <TemplatePreviewCard 
+            <TemplatePreviewCard
               categoryId="classic"
               templateSlug="base-classic"
               title="Base Classic"
               label="Classic"
               description="A timeless multi-section layout perfect for restaurants and food businesses."
+            />
+            <TemplatePreviewCard
+              categoryId="classic"
+              templateSlug="modern-classic"
+              title="Modern Classic"
+              label="Classic"
+              description="A contemporary take on classic design with split hero layout and horizontal product carousel."
+              ProviderComponent={ModernClassicProvider}
+              RendererComponent={ModernClassicRenderer}
             />
           </div>
         ) : (

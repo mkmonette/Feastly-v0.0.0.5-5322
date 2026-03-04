@@ -1,10 +1,27 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '@/common/SafeIcon';
 import TemplateRenderer from './TemplateRenderer';
 import { StorefrontProvider, useStorefront } from './StorefrontContext';
+import ModernClassicRenderer from './modernClassic/ModernClassicRenderer';
+import { ModernClassicProvider, useModernClassic } from './modernClassic/ModernClassicContext';
+
+const TEMPLATE_CONFIG = {
+  'base-classic': {
+    Provider: StorefrontProvider,
+    Renderer: TemplateRenderer,
+    useContext: useStorefront,
+    title: 'Base Classic Template'
+  },
+  'modern-classic': {
+    Provider: ModernClassicProvider,
+    Renderer: ModernClassicRenderer,
+    useContext: useModernClassic,
+    title: 'Modern Classic Template'
+  }
+};
 
 const GlobalSettings = () => {
   const { overrideTokens, setOverrideTokens, resetTokens } = useStorefront();
@@ -345,11 +362,11 @@ const SectionSettings = ({ sectionId, onBack }) => {
   );
 };
 
-const BuilderContent = () => {
+const BuilderContent = ({ useContextHook, Renderer, templateSlug, templateTitle }) => {
   const [activePanelTab, setActivePanelTab] = useState('sections');
   const [editingSectionId, setEditingSectionId] = useState(null);
   const navigate = useNavigate();
-  const { saveTokens, previewDevice, setPreviewDevice, sectionsConfig } = useStorefront();
+  const { saveTokens, previewDevice, setPreviewDevice, sectionsConfig } = useContextHook();
 
   const getDeviceWidth = () => {
     switch (previewDevice) {
@@ -380,7 +397,7 @@ const BuilderContent = () => {
           </button>
           <div className="h-6 w-px bg-gray-100" />
           <div className="text-left">
-            <h1 className="text-sm font-black uppercase tracking-widest text-gray-900">Base Classic Template</h1>
+            <h1 className="text-sm font-black uppercase tracking-widest text-gray-900">{templateTitle}</h1>
             <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Editing Storefront</p>
           </div>
         </div>
@@ -410,8 +427,8 @@ const BuilderContent = () => {
         </div>
 
         <div className="flex items-center gap-4">
-          <button 
-            onClick={() => navigate('/storefront/templates/classic/base-classic/preview')}
+          <button
+            onClick={() => navigate(`/storefront/templates/classic/${templateSlug}/preview`)}
             className="flex items-center gap-2 px-4 py-2 text-[10px] font-black uppercase tracking-widest text-gray-500 hover:text-black transition-colors"
           >
             <SafeIcon icon={FiIcons.FiEye} />
@@ -503,7 +520,7 @@ const BuilderContent = () => {
                   className={`bg-white shadow-2xl rounded-[32px] overflow-hidden origin-top transition-all duration-500 ${getDeviceScale()}`}
                 >
                   <div className="pointer-events-none select-none">
-                    <TemplateRenderer />
+                    <Renderer />
                   </div>
                 </div>
               </div>
@@ -516,10 +533,19 @@ const BuilderContent = () => {
 };
 
 const StorefrontBuilder = () => {
+  const { templateSlug } = useParams();
+  const config = TEMPLATE_CONFIG[templateSlug] || TEMPLATE_CONFIG['base-classic'];
+  const Provider = config.Provider;
+
   return (
-    <StorefrontProvider>
-      <BuilderContent />
-    </StorefrontProvider>
+    <Provider>
+      <BuilderContent
+        useContextHook={config.useContext}
+        Renderer={config.Renderer}
+        templateSlug={templateSlug}
+        templateTitle={config.title}
+      />
+    </Provider>
   );
 };
 
