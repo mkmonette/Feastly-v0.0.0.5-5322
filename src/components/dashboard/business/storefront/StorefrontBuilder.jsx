@@ -7,6 +7,8 @@ import TemplateRenderer from './TemplateRenderer';
 import { StorefrontProvider, useStorefront } from './StorefrontContext';
 import ModernClassicRenderer from './modernClassic/ModernClassicRenderer';
 import { ModernClassicProvider, useModernClassic } from './modernClassic/ModernClassicContext';
+import BoldClassicRenderer from './boldClassic/BoldClassicRenderer';
+import { BoldClassicProvider, useBoldClassic } from './boldClassic/BoldClassicContext';
 
 const TEMPLATE_CONFIG = {
   'base-classic': {
@@ -20,6 +22,12 @@ const TEMPLATE_CONFIG = {
     Renderer: ModernClassicRenderer,
     useContext: useModernClassic,
     title: 'Modern Classic Template'
+  },
+  'bold-classic': {
+    Provider: BoldClassicProvider,
+    Renderer: BoldClassicRenderer,
+    useContext: useBoldClassic,
+    title: 'Bold Classic Template'
   }
 };
 

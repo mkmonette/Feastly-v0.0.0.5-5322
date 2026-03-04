@@ -7,6 +7,8 @@ import TemplateRenderer from './storefront/TemplateRenderer';
 import { StorefrontProvider } from './storefront/StorefrontContext';
 import ModernClassicRenderer from './storefront/modernClassic/ModernClassicRenderer';
 import { ModernClassicProvider } from './storefront/modernClassic/ModernClassicContext';
+import BoldClassicRenderer from './storefront/boldClassic/BoldClassicRenderer';
+import { BoldClassicProvider } from './storefront/boldClassic/BoldClassicContext';
 
 const CATEGORIES = [
   { id: 'classic', label: 'Classic' },
@@ -120,6 +122,15 @@ const StorefrontTemplatesPage = () => {
               description="A contemporary take on classic design with split hero layout and horizontal product carousel."
               ProviderComponent={ModernClassicProvider}
               RendererComponent={ModernClassicRenderer}
+            />
+            <TemplatePreviewCard
+              categoryId="classic"
+              templateSlug="bold-classic"
+              title="Bold Classic"
+              label="Classic"
+              description="An urban, edgy design with asymmetric layouts, bold typography, and striking visual contrasts."
+              ProviderComponent={BoldClassicProvider}
+              RendererComponent={BoldClassicRenderer}
             />
           </div>
         ) : (
