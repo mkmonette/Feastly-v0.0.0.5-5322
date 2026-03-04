@@ -23,7 +23,7 @@ const Gallery = () => {
     "https://images.pexels.com/photos/1639562/pexels-photo-1639562.jpeg?auto=compress&cs=tinysrgb&w=800"
   ];
 
-  const images = content.images || defaultImages;
+  const images = content.images && content.images.length > 0 ? content.images : defaultImages;
 
   return (
     <section className={`${layout.sectionPaddingLarge} bg-${colors.surface} ${layout.horizontalPadding}`}>

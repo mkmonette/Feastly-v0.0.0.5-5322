@@ -13,6 +13,8 @@ const Contact = () => {
 
   const primaryStyle = colors.primary.startsWith('#') ? { color: colors.primary } : {};
   const primaryBgStyle = colors.primary.startsWith('#') ? { backgroundColor: colors.primary } : {};
+  const sectionHeadlineNormalStyle = { color: colors.sectionHeadlineNormal };
+  const sectionHeadlineHighlightStyle = { color: colors.sectionHeadlineHighlight };
 
   return (
     <section className={`${layout.sectionPaddingLarge} bg-${colors.background} ${layout.horizontalPadding}`}>
@@ -24,14 +26,9 @@ const Contact = () => {
           >
             {content.subtitle || 'Contact Us'}
           </span>
-          <h2 className={`${typography.scale.h2} ${typography.weights.black} text-${colors.textPrimary} mt-2 ${typography.fontPrimary}`}>
-            {content.titlePre}{' '}
-            <span
-              className={!colors.primary.startsWith('#') ? `text-${colors.primary}` : ''}
-              style={primaryStyle}
-            >
-              {content.titleHighlight}
-            </span>
+          <h2 className={`${typography.scale.h2} ${typography.weights.black} mt-2 ${typography.fontPrimary}`}>
+            <span style={sectionHeadlineNormalStyle}>{content.titlePre}</span>{' '}
+            <span style={sectionHeadlineHighlightStyle}>{content.titleHighlight}</span>
           </h2>
           {content.description && (
             <p className={`${typography.scale.bodyLarge_alt} text-${colors.textMuted} mt-4 max-w-2xl mx-auto ${typography.fontSecondary}`}>

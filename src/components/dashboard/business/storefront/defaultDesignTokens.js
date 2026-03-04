@@ -70,7 +70,7 @@ export const defaultDesignTokens = {
     borderLight: 'gray-50',
     heroHeadlinePre: '#FFFFFF',
     sectionHeadlineNormal: '#1F2937',
-    sectionHeadlineHighlight: '#EA580C',
+    sectionHeadlineHighlight: '#1F2937',
   },
   layout: {
     container: 'mx-auto',

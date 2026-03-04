@@ -12,6 +12,8 @@ const Gallery = () => {
 
   const primaryStyle = colors.primary.startsWith('#') ? { color: colors.primary } : {};
   const primaryBgStyle = colors.primary.startsWith('#') ? { backgroundColor: colors.primary } : {};
+  const sectionHeadlineNormalStyle = { color: colors.sectionHeadlineNormal };
+  const sectionHeadlineHighlightStyle = { color: colors.sectionHeadlineHighlight };
 
   const defaultImages = [
     "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800",
@@ -22,7 +24,7 @@ const Gallery = () => {
     "https://images.pexels.com/photos/1639562/pexels-photo-1639562.jpeg?auto=compress&cs=tinysrgb&w=800"
   ];
 
-  const images = content.images || defaultImages;
+  const images = content.images && content.images.length > 0 ? content.images : defaultImages;
 
   return (
     <section className={`${layout.sectionPaddingLarge} bg-${colors.surface} text-white ${layout.horizontalPadding}`}>

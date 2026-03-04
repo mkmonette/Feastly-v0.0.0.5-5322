@@ -64,7 +64,7 @@ export const boldClassicTokens = {
     borderLight: 'slate-100',
     heroHeadlinePre: '#FFFFFF',
     sectionHeadlineNormal: '#0F172A',
-    sectionHeadlineHighlight: '#10B981',
+    sectionHeadlineHighlight: '#0F172A',
   },
   layout: {
     container: 'mx-auto',

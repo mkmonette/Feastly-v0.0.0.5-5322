@@ -64,7 +64,7 @@ export const modernClassicTokens = {
     borderLight: 'gray-100',
     heroHeadlinePre: '#FFFFFF',
     sectionHeadlineNormal: '#1F2937',
-    sectionHeadlineHighlight: '#2563EB',
+    sectionHeadlineHighlight: '#1F2937',
   },
   layout: {
     container: 'mx-auto',

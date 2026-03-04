@@ -8,20 +8,24 @@ const Gallery = () => {
   const section = sectionsConfig.find(s => s.id === 'gallery');
   const content = section?.content || {};
 
-  const images = [
+  const defaultImages = [
     "https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1974&auto=format&fit=crop",
     "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1974&auto=format&fit=crop",
     "https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=2069&auto=format&fit=crop",
     "https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=2070&auto=format&fit=crop"
   ];
 
+  const images = content.images && content.images.length > 0 ? content.images : defaultImages;
+
   const primaryStyle = colors.primary.startsWith('#') ? { color: colors.primary } : {};
+  const sectionHeadlineNormalStyle = { color: colors.sectionHeadlineNormal };
+  const sectionHeadlineHighlightStyle = { color: colors.sectionHeadlineHighlight };
 
   return (
     <section className={`${layout.sectionPaddingLarge} ${layout.horizontalPadding} bg-${colors.surface}`}>
       <div className={`${layout.container} ${layout.containerWidth} text-center mb-16`}>
-        <h2 className={`${typography.scale.h2} ${typography.weights.black} text-${colors.textPrimary} ${typography.transform.uppercase} ${typography.tracking.tighter} ${typography.fontPrimary}`}>
-          {content.titlePre} <span style={primaryStyle}>{content.titleHighlight}</span>
+        <h2 className={`${typography.scale.h2} ${typography.weights.black} ${typography.transform.uppercase} ${typography.tracking.tighter} ${typography.fontPrimary}`}>
+          <span style={sectionHeadlineNormalStyle}>{content.titlePre}</span> <span style={sectionHeadlineHighlightStyle}>{content.titleHighlight}</span>
         </h2>
       </div>
       <div className={`${layout.container} ${layout.containerWidth} grid grid-cols-2 md:grid-cols-4 gap-4`}>

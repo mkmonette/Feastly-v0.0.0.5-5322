@@ -13,6 +13,8 @@ const CTABanner = () => {
   const primaryStyle = colors.primary.startsWith('#') ? { color: colors.primary } : {};
   const primaryBgStyle = colors.primary.startsWith('#') ? { backgroundColor: colors.primary } : {};
   const secondaryBgStyle = colors.secondary.startsWith('#') ? { backgroundColor: colors.secondary } : {};
+  const sectionHeadlineNormalStyle = { color: colors.sectionHeadlineNormal };
+  const sectionHeadlineHighlightStyle = { color: colors.sectionHeadlineHighlight };
 
   return (
     <section className={`${layout.sectionPaddingLarge} bg-${colors.textPrimary} text-white ${layout.horizontalPadding} relative overflow-hidden`}>

@@ -12,6 +12,8 @@ const Testimonials = () => {
 
   const primaryStyle = colors.primary.startsWith('#') ? { color: colors.primary } : {};
   const primaryBgStyle = colors.primary.startsWith('#') ? { backgroundColor: colors.primary } : {};
+  const sectionHeadlineNormalStyle = { color: colors.sectionHeadlineNormal };
+  const sectionHeadlineHighlightStyle = { color: colors.sectionHeadlineHighlight };
 
   const defaultTestimonials = [
     {
@@ -34,7 +36,14 @@ const Testimonials = () => {
     }
   ];
 
-  const testimonials = content.testimonials || defaultTestimonials;
+  const testimonials = content.testimonials && content.testimonials.length > 0
+    ? content.testimonials.map(t => ({
+        name: t.name || '',
+        role: t.role || '',
+        image: t.image || '',
+        quote: t.content || t.quote || ''
+      }))
+    : defaultTestimonials;
 
   return (
     <section className={`${layout.sectionPaddingLarge} bg-${colors.background} ${layout.horizontalPadding}`}>

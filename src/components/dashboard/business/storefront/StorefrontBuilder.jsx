@@ -248,6 +248,33 @@ const ContentControls = ({ sectionId, useContextHook }) => {
     });
   };
 
+  const updateGalleryImage = (index, value) => {
+    const images = section.content.images || [];
+    const newImages = [...images];
+    newImages[index] = value;
+    updateContent('images', newImages);
+  };
+
+  const addGalleryImage = () => {
+    const images = section.content.images || [];
+    updateContent('images', [...images, '']);
+  };
+
+  const removeGalleryImage = (index) => {
+    const images = section.content.images || [];
+    updateContent('images', images.filter((_, i) => i !== index));
+  };
+
+  const updateTestimonial = (index, field, value) => {
+    const testimonials = section.content.testimonials || [];
+    const newTestimonials = [...testimonials];
+    newTestimonials[index] = {
+      ...newTestimonials[index],
+      [field]: value
+    };
+    updateContent('testimonials', newTestimonials);
+  };
+
   const fields = Object.entries(section.content);
 
   const getLabel = (key) => {
@@ -259,27 +286,114 @@ const ContentControls = ({ sectionId, useContextHook }) => {
   return (
     <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
       <div className="bg-gray-50 rounded-2xl p-4 space-y-4">
-        {fields.map(([key, value]) => (
-          <div key={key} className="space-y-2">
-            <label className="text-[10px] font-black uppercase tracking-widest text-gray-400 block px-1">
-              {getLabel(key)}
-            </label>
-            {key.toLowerCase().includes('description') || key.toLowerCase().includes('subtitle') ? (
-              <textarea
-                value={value}
-                onChange={(e) => updateContent(key, e.target.value)}
-                className="w-full bg-white border border-gray-100 rounded-xl px-4 py-3 text-xs font-medium focus:ring-2 focus:ring-orange-500 transition-all outline-none resize-none min-h-[100px]"
-              />
-            ) : (
-              <input
-                type="text"
-                value={value}
-                onChange={(e) => updateContent(key, e.target.value)}
-                className="w-full bg-white border border-gray-100 rounded-xl px-4 py-2 text-xs font-medium focus:ring-2 focus:ring-orange-500 transition-all outline-none"
-              />
-            )}
-          </div>
-        ))}
+        {fields.map(([key, value]) => {
+          if (key === 'images' && sectionId === 'gallery') {
+            const images = Array.isArray(value) ? value : [];
+            return (
+              <div key={key} className="space-y-3">
+                <label className="text-[10px] font-black uppercase tracking-widest text-gray-400 block px-1">
+                  Gallery Images
+                </label>
+                {images.map((img, index) => (
+                  <div key={index} className="flex gap-2">
+                    <input
+                      type="text"
+                      value={img}
+                      onChange={(e) => updateGalleryImage(index, e.target.value)}
+                      placeholder="Image URL or upload"
+                      className="flex-1 bg-white border border-gray-100 rounded-xl px-4 py-2 text-xs font-medium focus:ring-2 focus:ring-orange-500 transition-all outline-none"
+                    />
+                    <button
+                      onClick={() => removeGalleryImage(index)}
+                      className="px-3 py-2 bg-red-50 text-red-600 rounded-xl text-xs font-bold hover:bg-red-100 transition-all"
+                    >
+                      Remove
+                    </button>
+                  </div>
+                ))}
+                <button
+                  onClick={addGalleryImage}
+                  className="w-full py-2 bg-white border border-gray-200 rounded-xl text-xs font-bold text-gray-600 hover:bg-gray-50 transition-all"
+                >
+                  + Add Image
+                </button>
+              </div>
+            );
+          }
+
+          if (key === 'testimonials' && sectionId === 'testimonials') {
+            const testimonials = Array.isArray(value) ? value : [];
+            return (
+              <div key={key} className="space-y-4">
+                <label className="text-[10px] font-black uppercase tracking-widest text-gray-400 block px-1">
+                  Testimonials
+                </label>
+                {testimonials.map((testimonial, index) => (
+                  <div key={index} className="bg-white rounded-xl p-4 space-y-3 border border-gray-200">
+                    <div className="text-xs font-bold text-gray-500">Testimonial {index + 1}</div>
+                    <input
+                      type="text"
+                      value={testimonial.name || ''}
+                      onChange={(e) => updateTestimonial(index, 'name', e.target.value)}
+                      placeholder="Name"
+                      className="w-full bg-gray-50 border border-gray-100 rounded-lg px-3 py-2 text-xs font-medium focus:ring-2 focus:ring-orange-500 transition-all outline-none"
+                    />
+                    <input
+                      type="text"
+                      value={testimonial.role || ''}
+                      onChange={(e) => updateTestimonial(index, 'role', e.target.value)}
+                      placeholder="Role"
+                      className="w-full bg-gray-50 border border-gray-100 rounded-lg px-3 py-2 text-xs font-medium focus:ring-2 focus:ring-orange-500 transition-all outline-none"
+                    />
+                    <input
+                      type="text"
+                      value={testimonial.image || ''}
+                      onChange={(e) => updateTestimonial(index, 'image', e.target.value)}
+                      placeholder="Person's Image URL"
+                      className="w-full bg-gray-50 border border-gray-100 rounded-lg px-3 py-2 text-xs font-medium focus:ring-2 focus:ring-orange-500 transition-all outline-none"
+                    />
+                    <textarea
+                      value={testimonial.content || ''}
+                      onChange={(e) => updateTestimonial(index, 'content', e.target.value)}
+                      placeholder="Testimonial content"
+                      className="w-full bg-gray-50 border border-gray-100 rounded-lg px-3 py-2 text-xs font-medium focus:ring-2 focus:ring-orange-500 transition-all outline-none resize-none min-h-[80px]"
+                    />
+                  </div>
+                ))}
+              </div>
+            );
+          }
+
+          return (
+            <div key={key} className="space-y-2">
+              <label className="text-[10px] font-black uppercase tracking-widest text-gray-400 block px-1">
+                {getLabel(key)}
+              </label>
+              {key.toLowerCase().includes('description') || key.toLowerCase().includes('subtitle') ? (
+                <textarea
+                  value={value}
+                  onChange={(e) => updateContent(key, e.target.value)}
+                  className="w-full bg-white border border-gray-100 rounded-xl px-4 py-3 text-xs font-medium focus:ring-2 focus:ring-orange-500 transition-all outline-none resize-none min-h-[100px]"
+                />
+              ) : key.toLowerCase().includes('image') ? (
+                <input
+                  type="text"
+                  value={value}
+                  onChange={(e) => updateContent(key, e.target.value)}
+                  placeholder="Image URL"
+                  className="w-full bg-white border border-gray-100 rounded-xl px-4 py-2 text-xs font-medium focus:ring-2 focus:ring-orange-500 transition-all outline-none"
+                />
+              ) : (
+                <input
+                  type="text"
+                  value={value}
+                  onChange={(e) => updateContent(key, e.target.value)}
+                  className="w-full bg-white border border-gray-100 rounded-xl px-4 py-2 text-xs font-medium focus:ring-2 focus:ring-orange-500 transition-all outline-none"
+                />
+              )}
+            </div>
+          );
+        })}
       </div>
     </div>
   );
