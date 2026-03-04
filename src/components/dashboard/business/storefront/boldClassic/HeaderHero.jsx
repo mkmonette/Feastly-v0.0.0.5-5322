@@ -15,6 +15,7 @@ const HeaderHero = () => {
   const primaryStyle = colors.primary.startsWith('#') ? { backgroundColor: colors.primary } : {};
   const primaryTextStyle = colors.primary.startsWith('#') ? { color: colors.primary } : {};
   const secondaryBgStyle = colors.secondary.startsWith('#') ? { backgroundColor: colors.secondary } : {};
+  const heroPreStyle = { color: colors.heroHeadlinePre };
 
   const showButton1 = heroContent.showButton1 !== false;
   const showButton2 = heroContent.showButton2 !== false;
@@ -70,8 +71,8 @@ const HeaderHero = () => {
                 <div className={`inline-flex items-center gap-3 px-6 py-3 bg-${colors.primary}/10 border border-${colors.primary}/30`} style={colors.primary.startsWith('#') ? { backgroundColor: `${colors.primary}1A`, borderColor: `${colors.primary}4D` } : {}}>
                   <div className={`w-2 h-2 bg-${colors.primary} animate-pulse`} style={colors.primary.startsWith('#') ? { backgroundColor: colors.primary } : {}} />
                   <span
-                    className={`${typography.scale.bodySmall} ${typography.weights.bold} text-${colors.primary} ${typography.transform.uppercase} ${typography.tracking.widest} ${typography.fontPrimary}`}
-                    style={primaryTextStyle}
+                    className={`${typography.scale.bodySmall} ${typography.weights.bold} ${typography.transform.uppercase} ${typography.tracking.widest} ${typography.fontPrimary}`}
+                    style={heroPreStyle}
                   >
                     {heroContent.preText}
                   </span>

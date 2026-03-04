@@ -12,6 +12,8 @@ const About = () => {
   const content = section?.content || {};
 
   const primaryTextStyle = colors.primary.startsWith('#') ? { color: colors.primary } : {};
+  const sectionHeadlineNormalStyle = { color: colors.sectionHeadlineNormal };
+  const sectionHeadlineHighlightStyle = { color: colors.sectionHeadlineHighlight };
   const imagePosition = content.imagePosition || 'left';
 
   const ImageSection = (
@@ -45,12 +47,11 @@ const About = () => {
         >
           About Us
         </span>
-        <h2 className={`${typography.scale.h2} ${typography.weights.black} text-${colors.textPrimary} mt-4 ${typography.fontPrimary}`}>
-          {content.titlePre}{' '}
-          <span
-            className={!colors.primary.startsWith('#') ? `text-${colors.primary}` : ''}
-            style={primaryTextStyle}
-          >
+        <h2 className={`${typography.scale.h2} ${typography.weights.black} mt-4 ${typography.fontPrimary}`}>
+          <span style={sectionHeadlineNormalStyle}>
+            {content.titlePre}
+          </span>{' '}
+          <span style={sectionHeadlineHighlightStyle}>
             {content.titleHighlight}
           </span>
         </h2>

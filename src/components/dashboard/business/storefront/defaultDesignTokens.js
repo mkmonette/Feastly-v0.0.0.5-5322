@@ -68,6 +68,9 @@ export const defaultDesignTokens = {
     textInverseMuted: 'gray-300',
     border: 'gray-100',
     borderLight: 'gray-50',
+    heroHeadlinePre: '#FFFFFF',
+    sectionHeadlineNormal: '#1F2937',
+    sectionHeadlineHighlight: '#EA580C',
   },
   layout: {
     container: 'mx-auto',

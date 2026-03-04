@@ -62,6 +62,9 @@ export const modernClassicTokens = {
     textInverseMuted: 'gray-200',
     border: 'gray-200',
     borderLight: 'gray-100',
+    heroHeadlinePre: '#FFFFFF',
+    sectionHeadlineNormal: '#1F2937',
+    sectionHeadlineHighlight: '#2563EB',
   },
   layout: {
     container: 'mx-auto',

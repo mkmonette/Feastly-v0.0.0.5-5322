@@ -144,6 +144,69 @@ const GlobalSettings = ({ useContextHook }) => {
       </div>
 
       <div className="space-y-4">
+        <label className="text-[10px] font-black uppercase tracking-widest text-gray-400 block px-1">Headline Colors</label>
+        <div className="bg-gray-50 rounded-2xl p-4 space-y-4">
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-bold text-gray-700">Hero Pre Text</span>
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-full border-2 border-white shadow-sm overflow-hidden relative">
+                <input
+                  type="color"
+                  value={overrideTokens.colors?.heroHeadlinePre || '#FFFFFF'}
+                  onChange={(e) => updateToken('colors.heroHeadlinePre', e.target.value)}
+                  className="absolute inset-0 w-full h-full scale-150 cursor-pointer"
+                />
+              </div>
+              <input
+                type="text"
+                value={overrideTokens.colors?.heroHeadlinePre || '#FFFFFF'}
+                onChange={(e) => updateToken('colors.heroHeadlinePre', e.target.value)}
+                className="w-24 bg-white border border-gray-100 rounded-lg px-2 py-1 text-[10px] font-mono text-gray-500"
+              />
+            </div>
+          </div>
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-bold text-gray-700">Section Normal Text</span>
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-full border-2 border-white shadow-sm overflow-hidden relative">
+                <input
+                  type="color"
+                  value={overrideTokens.colors?.sectionHeadlineNormal || '#1F2937'}
+                  onChange={(e) => updateToken('colors.sectionHeadlineNormal', e.target.value)}
+                  className="absolute inset-0 w-full h-full scale-150 cursor-pointer"
+                />
+              </div>
+              <input
+                type="text"
+                value={overrideTokens.colors?.sectionHeadlineNormal || '#1F2937'}
+                onChange={(e) => updateToken('colors.sectionHeadlineNormal', e.target.value)}
+                className="w-24 bg-white border border-gray-100 rounded-lg px-2 py-1 text-[10px] font-mono text-gray-500"
+              />
+            </div>
+          </div>
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-bold text-gray-700">Section Highlight Text</span>
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-full border-2 border-white shadow-sm overflow-hidden relative">
+                <input
+                  type="color"
+                  value={overrideTokens.colors?.sectionHeadlineHighlight || '#EA580C'}
+                  onChange={(e) => updateToken('colors.sectionHeadlineHighlight', e.target.value)}
+                  className="absolute inset-0 w-full h-full scale-150 cursor-pointer"
+                />
+              </div>
+              <input
+                type="text"
+                value={overrideTokens.colors?.sectionHeadlineHighlight || '#EA580C'}
+                onChange={(e) => updateToken('colors.sectionHeadlineHighlight', e.target.value)}
+                className="w-24 bg-white border border-gray-100 rounded-lg px-2 py-1 text-[10px] font-mono text-gray-500"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="space-y-4">
         <label className="text-[10px] font-black uppercase tracking-widest text-gray-400 block px-1">Layout</label>
         <div className="bg-gray-50 rounded-2xl p-4">
           <div className="space-y-2">

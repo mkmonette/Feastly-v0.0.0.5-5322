@@ -11,6 +11,8 @@ const Gallery = () => {
   const content = section?.content || {};
 
   const primaryStyle = colors.primary.startsWith('#') ? { color: colors.primary } : {};
+  const sectionHeadlineNormalStyle = { color: colors.sectionHeadlineNormal };
+  const sectionHeadlineHighlightStyle = { color: colors.sectionHeadlineHighlight };
 
   const defaultImages = [
     "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800",
@@ -33,14 +35,9 @@ const Gallery = () => {
           >
             Gallery
           </span>
-          <h2 className={`${typography.scale.h2} ${typography.weights.black} text-${colors.textPrimary} mt-2 ${typography.fontPrimary}`}>
-            {content.titlePre}{' '}
-            <span
-              className={!colors.primary.startsWith('#') ? `text-${colors.primary}` : ''}
-              style={primaryStyle}
-            >
-              {content.titleHighlight}
-            </span>
+          <h2 className={`${typography.scale.h2} ${typography.weights.black} mt-2 ${typography.fontPrimary}`}>
+            <span style={sectionHeadlineNormalStyle}>{content.titlePre}</span>{' '}
+            <span style={sectionHeadlineHighlightStyle}>{content.titleHighlight}</span>
           </h2>
         </div>
 

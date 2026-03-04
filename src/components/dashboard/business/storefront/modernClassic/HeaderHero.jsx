@@ -15,6 +15,7 @@ const HeaderHero = () => {
   const primaryStyle = colors.primary.startsWith('#') ? { backgroundColor: colors.primary } : {};
   const primaryTextStyle = colors.primary.startsWith('#') ? { color: colors.primary } : {};
   const secondaryButtonStyle = colors.secondary.startsWith('#') ? { backgroundColor: colors.secondary } : {};
+  const heroPreStyle = { color: colors.heroHeadlinePre };
 
   const showButton1 = heroContent.showButton1 !== false;
   const showButton2 = heroContent.showButton2 !== false;
@@ -61,8 +62,8 @@ const HeaderHero = () => {
             <div className="flex items-center gap-2">
               <div className={`h-px w-12 bg-${colors.primary}`} style={colors.primary.startsWith('#') ? { backgroundColor: colors.primary } : {}} />
               <span
-                className={`${typography.scale.bodySmall} ${typography.weights.semibold} text-${colors.primary} ${typography.transform.uppercase} ${typography.fontPrimary}`}
-                style={primaryTextStyle}
+                className={`${typography.scale.bodySmall} ${typography.weights.semibold} ${typography.transform.uppercase} ${typography.fontPrimary}`}
+                style={heroPreStyle}
               >
                 {heroContent.preText}
               </span>

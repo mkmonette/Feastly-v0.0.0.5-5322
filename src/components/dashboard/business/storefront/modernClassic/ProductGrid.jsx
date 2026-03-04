@@ -15,6 +15,8 @@ const ProductGrid = () => {
 
   const primaryStyle = colors.primary.startsWith('#') ? { color: colors.primary } : {};
   const primaryBgStyle = colors.primary.startsWith('#') ? { backgroundColor: colors.primary } : {};
+  const sectionHeadlineNormalStyle = { color: colors.sectionHeadlineNormal };
+  const sectionHeadlineHighlightStyle = { color: colors.sectionHeadlineHighlight };
 
   const activeProducts = products.filter(p => p.status === 'Active').slice(0, 6);
 
@@ -28,14 +30,9 @@ const ProductGrid = () => {
           >
             {content.subtitle || 'Our Menu'}
           </span>
-          <h2 className={`${typography.scale.h2} ${typography.weights.black} text-${colors.textPrimary} mt-2 ${typography.fontPrimary}`}>
-            {content.titlePre}{' '}
-            <span
-              className={!colors.primary.startsWith('#') ? `text-${colors.primary}` : ''}
-              style={primaryStyle}
-            >
-              {content.titleHighlight}
-            </span>
+          <h2 className={`${typography.scale.h2} ${typography.weights.black} mt-2 ${typography.fontPrimary}`}>
+            <span style={sectionHeadlineNormalStyle}>{content.titlePre}</span>{' '}
+            <span style={sectionHeadlineHighlightStyle}>{content.titleHighlight}</span>
           </h2>
         </div>
 

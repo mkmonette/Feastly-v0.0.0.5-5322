@@ -62,6 +62,9 @@ export const boldClassicTokens = {
     textInverseMuted: 'slate-300',
     border: 'slate-200',
     borderLight: 'slate-100',
+    heroHeadlinePre: '#FFFFFF',
+    sectionHeadlineNormal: '#0F172A',
+    sectionHeadlineHighlight: '#10B981',
   },
   layout: {
     container: 'mx-auto',
