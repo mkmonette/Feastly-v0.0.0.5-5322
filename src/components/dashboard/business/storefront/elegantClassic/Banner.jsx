@@ -9,29 +9,33 @@ const Banner = () => {
   const content = section?.content || {};
 
   const accentBgStyle = { backgroundColor: colors.accent };
+  const textStyle = { color: colors.textInverse };
+  const textMutedStyle = { color: colors.textInverseMuted || 'rgba(255, 255, 255, 0.9)' };
+  const buttonBgStyle = { backgroundColor: colors.background };
+  const buttonTextStyle = { color: colors.accent };
 
   return (
     <section className={`${layout.sectionPaddingSmall} ${layout.horizontalPadding}`} style={accentBgStyle}>
       <div className={`${layout.container} ${layout.containerWidth}`}>
         <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
           <div className="text-left flex-1">
-            <h3 className={`${typography.scale.h4} ${typography.weights.bold} ${typography.lineHeights.tight} text-white mb-3 ${typography.fontPrimary}`}>
+            <h3 className={`${typography.scale.h4} ${typography.weights.bold} ${typography.lineHeights.tight} mb-3 ${typography.fontPrimary}`} style={textStyle}>
               {content.title || 'Special Offer'}
             </h3>
-            <p className={`${typography.scale.body} text-white/90 ${typography.lineHeights.relaxed} ${typography.fontSecondary}`}>
+            <p className={`${typography.scale.body} ${typography.lineHeights.relaxed} ${typography.fontSecondary}`} style={textMutedStyle}>
               {content.description || 'Limited time offer on selected items. Order now and enjoy exclusive discounts!'}
             </p>
           </div>
           {content.showButton !== false && (
             <button
-              className={`px-8 py-3 bg-white ${typography.scale.body} ${typography.weights.semibold} transition-all hover:scale-105 flex-shrink-0 ${typography.fontSecondary}`}
-              style={{ color: colors.accent }}
+              className={`px-8 py-3 ${typography.scale.body} ${typography.weights.semibold} transition-all hover:scale-105 flex-shrink-0 ${typography.fontSecondary}`}
+              style={{ ...buttonBgStyle, ...buttonTextStyle }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.backgroundColor = colors.textPrimary;
-                e.currentTarget.style.color = 'white';
+                e.currentTarget.style.color = colors.textInverse;
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = 'white';
+                e.currentTarget.style.backgroundColor = colors.background;
                 e.currentTarget.style.color = colors.accent;
               }}
             >

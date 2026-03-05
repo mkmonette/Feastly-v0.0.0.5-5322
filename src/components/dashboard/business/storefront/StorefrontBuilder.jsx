@@ -563,7 +563,7 @@ const SectionSettings = ({ sectionId, onBack, useContextHook }) => {
 };
 
 const BuilderContent = ({ useContextHook, Renderer, templateSlug, templateTitle }) => {
-  const [activePanelTab, setActivePanelTab] = useState('sections');
+  const [activePanelTab, setActivePanelTab] = useState('global');
   const [editingSectionId, setEditingSectionId] = useState(null);
   const navigate = useNavigate();
   const { saveTokens, previewDevice, setPreviewDevice, sectionsConfig } = useContextHook();

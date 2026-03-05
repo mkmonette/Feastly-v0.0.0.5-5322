@@ -10,7 +10,10 @@ const CTABanner = () => {
   const content = section?.content || {};
 
   const accentBgStyle = { backgroundColor: colors.accent };
-  const whiteStyle = { color: 'white' };
+  const textStyle = { color: colors.textInverse };
+  const textMutedStyle = { color: colors.textInverseMuted || 'rgba(255, 255, 255, 0.9)' };
+  const buttonBgStyle = { backgroundColor: colors.background };
+  const buttonTextStyle = { color: colors.accent };
 
   return (
     <section className={`${layout.sectionPadding} ${layout.horizontalPadding}`} style={accentBgStyle}>
@@ -20,7 +23,7 @@ const CTABanner = () => {
             <div className="mb-4">
               <span
                 className={`${typography.scale.bodySmall} ${typography.weights.semibold} ${typography.tracking.wider} ${typography.transform.uppercase} ${typography.fontSecondary}`}
-                style={whiteStyle}
+                style={textStyle}
               >
                 {content.subtitle}
               </span>
@@ -30,22 +33,22 @@ const CTABanner = () => {
             normalText={content.titlePre || content.title || 'Ready to Experience Exceptional Dining?'}
             highlightText={content.titleHighlight}
             tokens={{ colors }}
-            normalColor="white"
-            highlightColor="white"
+            normalColor={colors.textInverse}
+            highlightColor={colors.textInverse}
             className={`${typography.scale.h2} ${typography.weights.bold} ${typography.lineHeights.tight} mb-6 ${typography.fontPrimary}`}
           />
-          <p className={`${typography.scale.bodyLarge} ${typography.lineHeights.relaxed} mb-8 ${typography.fontSecondary}`} style={{ color: 'rgba(255, 255, 255, 0.9)' }}>
+          <p className={`${typography.scale.bodyLarge} ${typography.lineHeights.relaxed} mb-8 ${typography.fontSecondary}`} style={textMutedStyle}>
             {content.description || 'Join us today and discover why our customers keep coming back for more.'}
           </p>
           <button
-            className={`px-10 py-4 bg-white ${typography.scale.body} ${typography.weights.semibold} transition-all hover:scale-105 ${typography.fontSecondary}`}
-            style={{ color: colors.accent }}
+            className={`px-10 py-4 ${typography.scale.body} ${typography.weights.semibold} transition-all hover:scale-105 ${typography.fontSecondary}`}
+            style={{ ...buttonBgStyle, ...buttonTextStyle }}
             onMouseEnter={(e) => {
               e.currentTarget.style.backgroundColor = colors.textPrimary;
-              e.currentTarget.style.color = 'white';
+              e.currentTarget.style.color = colors.textInverse;
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = 'white';
+              e.currentTarget.style.backgroundColor = colors.background;
               e.currentTarget.style.color = colors.accent;
             }}
           >
