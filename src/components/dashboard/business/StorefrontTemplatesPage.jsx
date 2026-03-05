@@ -13,6 +13,8 @@ import ModernSplitRenderer from './storefront/modernSplit/ModernSplitRenderer';
 import { ModernSplitStorefrontProvider } from './storefront/modernSplit/ModernSplitProvider';
 import MobileExpressRenderer from './storefront/mobileExpress/MobileExpressRenderer';
 import { MobileExpressProvider } from './storefront/mobileExpress/MobileExpressContext';
+import QuickOrderRenderer from './storefront/quickOrder/QuickOrderRenderer';
+import { QuickOrderProvider } from './storefront/quickOrder/QuickOrderContext';
 
 const CATEGORIES = [
   { id: 'classic', label: 'Classic' },
@@ -159,6 +161,18 @@ const StorefrontTemplatesPage = () => {
               description="A mobile-first food ordering template optimized for phone users, with large touch targets and vertical layout."
               ProviderComponent={MobileExpressProvider}
               RendererComponent={MobileExpressRenderer}
+            />
+          </div>
+        ) : activeTab === 'ordering_form' ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <TemplatePreviewCard
+              categoryId="ordering_form"
+              templateSlug="quick-order"
+              title="Quick Order Form"
+              label="Ordering Form"
+              description="Fast ordering layout with 2-column products on mobile and sticky cart panel on desktop."
+              ProviderComponent={QuickOrderProvider}
+              RendererComponent={QuickOrderRenderer}
             />
           </div>
         ) : (

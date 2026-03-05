@@ -13,6 +13,8 @@ import ModernSplitRenderer from './modernSplit/ModernSplitRenderer';
 import { ModernSplitStorefrontProvider, useModernSplitStorefront } from './modernSplit/ModernSplitProvider';
 import MobileExpressRenderer from './mobileExpress/MobileExpressRenderer';
 import { MobileExpressProvider, useMobileExpress } from './mobileExpress/MobileExpressContext';
+import QuickOrderRenderer from './quickOrder/QuickOrderRenderer';
+import { QuickOrderProvider, useQuickOrder } from './quickOrder/QuickOrderContext';
 
 const TEMPLATE_CONFIG = {
   'base-classic': {
@@ -44,6 +46,12 @@ const TEMPLATE_CONFIG = {
     Renderer: MobileExpressRenderer,
     useContext: useMobileExpress,
     title: 'Mobile Express Template'
+  },
+  'quick-order': {
+    Provider: QuickOrderProvider,
+    Renderer: QuickOrderRenderer,
+    useContext: useQuickOrder,
+    title: 'Quick Order Form Template'
   }
 };
 
