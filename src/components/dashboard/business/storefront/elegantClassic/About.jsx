@@ -2,6 +2,7 @@ import React from 'react';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '@/common/SafeIcon';
 import { useStorefrontTokens, useStorefrontBusinessData, useStorefront } from './contextBridge';
+import Headline from '../Headline';
 
 const About = () => {
   const { typography, colors, layout } = useStorefrontTokens();
@@ -11,8 +12,6 @@ const About = () => {
   const section = sectionsConfig.find(s => s.id === 'about');
   const content = section?.content || {};
 
-  const sectionHeadlineNormalStyle = { color: colors.sectionHeadlineNormal };
-  const sectionHeadlineHighlightStyle = { color: colors.sectionHeadlineHighlight || colors.sectionHeadlineNormal };
   const accentStyle = { color: colors.accent };
 
   const features = content.features || [
@@ -49,16 +48,12 @@ const About = () => {
               </span>
             </div>
 
-            <h2 className={`${typography.scale.h2} ${typography.weights.bold} ${typography.lineHeights.tight} mb-6 ${typography.fontPrimary}`}>
-              {content.titleHighlight ? (
-                <>
-                  <span style={sectionHeadlineNormalStyle}>{content.titlePre}</span>{' '}
-                  <span style={sectionHeadlineHighlightStyle}>{content.titleHighlight}</span>
-                </>
-              ) : (
-                <span style={sectionHeadlineNormalStyle}>{content.titlePre || 'About Us'}</span>
-              )}
-            </h2>
+            <Headline
+              normalText={content.titlePre || 'About Us'}
+              highlightText={content.titleHighlight}
+              tokens={{ colors }}
+              className={`${typography.scale.h2} ${typography.weights.bold} ${typography.lineHeights.tight} mb-6 ${typography.fontPrimary}`}
+            />
 
             <div className={`${typography.scale.body} ${typography.lineHeights.relaxed} mb-8 space-y-4 ${typography.fontSecondary}`} style={{ color: colors.textSecondary }}>
               <p>{content.description || businessData.description || 'We are dedicated to providing the finest dining experience with fresh ingredients and exceptional service.'}</p>

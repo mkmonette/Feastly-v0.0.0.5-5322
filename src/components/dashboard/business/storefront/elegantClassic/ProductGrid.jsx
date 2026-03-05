@@ -4,6 +4,7 @@ import SafeIcon from '@/common/SafeIcon';
 import { useStorefrontTokens, useStorefront } from './contextBridge';
 import { useProducts } from '@/context/ProductContext';
 import { formatCurrency } from '@/common/currency';
+import Headline from '../Headline';
 
 const ProductGrid = () => {
   const { typography, colors, layout } = useStorefrontTokens();
@@ -13,8 +14,6 @@ const ProductGrid = () => {
   const section = sectionsConfig.find(s => s.id === 'products');
   const content = section?.content || {};
 
-  const sectionHeadlineNormalStyle = { color: colors.sectionHeadlineNormal };
-  const sectionHeadlineHighlightStyle = { color: colors.sectionHeadlineHighlight || colors.sectionHeadlineNormal };
   const accentStyle = { color: colors.accent };
   const primaryBgStyle = { backgroundColor: colors.primary };
 
@@ -38,16 +37,12 @@ const ProductGrid = () => {
               {content.subtitle || 'Our Menu'}
             </span>
           </div>
-          <h2 className={`${typography.scale.h2} ${typography.weights.bold} ${typography.lineHeights.tight} ${typography.fontPrimary}`}>
-            {content.titleHighlight ? (
-              <>
-                <span style={sectionHeadlineNormalStyle}>{content.titlePre}</span>{' '}
-                <span style={sectionHeadlineHighlightStyle}>{content.titleHighlight}</span>
-              </>
-            ) : (
-              <span style={sectionHeadlineNormalStyle}>{content.titlePre || 'All Products'}</span>
-            )}
-          </h2>
+          <Headline
+            normalText={content.titlePre || 'All Products'}
+            highlightText={content.titleHighlight}
+            tokens={{ colors }}
+            className={`${typography.scale.h2} ${typography.weights.bold} ${typography.lineHeights.tight} ${typography.fontPrimary}`}
+          />
         </div>
 
         <div className="flex flex-wrap justify-center gap-4 mb-12">

@@ -4,6 +4,7 @@ import SafeIcon from '@/common/SafeIcon';
 import { useStorefrontTokens, useStorefront } from './contextBridge';
 import { useProducts } from '@/context/ProductContext';
 import { formatCurrency } from '@/common/currency';
+import Headline from '../Headline';
 
 const FeaturedProducts = () => {
   const { typography, colors, layout } = useStorefrontTokens();
@@ -13,8 +14,6 @@ const FeaturedProducts = () => {
   const section = sectionsConfig.find(s => s.id === 'featured');
   const content = section?.content || {};
 
-  const sectionHeadlineNormalStyle = { color: colors.sectionHeadlineNormal };
-  const sectionHeadlineHighlightStyle = { color: colors.sectionHeadlineHighlight || colors.sectionHeadlineNormal };
   const accentStyle = { color: colors.accent };
   const primaryBgStyle = { backgroundColor: colors.primary };
 
@@ -34,16 +33,12 @@ const FeaturedProducts = () => {
               {content.subtitle || 'Featured'}
             </span>
           </div>
-          <h2 className={`${typography.scale.h2} ${typography.weights.bold} ${typography.lineHeights.tight} ${typography.fontPrimary}`}>
-            {content.titleHighlight ? (
-              <>
-                <span style={sectionHeadlineNormalStyle}>{content.titlePre}</span>{' '}
-                <span style={sectionHeadlineHighlightStyle}>{content.titleHighlight}</span>
-              </>
-            ) : (
-              <span style={sectionHeadlineNormalStyle}>{content.titlePre || 'Featured Dishes'}</span>
-            )}
-          </h2>
+          <Headline
+            normalText={content.titlePre || 'Featured Dishes'}
+            highlightText={content.titleHighlight}
+            tokens={{ colors }}
+            className={`${typography.scale.h2} ${typography.weights.bold} ${typography.lineHeights.tight} ${typography.fontPrimary}`}
+          />
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">

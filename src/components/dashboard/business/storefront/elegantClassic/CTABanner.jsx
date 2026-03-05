@@ -1,5 +1,6 @@
 import React from 'react';
 import { useStorefrontTokens, useStorefront } from './contextBridge';
+import Headline from '../Headline';
 
 const CTABanner = () => {
   const { typography, colors, layout } = useStorefrontTokens();
@@ -25,16 +26,14 @@ const CTABanner = () => {
               </span>
             </div>
           )}
-          <h2 className={`${typography.scale.h2} ${typography.weights.bold} ${typography.lineHeights.tight} mb-6 ${typography.fontPrimary}`}>
-            {content.titleHighlight ? (
-              <>
-                <span style={whiteStyle}>{content.titlePre}</span>{' '}
-                <span style={whiteStyle}>{content.titleHighlight}</span>
-              </>
-            ) : (
-              <span style={whiteStyle}>{content.title || content.titlePre || 'Ready to Experience Exceptional Dining?'}</span>
-            )}
-          </h2>
+          <Headline
+            normalText={content.titlePre || content.title || 'Ready to Experience Exceptional Dining?'}
+            highlightText={content.titleHighlight}
+            tokens={{ colors }}
+            normalColor="white"
+            highlightColor="white"
+            className={`${typography.scale.h2} ${typography.weights.bold} ${typography.lineHeights.tight} mb-6 ${typography.fontPrimary}`}
+          />
           <p className={`${typography.scale.bodyLarge} ${typography.lineHeights.relaxed} mb-8 ${typography.fontSecondary}`} style={{ color: 'rgba(255, 255, 255, 0.9)' }}>
             {content.description || 'Join us today and discover why our customers keep coming back for more.'}
           </p>

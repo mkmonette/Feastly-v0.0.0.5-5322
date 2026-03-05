@@ -2,6 +2,7 @@ import React from 'react';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '@/common/SafeIcon';
 import { useStorefrontTokens, useStorefrontBusinessData, useStorefront } from './contextBridge';
+import Headline from '../Headline';
 
 const Contact = () => {
   const { typography, colors, layout } = useStorefrontTokens();
@@ -11,8 +12,6 @@ const Contact = () => {
   const section = sectionsConfig.find(s => s.id === 'contact');
   const content = section?.content || {};
 
-  const sectionHeadlineNormalStyle = { color: colors.sectionHeadlineNormal };
-  const sectionHeadlineHighlightStyle = { color: colors.sectionHeadlineHighlight || colors.sectionHeadlineNormal };
   const accentStyle = { color: colors.accent };
   const primaryBgStyle = { backgroundColor: colors.primary };
 
@@ -34,16 +33,12 @@ const Contact = () => {
               {content.subtitle || 'Get in Touch'}
             </span>
           </div>
-          <h2 className={`${typography.scale.h2} ${typography.weights.bold} ${typography.lineHeights.tight} ${typography.fontPrimary}`}>
-            {content.titleHighlight ? (
-              <>
-                <span style={sectionHeadlineNormalStyle}>{content.titlePre}</span>{' '}
-                <span style={sectionHeadlineHighlightStyle}>{content.titleHighlight}</span>
-              </>
-            ) : (
-              <span style={sectionHeadlineNormalStyle}>{content.titlePre || 'Contact Us'}</span>
-            )}
-          </h2>
+          <Headline
+            normalText={content.titlePre || 'Contact Us'}
+            highlightText={content.titleHighlight}
+            tokens={{ colors }}
+            className={`${typography.scale.h2} ${typography.weights.bold} ${typography.lineHeights.tight} ${typography.fontPrimary}`}
+          />
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
