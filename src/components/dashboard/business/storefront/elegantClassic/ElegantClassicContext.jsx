@@ -54,7 +54,8 @@ const DEFAULT_SECTIONS = [
     visibility: { enabled: true, devices: ['desktop', 'mobile'], conditions: [] },
     content: {
       subtitle: 'Featured',
-      titlePre: 'Featured Dishes'
+      titlePre: 'Featured',
+      titleHighlight: 'Dishes'
     }
   },
   {
@@ -63,7 +64,8 @@ const DEFAULT_SECTIONS = [
     visibility: { enabled: true, devices: ['desktop', 'mobile'], conditions: [] },
     content: {
       subtitle: 'Our Menu',
-      titlePre: 'All Products'
+      titlePre: 'All',
+      titleHighlight: 'Products'
     }
   },
   {
@@ -72,7 +74,8 @@ const DEFAULT_SECTIONS = [
     visibility: { enabled: true, devices: ['desktop', 'mobile'], conditions: [] },
     content: {
       subtitle: 'Gallery',
-      titlePre: 'Our Gallery'
+      titlePre: 'Our',
+      titleHighlight: 'Gallery'
     }
   },
   {
@@ -81,7 +84,8 @@ const DEFAULT_SECTIONS = [
     visibility: { enabled: true, devices: ['desktop', 'mobile'], conditions: [] },
     content: {
       subtitle: 'Testimonials',
-      titlePre: 'What Our Customers Say'
+      titlePre: 'What Our Customers',
+      titleHighlight: 'Say'
     }
   },
   {
@@ -100,7 +104,8 @@ const DEFAULT_SECTIONS = [
     visibility: { enabled: true, devices: ['desktop', 'mobile'], conditions: [] },
     content: {
       subtitle: 'Get in Touch',
-      titlePre: 'Contact Us'
+      titlePre: 'Contact',
+      titleHighlight: 'Us'
     }
   },
   {
