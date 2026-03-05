@@ -69,32 +69,28 @@ const SectionWrapper = ({ sectionId, children }) => {
 const QuickOrderRenderer = () => {
   return (
     <div className="w-full min-h-screen bg-white">
-      <SectionWrapper sectionId="header">
-        <Header />
-      </SectionWrapper>
+      <div className="max-w-[420px] mx-auto">
+        <SectionWrapper sectionId="header">
+          <Header />
+        </SectionWrapper>
 
-      <SectionWrapper sectionId="hero">
-        <Hero />
-      </SectionWrapper>
+        <SectionWrapper sectionId="hero">
+          <Hero />
+        </SectionWrapper>
 
-      <SectionWrapper sectionId="categories">
-        <CategoryTabs />
-      </SectionWrapper>
+        <SectionWrapper sectionId="categories">
+          <CategoryTabs />
+        </SectionWrapper>
 
-      <div className="max-w-7xl mx-auto px-4 py-6">
-        <div className="md:grid md:grid-cols-[1fr_350px] md:gap-6 lg:gap-8">
-          <div>
-            <SectionWrapper sectionId="products">
-              <ProductGrid />
-            </SectionWrapper>
-          </div>
-
-          <div>
-            <SectionWrapper sectionId="cart">
-              <CartPanel />
-            </SectionWrapper>
-          </div>
+        <div className="px-4 py-6">
+          <SectionWrapper sectionId="products">
+            <ProductGrid />
+          </SectionWrapper>
         </div>
+
+        <SectionWrapper sectionId="cart">
+          <CartPanel />
+        </SectionWrapper>
       </div>
     </div>
   );

@@ -16,7 +16,7 @@ const ProductGrid = () => {
   }
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
+    <div className="grid grid-cols-2 gap-3">
       {filteredProducts.map(product => (
         <div
           key={product.id}
@@ -47,14 +47,14 @@ const ProductGrid = () => {
 
           <div className="p-3">
             <h3
-              className="text-sm md:text-base font-semibold mb-1 line-clamp-2"
+              className="text-sm font-semibold mb-1 line-clamp-2"
               style={{ color: tokens.colors.primaryText }}
             >
               {product.name}
             </h3>
 
             <p
-              className="text-base md:text-lg font-bold mb-3"
+              className="text-base font-bold mb-3"
               style={{ color: tokens.colors.primary }}
             >
               {formatCurrency(product.price)}

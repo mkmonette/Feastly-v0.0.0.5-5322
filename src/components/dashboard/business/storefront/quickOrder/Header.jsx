@@ -11,7 +11,7 @@ const Header = () => {
       className="sticky top-0 z-50 bg-white border-b"
       style={{ borderColor: tokens.colors.border }}
     >
-      <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+      <div className="px-4 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div
             className="w-10 h-10 rounded-lg flex items-center justify-center text-white font-bold text-lg"
@@ -32,7 +32,7 @@ const Header = () => {
 
         <button
           onClick={() => setIsCartOpen(true)}
-          className="md:hidden relative p-2.5 rounded-lg hover:bg-gray-100 transition-all"
+          className="relative p-2.5 rounded-lg hover:bg-gray-100 transition-all"
         >
           <SafeIcon
             icon={FiIcons.FiShoppingCart}

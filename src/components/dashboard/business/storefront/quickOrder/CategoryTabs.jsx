@@ -8,8 +8,8 @@ const CategoryTabs = () => {
 
   return (
     <div className="sticky top-[73px] z-40 bg-white border-b" style={{ borderColor: tokens.colors.border }}>
-      <div className="max-w-7xl mx-auto px-4 py-3 overflow-x-auto">
-        <div className="flex gap-2 min-w-max">
+      <div className="px-4 py-3 overflow-x-auto">
+        <div className="flex gap-2 justify-center">
           {categories.map(category => {
             const categoryId = category.toLowerCase();
             const isActive = selectedCategory === categoryId;

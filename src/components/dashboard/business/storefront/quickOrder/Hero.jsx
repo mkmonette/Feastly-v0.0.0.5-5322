@@ -30,7 +30,7 @@ const Hero = () => {
 
   return (
     <div className="bg-gray-50 border-b" style={{ borderColor: tokens.colors.border }}>
-      <div className="max-w-7xl mx-auto px-4 py-6">
+      <div className="px-4 py-6">
         {preText && (
           <p
             className="text-sm font-semibold uppercase tracking-wide mb-2"
@@ -40,13 +40,13 @@ const Hero = () => {
           </p>
         )}
 
-        <h1 className={`text-3xl md:text-4xl ${tokens.typography.headingWeight} mb-2`}>
+        <h1 className={`text-2xl ${tokens.typography.headingWeight} mb-2`}>
           {renderHeadline()}
         </h1>
 
         {description && (
           <p
-            className="text-sm md:text-base"
+            className="text-sm"
             style={{ color: tokens.colors.sectionNormalText }}
           >
             {description}
