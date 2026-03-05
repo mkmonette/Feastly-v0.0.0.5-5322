@@ -11,11 +11,13 @@ import ElegantClassicRenderer from './storefront/elegantClassic/ElegantClassicRe
 import { ElegantClassicProvider } from './storefront/elegantClassic/ElegantClassicContext';
 import ModernSplitRenderer from './storefront/modernSplit/ModernSplitRenderer';
 import { ModernSplitStorefrontProvider } from './storefront/modernSplit/ModernSplitProvider';
+import MobileExpressRenderer from './storefront/mobileExpress/MobileExpressRenderer';
+import { MobileExpressProvider } from './storefront/mobileExpress/MobileExpressContext';
 
 const CATEGORIES = [
   { id: 'classic', label: 'Classic' },
   { id: 'modern', label: 'Modern' },
-  { id: 'mobile_first', label: 'Mobile First' },
+  { id: 'mobile', label: 'Mobile' },
   { id: 'ordering_form', label: 'Ordering Form' }
 ];
 
@@ -145,6 +147,18 @@ const StorefrontTemplatesPage = () => {
               description="A modern food ordering layout with content on the left and a full-height cart panel on the right."
               ProviderComponent={ModernSplitStorefrontProvider}
               RendererComponent={ModernSplitRenderer}
+            />
+          </div>
+        ) : activeTab === 'mobile' ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <TemplatePreviewCard
+              categoryId="mobile"
+              templateSlug="mobile-express"
+              title="Mobile Express"
+              label="Mobile"
+              description="A mobile-first food ordering template optimized for phone users, with large touch targets and vertical layout."
+              ProviderComponent={MobileExpressProvider}
+              RendererComponent={MobileExpressRenderer}
             />
           </div>
         ) : (
