@@ -8,6 +8,8 @@ import ModernClassicRenderer from './modernClassic/ModernClassicRenderer';
 import { ModernClassicProvider } from './modernClassic/ModernClassicContext';
 import ElegantClassicRenderer from './elegantClassic/ElegantClassicRenderer';
 import { ElegantClassicProvider } from './elegantClassic/ElegantClassicContext';
+import ModernSplitRenderer from './modernSplit/ModernSplitRenderer';
+import { ModernSplitStorefrontProvider } from './modernSplit/ModernSplitProvider';
 
 const TEMPLATE_CONFIG = {
   'base-classic': {
@@ -21,6 +23,10 @@ const TEMPLATE_CONFIG = {
   'elegant-classic': {
     Provider: ElegantClassicProvider,
     Renderer: ElegantClassicRenderer
+  },
+  'modern-split': {
+    Provider: ModernSplitStorefrontProvider,
+    Renderer: ModernSplitRenderer
   }
 };
 

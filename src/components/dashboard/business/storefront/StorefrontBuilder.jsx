@@ -574,6 +574,7 @@ const BuilderContent = ({ useContextHook, Renderer, templateSlug, templateTitle 
   const [activePanelTab, setActivePanelTab] = useState('global');
   const [editingSectionId, setEditingSectionId] = useState(null);
   const navigate = useNavigate();
+  const { category } = useParams();
   const { saveTokens, previewDevice, setPreviewDevice, sectionsConfig } = useContextHook();
 
   const getDeviceWidth = () => {
@@ -636,7 +637,7 @@ const BuilderContent = ({ useContextHook, Renderer, templateSlug, templateTitle 
 
         <div className="flex items-center gap-4">
           <button
-            onClick={() => navigate(`/storefront/templates/classic/${templateSlug}/preview`)}
+            onClick={() => navigate(`/storefront/templates/${category}/${templateSlug}/preview`)}
             className="flex items-center gap-2 px-4 py-2 text-[10px] font-black uppercase tracking-widest text-gray-500 hover:text-black transition-colors"
           >
             <SafeIcon icon={FiIcons.FiEye} />
