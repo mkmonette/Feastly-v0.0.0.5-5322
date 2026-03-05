@@ -32,7 +32,7 @@ const TEMPLATE_CONFIG = {
 };
 
 const GlobalSettings = ({ useContextHook }) => {
-  const { overrideTokens, setOverrideTokens, resetTokens } = useContextHook();
+  const { tokens, overrideTokens, setOverrideTokens, resetTokens } = useContextHook();
 
   const updateToken = (path, value) => {
     setOverrideTokens(prev => {
@@ -80,16 +80,16 @@ const GlobalSettings = ({ useContextHook }) => {
             <span className="text-xs font-bold text-gray-700">Primary Color</span>
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-full border-2 border-white shadow-sm overflow-hidden relative">
-                <input 
-                  type="color" 
-                  value={overrideTokens.colors?.primary?.startsWith('#') ? overrideTokens.colors.primary : '#ea580c'} 
+                <input
+                  type="color"
+                  value={(overrideTokens.colors?.primary || tokens.colors.primary).startsWith('#') ? (overrideTokens.colors?.primary || tokens.colors.primary) : '#ea580c'}
                   onChange={(e) => updateToken('colors.primary', e.target.value)}
                   className="absolute inset-0 w-full h-full scale-150 cursor-pointer"
                 />
               </div>
-              <input 
-                type="text" 
-                value={overrideTokens.colors?.primary || 'orange-600'} 
+              <input
+                type="text"
+                value={overrideTokens.colors?.primary || tokens.colors.primary}
                 onChange={(e) => updateToken('colors.primary', e.target.value)}
                 className="w-24 bg-white border border-gray-100 rounded-lg px-2 py-1 text-[10px] font-mono text-gray-500"
               />
@@ -99,16 +99,16 @@ const GlobalSettings = ({ useContextHook }) => {
             <span className="text-xs font-bold text-gray-700">Accent Color</span>
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-full border-2 border-white shadow-sm overflow-hidden relative">
-                <input 
-                  type="color" 
-                  value={overrideTokens.colors?.secondary?.startsWith('#') ? overrideTokens.colors.secondary : '#000000'} 
+                <input
+                  type="color"
+                  value={(overrideTokens.colors?.secondary || tokens.colors.secondary).startsWith('#') ? (overrideTokens.colors?.secondary || tokens.colors.secondary) : '#000000'}
                   onChange={(e) => updateToken('colors.secondary', e.target.value)}
                   className="absolute inset-0 w-full h-full scale-150 cursor-pointer"
                 />
               </div>
-              <input 
-                type="text" 
-                value={overrideTokens.colors?.secondary || 'black'} 
+              <input
+                type="text"
+                value={overrideTokens.colors?.secondary || tokens.colors.secondary}
                 onChange={(e) => updateToken('colors.secondary', e.target.value)}
                 className="w-24 bg-white border border-gray-100 rounded-lg px-2 py-1 text-[10px] font-mono text-gray-500"
               />
@@ -152,15 +152,15 @@ const GlobalSettings = ({ useContextHook }) => {
               <div className="w-8 h-8 rounded-full border-2 border-white shadow-sm overflow-hidden relative">
                 <input
                   type="color"
-                  value={overrideTokens.colors?.heroHeadlinePre || '#FFFFFF'}
-                  onChange={(e) => updateToken('colors.heroHeadlinePre', e.target.value)}
+                  value={(overrideTokens.colors?.heroPreText || overrideTokens.colors?.heroHeadlinePre || tokens.colors.heroPreText || tokens.colors.heroHeadlinePre).startsWith('#') ? (overrideTokens.colors?.heroPreText || overrideTokens.colors?.heroHeadlinePre || tokens.colors.heroPreText || tokens.colors.heroHeadlinePre) : '#FFFFFF'}
+                  onChange={(e) => updateToken('colors.heroPreText', e.target.value)}
                   className="absolute inset-0 w-full h-full scale-150 cursor-pointer"
                 />
               </div>
               <input
                 type="text"
-                value={overrideTokens.colors?.heroHeadlinePre || '#FFFFFF'}
-                onChange={(e) => updateToken('colors.heroHeadlinePre', e.target.value)}
+                value={overrideTokens.colors?.heroPreText || overrideTokens.colors?.heroHeadlinePre || tokens.colors.heroPreText || tokens.colors.heroHeadlinePre}
+                onChange={(e) => updateToken('colors.heroPreText', e.target.value)}
                 className="w-24 bg-white border border-gray-100 rounded-lg px-2 py-1 text-[10px] font-mono text-gray-500"
               />
             </div>
@@ -171,14 +171,14 @@ const GlobalSettings = ({ useContextHook }) => {
               <div className="w-8 h-8 rounded-full border-2 border-white shadow-sm overflow-hidden relative">
                 <input
                   type="color"
-                  value={overrideTokens.colors?.sectionHeadlineNormal || '#1F2937'}
+                  value={(overrideTokens.colors?.sectionHeadlineNormal || tokens.colors.sectionHeadlineNormal).startsWith('#') ? (overrideTokens.colors?.sectionHeadlineNormal || tokens.colors.sectionHeadlineNormal) : '#1F2937'}
                   onChange={(e) => updateToken('colors.sectionHeadlineNormal', e.target.value)}
                   className="absolute inset-0 w-full h-full scale-150 cursor-pointer"
                 />
               </div>
               <input
                 type="text"
-                value={overrideTokens.colors?.sectionHeadlineNormal || '#1F2937'}
+                value={overrideTokens.colors?.sectionHeadlineNormal || tokens.colors.sectionHeadlineNormal}
                 onChange={(e) => updateToken('colors.sectionHeadlineNormal', e.target.value)}
                 className="w-24 bg-white border border-gray-100 rounded-lg px-2 py-1 text-[10px] font-mono text-gray-500"
               />
@@ -190,14 +190,14 @@ const GlobalSettings = ({ useContextHook }) => {
               <div className="w-8 h-8 rounded-full border-2 border-white shadow-sm overflow-hidden relative">
                 <input
                   type="color"
-                  value={overrideTokens.colors?.sectionHeadlineHighlight || '#EA580C'}
+                  value={(overrideTokens.colors?.sectionHeadlineHighlight || tokens.colors.sectionHeadlineHighlight || tokens.colors.sectionHeadlineNormal).startsWith('#') ? (overrideTokens.colors?.sectionHeadlineHighlight || tokens.colors.sectionHeadlineHighlight || tokens.colors.sectionHeadlineNormal) : '#EA580C'}
                   onChange={(e) => updateToken('colors.sectionHeadlineHighlight', e.target.value)}
                   className="absolute inset-0 w-full h-full scale-150 cursor-pointer"
                 />
               </div>
               <input
                 type="text"
-                value={overrideTokens.colors?.sectionHeadlineHighlight || '#EA580C'}
+                value={overrideTokens.colors?.sectionHeadlineHighlight || tokens.colors.sectionHeadlineHighlight || tokens.colors.sectionHeadlineNormal}
                 onChange={(e) => updateToken('colors.sectionHeadlineHighlight', e.target.value)}
                 className="w-24 bg-white border border-gray-100 rounded-lg px-2 py-1 text-[10px] font-mono text-gray-500"
               />
