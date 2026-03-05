@@ -15,7 +15,7 @@ const FeaturedProducts = () => {
   const content = section?.content || {};
 
   const accentStyle = { color: colors.accent };
-  const primaryBgStyle = { backgroundColor: colors.primary };
+  const accentBgStyle = { backgroundColor: colors.accent };
 
   const featuredProducts = products
     .filter(p => p.flags?.featured && p.status === 'Active')
@@ -81,14 +81,14 @@ const FeaturedProducts = () => {
                   </p>
 
                   <div className="flex items-center justify-between pt-4 border-t" style={{ borderColor: colors.border }}>
-                    <span className={`${typography.scale.h5} ${typography.weights.bold} ${typography.fontPrimary}`} style={{ color: colors.primary }}>
+                    <span className={`${typography.scale.h5} ${typography.weights.bold} ${typography.fontPrimary}`} style={{ color: colors.accent }}>
                       {formatCurrency(product.salePrice || product.price)}
                     </span>
                     <button
-                      className={`px-6 py-2 ${typography.scale.bodySmall} ${typography.weights.semibold} text-white transition-all hover:scale-105 ${typography.fontSecondary}`}
-                      style={primaryBgStyle}
-                      onMouseEnter={(e) => e.currentTarget.style.backgroundColor = colors.primaryHover}
-                      onMouseLeave={(e) => e.currentTarget.style.backgroundColor = colors.primary}
+                      className={`px-6 py-2 ${typography.scale.bodySmall} ${typography.weights.semibold} transition-all hover:scale-105 ${typography.fontSecondary}`}
+                      style={{ backgroundColor: colors.accent, color: colors.textInverse }}
+                      onMouseEnter={(e) => e.currentTarget.style.backgroundColor = colors.accentHover || colors.accent}
+                      onMouseLeave={(e) => e.currentTarget.style.backgroundColor = colors.accent}
                     >
                       Add to Cart
                     </button>

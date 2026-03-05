@@ -36,8 +36,8 @@ const Footer = () => {
               {businessData.logoUrl ? (
                 <img src={businessData.logoUrl} alt={businessData.name} className="h-12 w-12 object-cover rounded-full" />
               ) : (
-                <div className="h-12 w-12 rounded-full flex items-center justify-center" style={{ backgroundColor: colors.primary }}>
-                  <span className={`${typography.scale.h5} ${typography.weights.bold} text-white ${typography.fontPrimary}`}>
+                <div className="h-12 w-12 rounded-full flex items-center justify-center" style={{ backgroundColor: colors.accent }}>
+                  <span className={`${typography.scale.h5} ${typography.weights.bold} ${typography.fontPrimary}`} style={{ color: colors.textInverse }}>
                     {(businessData.name || 'R').charAt(0)}
                   </span>
                 </div>
@@ -56,6 +56,14 @@ const Footer = () => {
                   className="w-10 h-10 flex items-center justify-center border transition-all hover:scale-110"
                   style={{ borderColor: colors.border }}
                   aria-label={social.label}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = colors.accent;
+                    e.currentTarget.querySelector('svg').style.color = colors.accent;
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = colors.border;
+                    e.currentTarget.querySelector('svg').style.color = colors.textMuted;
+                  }}
                 >
                   <SafeIcon icon={social.icon} className="text-lg" style={{ color: colors.textMuted }} />
                 </button>
@@ -70,7 +78,12 @@ const Footer = () => {
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
-                  <button className={`${typography.scale.bodySmall} ${typography.fontSecondary} transition-colors`} style={{ color: colors.textSecondary }}>
+                  <button
+                    className={`${typography.scale.bodySmall} ${typography.fontSecondary} transition-colors`}
+                    style={{ color: colors.textSecondary }}
+                    onMouseEnter={(e) => e.currentTarget.style.color = colors.accent}
+                    onMouseLeave={(e) => e.currentTarget.style.color = colors.textSecondary}
+                  >
                     {link}
                   </button>
                 </li>

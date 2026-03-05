@@ -13,11 +13,11 @@ const HeaderHero = () => {
   const heroSection = sectionsConfig.find(s => s.id === 'hero');
   const heroContent = heroSection?.content || {};
 
-  const primaryBgStyle = { backgroundColor: colors.primary };
   const accentBgStyle = { backgroundColor: colors.accent };
+  const accentHoverStyle = { backgroundColor: colors.accentHover || colors.accent };
   const heroPreTextStyle = { color: colors.heroPreText };
   const heroNormalStyle = { color: colors.heroHeadlineNormal };
-  const heroHighlightStyle = { color: colors.primary };
+  const heroHighlightStyle = { color: colors.accent };
 
   const showButton1 = heroContent.showButton1 !== false;
   const showButton2 = heroContent.showButton2 !== false;
@@ -39,8 +39,8 @@ const HeaderHero = () => {
             {businessData.logoUrl ? (
               <img src={businessData.logoUrl} alt={businessData.name} className="h-14 w-14 object-cover rounded-full" />
             ) : (
-              <div className="h-14 w-14 rounded-full flex items-center justify-center" style={primaryBgStyle}>
-                <span className={`${typography.scale.h5} ${typography.weights.bold} text-white ${typography.fontPrimary}`}>
+              <div className="h-14 w-14 rounded-full flex items-center justify-center" style={accentBgStyle}>
+                <span className={`${typography.scale.h5} ${typography.weights.bold} ${typography.fontPrimary}`} style={{ color: colors.textInverse }}>
                   {(headerSection?.content?.logoText || businessData.name || 'R').charAt(0)}
                 </span>
               </div>
@@ -54,7 +54,10 @@ const HeaderHero = () => {
             {['Home', 'Menu', 'About', 'Gallery', 'Contact'].map((item) => (
               <button
                 key={item}
-                className={`${typography.scale.bodySmall} ${typography.weights.medium} text-white/90 hover:text-white transition-colors ${typography.fontSecondary}`}
+                className={`${typography.scale.bodySmall} ${typography.weights.medium} transition-colors ${typography.fontSecondary}`}
+                style={{ color: 'rgba(255, 255, 255, 0.9)' }}
+                onMouseEnter={(e) => e.currentTarget.style.color = colors.accent}
+                onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255, 255, 255, 0.9)'}
               >
                 {item}
               </button>
@@ -120,17 +123,26 @@ const HeaderHero = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               {showButton1 && (
                 <button
-                  className={`px-8 py-4 ${typography.scale.body} ${typography.weights.semibold} text-white transition-all hover:scale-105 ${typography.fontSecondary}`}
-                  style={primaryBgStyle}
-                  onMouseEnter={(e) => e.currentTarget.style.backgroundColor = colors.primaryHover}
-                  onMouseLeave={(e) => e.currentTarget.style.backgroundColor = colors.primary}
+                  className={`px-8 py-4 ${typography.scale.body} ${typography.weights.semibold} transition-all hover:scale-105 ${typography.fontSecondary}`}
+                  style={{ backgroundColor: colors.accent, color: colors.textInverse }}
+                  onMouseEnter={(e) => e.currentTarget.style.backgroundColor = colors.accentHover || colors.accent}
+                  onMouseLeave={(e) => e.currentTarget.style.backgroundColor = colors.accent}
                 >
                   {heroContent.button1Text || 'Order Now'}
                 </button>
               )}
               {showButton2 && (
                 <button
-                  className={`px-8 py-4 border-2 border-white text-white ${typography.scale.body} ${typography.weights.semibold} transition-all hover:bg-white hover:text-gray-900 ${typography.fontSecondary}`}
+                  className={`px-8 py-4 border-2 ${typography.scale.body} ${typography.weights.semibold} transition-all ${typography.fontSecondary}`}
+                  style={{ borderColor: colors.textInverse, color: colors.textInverse }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = colors.textInverse;
+                    e.currentTarget.style.color = colors.textPrimary;
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = 'transparent';
+                    e.currentTarget.style.color = colors.textInverse;
+                  }}
                 >
                   {heroContent.button2Text || 'View Menu'}
                 </button>

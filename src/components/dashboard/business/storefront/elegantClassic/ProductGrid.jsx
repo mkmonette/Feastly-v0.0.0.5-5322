@@ -15,7 +15,7 @@ const ProductGrid = () => {
   const content = section?.content || {};
 
   const accentStyle = { color: colors.accent };
-  const primaryBgStyle = { backgroundColor: colors.primary };
+  const accentBgStyle = { backgroundColor: colors.accent };
 
   const activeProducts = products.filter(p => p.status === 'Active');
   const categories = ['All', ...new Set(activeProducts.map(p => p.category).filter(Boolean))];
@@ -53,7 +53,7 @@ const ProductGrid = () => {
               className={`px-6 py-2 ${typography.scale.bodySmall} ${typography.weights.medium} transition-all ${typography.fontSecondary}`}
               style={
                 selectedCategory === category
-                  ? { backgroundColor: colors.primary, color: 'white' }
+                  ? { backgroundColor: colors.accent, color: colors.textInverse }
                   : { backgroundColor: colors.surface, color: colors.textSecondary }
               }
               onMouseEnter={(e) => {
@@ -99,7 +99,7 @@ const ProductGrid = () => {
                     <h3 className={`${typography.scale.h5} ${typography.weights.semibold} ${typography.fontPrimary} line-clamp-1 flex-1`} style={{ color: colors.textPrimary }}>
                       {product.name}
                     </h3>
-                    <span className={`${typography.scale.h5} ${typography.weights.bold} ${typography.fontPrimary} ml-3`} style={{ color: colors.primary }}>
+                    <span className={`${typography.scale.h5} ${typography.weights.bold} ${typography.fontPrimary} ml-3`} style={{ color: colors.accent }}>
                       {formatCurrency(product.salePrice || product.price)}
                     </span>
                   </div>
@@ -115,10 +115,10 @@ const ProductGrid = () => {
                   </p>
 
                   <button
-                    className={`w-full py-3 ${typography.scale.bodySmall} ${typography.weights.semibold} text-white transition-all hover:scale-105 ${typography.fontSecondary}`}
-                    style={primaryBgStyle}
-                    onMouseEnter={(e) => e.currentTarget.style.backgroundColor = colors.primaryHover}
-                    onMouseLeave={(e) => e.currentTarget.style.backgroundColor = colors.primary}
+                    className={`w-full py-3 ${typography.scale.bodySmall} ${typography.weights.semibold} transition-all hover:scale-105 ${typography.fontSecondary}`}
+                    style={{ backgroundColor: colors.accent, color: colors.textInverse }}
+                    onMouseEnter={(e) => e.currentTarget.style.backgroundColor = colors.accentHover || colors.accent}
+                    onMouseLeave={(e) => e.currentTarget.style.backgroundColor = colors.accent}
                   >
                     Add to Cart
                   </button>

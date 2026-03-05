@@ -13,7 +13,7 @@ const Contact = () => {
   const content = section?.content || {};
 
   const accentStyle = { color: colors.accent };
-  const primaryBgStyle = { backgroundColor: colors.primary };
+  const accentBgStyle = { backgroundColor: colors.accent };
 
   const contactInfo = [
     { icon: FiIcons.FiMapPin, label: 'Address', value: businessData.address || '123 Main Street, City' },
@@ -111,10 +111,10 @@ const Contact = () => {
               </div>
               <button
                 type="submit"
-                className={`w-full py-4 ${typography.scale.body} ${typography.weights.semibold} text-white transition-all hover:scale-105 ${typography.fontSecondary}`}
-                style={primaryBgStyle}
-                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = colors.primaryHover}
-                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = colors.primary}
+                className={`w-full py-4 ${typography.scale.body} ${typography.weights.semibold} transition-all hover:scale-105 ${typography.fontSecondary}`}
+                style={{ backgroundColor: colors.accent, color: colors.textInverse }}
+                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = colors.accentHover || colors.accent}
+                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = colors.accent}
               >
                 Send Message
               </button>
