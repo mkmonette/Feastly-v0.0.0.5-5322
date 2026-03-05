@@ -2,6 +2,7 @@ import React from 'react';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '@/common/SafeIcon';
 import { useStorefrontTokens, useStorefrontBusinessData, useStorefront } from '../StorefrontContext';
+import Headline from '../Headline';
 
 const Contact = () => {
   const { typography, colors, layout } = useStorefrontTokens();
@@ -14,9 +15,6 @@ const Contact = () => {
   const primaryStyle = colors.primary.startsWith('#') ? { color: colors.primary } : {};
   const primaryBgStyle = colors.primary.startsWith('#') ? { backgroundColor: colors.primary + '20' } : {};
   const secondaryBgStyle = colors.secondary.startsWith('#') ? { backgroundColor: colors.secondary } : {};
-  const sectionHeadlineNormalStyle = { color: colors.sectionHeadlineNormal };
-  const highlightColor = colors.sectionHeadlineHighlight || colors.sectionHeadlineNormal;
-  const sectionHeadlineHighlightStyle = { color: highlightColor };
 
   return (
     <section className={`${layout.sectionPaddingLarge} ${layout.horizontalPadding} bg-${colors.background} ${typography.fontSecondary}`}>
@@ -28,15 +26,12 @@ const Contact = () => {
           >
             {content.subtitle}
           </span>
-          <h2 className={`${typography.scale.h2} ${typography.weights.black} ${typography.transform.uppercase} ${typography.tracking.tighter} mb-4 ${typography.fontPrimary}`}>
-            {content.titleHighlight ? (
-              <>
-                <span style={sectionHeadlineNormalStyle}>{content.titlePre}</span> <span style={sectionHeadlineHighlightStyle}>{content.titleHighlight}</span>
-              </>
-            ) : (
-              <span style={sectionHeadlineNormalStyle}>{content.titlePre}</span>
-            )}
-          </h2>
+          <Headline
+            normalText={content.titlePre || 'Get In Touch'}
+            highlightText={content.titleHighlight}
+            tokens={{ colors }}
+            className={`${typography.scale.h2} ${typography.weights.black} ${typography.transform.uppercase} ${typography.tracking.tighter} mb-4 ${typography.fontPrimary}`}
+          />
           <p className={`text-${colors.textMuted} ${typography.scale.body} mb-8`}>
             {content.description}
           </p>

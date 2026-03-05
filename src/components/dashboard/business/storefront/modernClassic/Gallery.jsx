@@ -2,6 +2,7 @@ import React from 'react';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '@/common/SafeIcon';
 import { useStorefrontTokens, useStorefront } from './contextBridge';
+import Headline from '../Headline';
 
 const Gallery = () => {
   const { typography, colors, layout } = useStorefrontTokens();
@@ -11,9 +12,6 @@ const Gallery = () => {
   const content = section?.content || {};
 
   const primaryStyle = colors.primary.startsWith('#') ? { color: colors.primary } : {};
-  const sectionHeadlineNormalStyle = { color: colors.sectionHeadlineNormal };
-  const highlightColor = colors.sectionHeadlineHighlight || colors.sectionHeadlineNormal;
-  const sectionHeadlineHighlightStyle = { color: highlightColor };
 
   const defaultImages = [
     "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800",
@@ -36,10 +34,12 @@ const Gallery = () => {
           >
             Gallery
           </span>
-          <h2 className={`${typography.scale.h2} ${typography.weights.black} mt-2 ${typography.fontPrimary}`}>
-            <span style={sectionHeadlineNormalStyle}>{content.titlePre}</span>{' '}
-            <span style={sectionHeadlineHighlightStyle}>{content.titleHighlight}</span>
-          </h2>
+          <Headline
+            normalText={content.titlePre || 'Our Gallery'}
+            highlightText={content.titleHighlight}
+            tokens={{ colors }}
+            className={`${typography.scale.h2} ${typography.weights.black} mt-2 ${typography.fontPrimary}`}
+          />
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">

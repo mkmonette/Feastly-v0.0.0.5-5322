@@ -4,6 +4,7 @@ import SafeIcon from '@/common/SafeIcon';
 import { useStorefrontTokens, useStorefront } from '../StorefrontContext';
 import { useProducts } from '@/context/ProductContext';
 import { formatCurrency } from '@/common/currency';
+import Headline from '../Headline';
 
 const ProductGrid = () => {
   const { typography, colors, layout } = useStorefrontTokens();
@@ -16,9 +17,6 @@ const ProductGrid = () => {
 
   const primaryStyle = colors.primary.startsWith('#') ? { color: colors.primary } : {};
   const secondaryBgStyle = colors.secondary.startsWith('#') ? { backgroundColor: colors.secondary } : {};
-  const sectionHeadlineNormalStyle = { color: colors.sectionHeadlineNormal };
-  const highlightColor = colors.sectionHeadlineHighlight || colors.sectionHeadlineNormal;
-  const sectionHeadlineHighlightStyle = { color: highlightColor };
 
   // Filter products based on active category
   const filteredProducts = products.filter(product => {
@@ -38,15 +36,12 @@ const ProductGrid = () => {
           >
             {content.subtitle}
           </span>
-          <h2 className={`${typography.scale.h2} ${typography.weights.black} ${typography.transform.uppercase} ${typography.tracking.tighter} ${typography.lineHeights.none} ${typography.fontPrimary}`}>
-            {content.titleHighlight ? (
-              <>
-                <span style={sectionHeadlineNormalStyle}>{content.titlePre}</span> <span style={sectionHeadlineHighlightStyle}>{content.titleHighlight}</span>
-              </>
-            ) : (
-              <span style={sectionHeadlineNormalStyle}>{content.titlePre}</span>
-            )}
-          </h2>
+          <Headline
+            normalText={content.titlePre || 'All Products'}
+            highlightText={content.titleHighlight}
+            tokens={{ colors }}
+            className={`${typography.scale.h2} ${typography.weights.black} ${typography.transform.uppercase} ${typography.tracking.tighter} ${typography.lineHeights.none} ${typography.fontPrimary}`}
+          />
         </div>
         <div className="flex gap-4 overflow-x-auto no-scrollbar pb-2">
           {tabs.map((cat) => {

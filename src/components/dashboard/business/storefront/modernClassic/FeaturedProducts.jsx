@@ -4,6 +4,7 @@ import SafeIcon from '@/common/SafeIcon';
 import { useStorefrontTokens, useStorefront } from './contextBridge';
 import { useProducts } from '@/context/ProductContext';
 import { formatCurrency } from '@/common/currency';
+import Headline from '../Headline';
 
 const FeaturedProducts = () => {
   const { typography, colors, layout } = useStorefrontTokens();
@@ -16,9 +17,6 @@ const FeaturedProducts = () => {
 
   const primaryStyle = colors.primary.startsWith('#') ? { color: colors.primary } : {};
   const primaryBgStyle = colors.primary.startsWith('#') ? { backgroundColor: colors.primary } : {};
-  const sectionHeadlineNormalStyle = { color: colors.sectionHeadlineNormal };
-  const highlightColor = colors.sectionHeadlineHighlight || colors.sectionHeadlineNormal;
-  const sectionHeadlineHighlightStyle = { color: highlightColor };
 
   const featuredProducts = products
     .filter(p => p.flags?.featured && p.status === 'Active')
@@ -45,10 +43,12 @@ const FeaturedProducts = () => {
             >
               {content.subtitle || 'Featured'}
             </span>
-            <h2 className={`${typography.scale.h2} ${typography.weights.black} mt-2 ${typography.fontPrimary}`}>
-              <span style={sectionHeadlineNormalStyle}>{content.titlePre}</span>{' '}
-              <span style={sectionHeadlineHighlightStyle}>{content.titleHighlight}</span>
-            </h2>
+            <Headline
+              normalText={content.titlePre || 'Featured'}
+              highlightText={content.titleHighlight}
+              tokens={{ colors }}
+              className={`${typography.scale.h2} ${typography.weights.black} mt-2 ${typography.fontPrimary}`}
+            />
           </div>
 
           <div className="hidden md:flex gap-2">

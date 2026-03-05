@@ -1,5 +1,6 @@
 import React from 'react';
 import { useStorefrontTokens, useStorefront } from '../StorefrontContext';
+import Headline from '../Headline';
 
 const Gallery = () => {
   const { layout, colors, typography } = useStorefrontTokens();
@@ -18,16 +19,16 @@ const Gallery = () => {
   const images = content.images && content.images.length > 0 ? content.images : defaultImages;
 
   const primaryStyle = colors.primary.startsWith('#') ? { color: colors.primary } : {};
-  const sectionHeadlineNormalStyle = { color: colors.sectionHeadlineNormal };
-  const highlightColor = colors.sectionHeadlineHighlight || colors.sectionHeadlineNormal;
-  const sectionHeadlineHighlightStyle = { color: highlightColor };
 
   return (
     <section className={`${layout.sectionPaddingLarge} ${layout.horizontalPadding} bg-${colors.surface}`}>
       <div className={`${layout.container} ${layout.containerWidth} text-center mb-16`}>
-        <h2 className={`${typography.scale.h2} ${typography.weights.black} ${typography.transform.uppercase} ${typography.tracking.tighter} ${typography.fontPrimary}`}>
-          <span style={sectionHeadlineNormalStyle}>{content.titlePre}</span> <span style={sectionHeadlineHighlightStyle}>{content.titleHighlight}</span>
-        </h2>
+        <Headline
+          normalText={content.titlePre || 'Our Gallery'}
+          highlightText={content.titleHighlight}
+          tokens={{ colors }}
+          className={`${typography.scale.h2} ${typography.weights.black} ${typography.transform.uppercase} ${typography.tracking.tighter} ${typography.fontPrimary}`}
+        />
       </div>
       <div className={`${layout.container} ${layout.containerWidth} grid grid-cols-2 md:grid-cols-4 gap-4`}>
         {images.map((img, i) => (

@@ -4,6 +4,7 @@ import SafeIcon from '@/common/SafeIcon';
 import { useStorefrontTokens, useStorefront } from './contextBridge';
 import { useProducts } from '@/context/ProductContext';
 import { formatCurrency } from '@/common/currency';
+import Headline from '../Headline';
 
 const ProductGrid = () => {
   const { typography, colors, layout } = useStorefrontTokens();
@@ -15,9 +16,6 @@ const ProductGrid = () => {
 
   const primaryStyle = colors.primary.startsWith('#') ? { color: colors.primary } : {};
   const primaryBgStyle = colors.primary.startsWith('#') ? { backgroundColor: colors.primary } : {};
-  const sectionHeadlineNormalStyle = { color: colors.sectionHeadlineNormal };
-  const highlightColor = colors.sectionHeadlineHighlight || colors.sectionHeadlineNormal;
-  const sectionHeadlineHighlightStyle = { color: highlightColor };
 
   const activeProducts = products.filter(p => p.status === 'Active').slice(0, 6);
 
@@ -31,10 +29,12 @@ const ProductGrid = () => {
           >
             {content.subtitle || 'Our Menu'}
           </span>
-          <h2 className={`${typography.scale.h2} ${typography.weights.black} mt-2 ${typography.fontPrimary}`}>
-            <span style={sectionHeadlineNormalStyle}>{content.titlePre}</span>{' '}
-            <span style={sectionHeadlineHighlightStyle}>{content.titleHighlight}</span>
-          </h2>
+          <Headline
+            normalText={content.titlePre || 'All Products'}
+            highlightText={content.titleHighlight}
+            tokens={{ colors }}
+            className={`${typography.scale.h2} ${typography.weights.black} mt-2 ${typography.fontPrimary}`}
+          />
         </div>
 
         <div className={`grid md:grid-cols-2 lg:grid-cols-3 ${layout.gridGapMedium}`}>

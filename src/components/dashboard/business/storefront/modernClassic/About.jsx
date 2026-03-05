@@ -2,6 +2,7 @@ import React from 'react';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '@/common/SafeIcon';
 import { useStorefrontTokens, useStorefrontBusinessData, useStorefront } from './contextBridge';
+import Headline from '../Headline';
 
 const About = () => {
   const { typography, colors, layout } = useStorefrontTokens();
@@ -12,9 +13,6 @@ const About = () => {
   const content = section?.content || {};
 
   const primaryTextStyle = colors.primary.startsWith('#') ? { color: colors.primary } : {};
-  const sectionHeadlineNormalStyle = { color: colors.sectionHeadlineNormal };
-  const highlightColor = colors.sectionHeadlineHighlight || colors.sectionHeadlineNormal;
-  const sectionHeadlineHighlightStyle = { color: highlightColor };
   const imagePosition = content.imagePosition || 'left';
 
   const ImageSection = (
@@ -48,14 +46,12 @@ const About = () => {
         >
           About Us
         </span>
-        <h2 className={`${typography.scale.h2} ${typography.weights.black} mt-4 ${typography.fontPrimary}`}>
-          <span style={sectionHeadlineNormalStyle}>
-            {content.titlePre}
-          </span>{' '}
-          <span style={sectionHeadlineHighlightStyle}>
-            {content.titleHighlight}
-          </span>
-        </h2>
+        <Headline
+          normalText={content.titlePre || 'About Us'}
+          highlightText={content.titleHighlight}
+          tokens={{ colors }}
+          className={`${typography.scale.h2} ${typography.weights.black} mt-4 ${typography.fontPrimary}`}
+        />
       </div>
 
       <p className={`${typography.scale.bodyLarge_alt} text-${colors.textMuted} ${typography.lineHeights.relaxed} ${typography.fontSecondary}`}>

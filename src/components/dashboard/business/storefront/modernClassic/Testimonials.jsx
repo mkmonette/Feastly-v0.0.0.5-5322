@@ -2,6 +2,7 @@ import React from 'react';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '@/common/SafeIcon';
 import { useStorefrontTokens, useStorefront } from './contextBridge';
+import Headline from '../Headline';
 
 const Testimonials = () => {
   const { typography, colors, layout } = useStorefrontTokens();
@@ -12,9 +13,6 @@ const Testimonials = () => {
 
   const primaryStyle = colors.primary.startsWith('#') ? { color: colors.primary } : {};
   const primaryBgStyle = colors.primary.startsWith('#') ? { backgroundColor: colors.primary } : {};
-  const sectionHeadlineNormalStyle = { color: colors.sectionHeadlineNormal };
-  const highlightColor = colors.sectionHeadlineHighlight || colors.sectionHeadlineNormal;
-  const sectionHeadlineHighlightStyle = { color: highlightColor };
 
   const defaultTestimonials = [
     {
@@ -56,16 +54,12 @@ const Testimonials = () => {
           >
             {content.subtitle || 'Testimonials'}
           </span>
-          <h2 className={`${typography.scale.h2} ${typography.weights.black} mt-2 ${typography.fontPrimary}`}>
-            {content.titleHighlight ? (
-              <>
-                <span style={sectionHeadlineNormalStyle}>{content.titlePre}</span>{' '}
-                <span style={sectionHeadlineHighlightStyle}>{content.titleHighlight}</span>
-              </>
-            ) : (
-              <span style={sectionHeadlineNormalStyle}>{content.titlePre}</span>
-            )}
-          </h2>
+          <Headline
+            normalText={content.titlePre || 'What Our Customers Say'}
+            highlightText={content.titleHighlight}
+            tokens={{ colors }}
+            className={`${typography.scale.h2} ${typography.weights.black} mt-2 ${typography.fontPrimary}`}
+          />
         </div>
 
         <div className={`grid md:grid-cols-3 ${layout.gridGapMedium}`}>

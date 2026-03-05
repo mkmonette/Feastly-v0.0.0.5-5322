@@ -4,6 +4,7 @@ import SafeIcon from '@/common/SafeIcon';
 import { useStorefrontTokens, useStorefront } from '../StorefrontContext';
 import { useProducts } from '@/context/ProductContext';
 import { formatCurrency } from '@/common/currency';
+import Headline from '../Headline';
 
 const FeaturedProducts = () => {
   const { typography, colors, layout } = useStorefrontTokens();
@@ -14,9 +15,6 @@ const FeaturedProducts = () => {
   const content = section?.content || {};
 
   const primaryStyle = colors.primary.startsWith('#') ? { color: colors.primary } : {};
-  const sectionHeadlineNormalStyle = { color: colors.sectionHeadlineNormal };
-  const highlightColor = colors.sectionHeadlineHighlight || colors.sectionHeadlineNormal;
-  const sectionHeadlineHighlightStyle = { color: highlightColor };
 
   // Get featured products
   const featuredProducts = products
@@ -32,15 +30,12 @@ const FeaturedProducts = () => {
         >
           {content.subtitle}
         </span>
-        <h2 className={`${typography.scale.h2} ${typography.weights.black} ${typography.transform.uppercase} ${typography.tracking.tighter} ${typography.fontPrimary}`}>
-          {content.titleHighlight ? (
-            <>
-              <span style={sectionHeadlineNormalStyle}>{content.titlePre}</span> <span style={sectionHeadlineHighlightStyle}>{content.titleHighlight}</span>
-            </>
-          ) : (
-            <span style={sectionHeadlineNormalStyle}>{content.titlePre}</span>
-          )}
-        </h2>
+        <Headline
+          normalText={content.titlePre || 'Featured'}
+          highlightText={content.titleHighlight}
+          tokens={{ colors }}
+          className={`${typography.scale.h2} ${typography.weights.black} ${typography.transform.uppercase} ${typography.tracking.tighter} ${typography.fontPrimary}`}
+        />
       </div>
       
       <div className={`${layout.container} ${layout.containerWidth} grid md:grid-cols-3 ${layout.gridGapMedium}`}>

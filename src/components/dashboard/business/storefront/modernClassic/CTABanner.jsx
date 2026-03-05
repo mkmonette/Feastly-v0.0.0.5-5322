@@ -1,5 +1,6 @@
 import React from 'react';
 import { useStorefrontTokens, useStorefront } from './contextBridge';
+import Headline from '../Headline';
 
 const CTABanner = () => {
   const { typography, colors, layout } = useStorefrontTokens();
@@ -10,9 +11,6 @@ const CTABanner = () => {
 
   const primaryStyle = colors.primary.startsWith('#') ? { color: colors.primary } : {};
   const primaryBgStyle = colors.primary.startsWith('#') ? { backgroundColor: colors.primary } : {};
-  const sectionHeadlineNormalStyle = { color: colors.sectionHeadlineNormal };
-  const highlightColor = colors.sectionHeadlineHighlight || colors.sectionHeadlineNormal;
-  const sectionHeadlineHighlightStyle = { color: highlightColor };
 
   return (
     <section className={`${layout.sectionPaddingLarge} bg-${colors.surface} ${layout.horizontalPadding}`}>
@@ -27,12 +25,14 @@ const CTABanner = () => {
           </div>
 
           <div className="relative z-10">
-            <h2 className={`${typography.scale.h2} ${typography.weights.black} text-${colors.textInverse} mb-6 ${typography.fontPrimary}`}>
-              {content.titlePre}{' '}
-              <span className={`text-${colors.textInverse}`}>
-                {content.titleHighlight}
-              </span>
-            </h2>
+            <Headline
+              normalText={content.titlePre || 'Ready to Get Started?'}
+              highlightText={content.titleHighlight}
+              tokens={{ colors }}
+              normalColor={colors.textInverse}
+              highlightColor={colors.textInverse}
+              className={`${typography.scale.h2} ${typography.weights.black} mb-6 ${typography.fontPrimary}`}
+            />
 
             {content.subtitle && (
               <p className={`${typography.scale.bodyLarge_alt} text-${colors.textInverseMuted} mb-8 max-w-2xl mx-auto ${typography.fontSecondary}`}>
