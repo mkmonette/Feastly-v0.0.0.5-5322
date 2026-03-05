@@ -82,7 +82,10 @@ const GlobalSettings = ({ useContextHook }) => {
               <div className="w-8 h-8 rounded-full border-2 border-white shadow-sm overflow-hidden relative">
                 <input
                   type="color"
-                  value={(overrideTokens.colors?.primary || tokens.colors.primary).startsWith('#') ? (overrideTokens.colors?.primary || tokens.colors.primary) : '#ea580c'}
+                  value={(() => {
+                    const value = overrideTokens.colors?.primary || tokens.colors.primary;
+                    return value.startsWith('#') ? value : '#2563eb';
+                  })()}
                   onChange={(e) => updateToken('colors.primary', e.target.value)}
                   className="absolute inset-0 w-full h-full scale-150 cursor-pointer"
                 />
@@ -101,7 +104,10 @@ const GlobalSettings = ({ useContextHook }) => {
               <div className="w-8 h-8 rounded-full border-2 border-white shadow-sm overflow-hidden relative">
                 <input
                   type="color"
-                  value={(overrideTokens.colors?.secondary || tokens.colors.secondary).startsWith('#') ? (overrideTokens.colors?.secondary || tokens.colors.secondary) : '#000000'}
+                  value={(() => {
+                    const value = overrideTokens.colors?.secondary || tokens.colors.secondary;
+                    return value.startsWith('#') ? value : '#111827';
+                  })()}
                   onChange={(e) => updateToken('colors.secondary', e.target.value)}
                   className="absolute inset-0 w-full h-full scale-150 cursor-pointer"
                 />
@@ -152,7 +158,10 @@ const GlobalSettings = ({ useContextHook }) => {
               <div className="w-8 h-8 rounded-full border-2 border-white shadow-sm overflow-hidden relative">
                 <input
                   type="color"
-                  value={(overrideTokens.colors?.heroPreText || overrideTokens.colors?.heroHeadlinePre || tokens.colors.heroPreText || tokens.colors.heroHeadlinePre).startsWith('#') ? (overrideTokens.colors?.heroPreText || overrideTokens.colors?.heroHeadlinePre || tokens.colors.heroPreText || tokens.colors.heroHeadlinePre) : '#FFFFFF'}
+                  value={(() => {
+                    const value = overrideTokens.colors?.heroPreText || overrideTokens.colors?.heroHeadlinePre || tokens.colors.heroPreText || tokens.colors.heroHeadlinePre;
+                    return value && value.startsWith('#') ? value : '#ffffff';
+                  })()}
                   onChange={(e) => updateToken('colors.heroPreText', e.target.value)}
                   className="absolute inset-0 w-full h-full scale-150 cursor-pointer"
                 />
@@ -171,7 +180,10 @@ const GlobalSettings = ({ useContextHook }) => {
               <div className="w-8 h-8 rounded-full border-2 border-white shadow-sm overflow-hidden relative">
                 <input
                   type="color"
-                  value={(overrideTokens.colors?.sectionHeadlineNormal || tokens.colors.sectionHeadlineNormal).startsWith('#') ? (overrideTokens.colors?.sectionHeadlineNormal || tokens.colors.sectionHeadlineNormal) : '#1F2937'}
+                  value={(() => {
+                    const value = overrideTokens.colors?.sectionHeadlineNormal || tokens.colors.sectionHeadlineNormal;
+                    return value && value.startsWith('#') ? value : '#1f2937';
+                  })()}
                   onChange={(e) => updateToken('colors.sectionHeadlineNormal', e.target.value)}
                   className="absolute inset-0 w-full h-full scale-150 cursor-pointer"
                 />
@@ -190,7 +202,10 @@ const GlobalSettings = ({ useContextHook }) => {
               <div className="w-8 h-8 rounded-full border-2 border-white shadow-sm overflow-hidden relative">
                 <input
                   type="color"
-                  value={(overrideTokens.colors?.sectionHeadlineHighlight || tokens.colors.sectionHeadlineHighlight || tokens.colors.sectionHeadlineNormal).startsWith('#') ? (overrideTokens.colors?.sectionHeadlineHighlight || tokens.colors.sectionHeadlineHighlight || tokens.colors.sectionHeadlineNormal) : '#EA580C'}
+                  value={(() => {
+                    const value = overrideTokens.colors?.sectionHeadlineHighlight || tokens.colors.sectionHeadlineHighlight || tokens.colors.sectionHeadlineNormal;
+                    return value && value.startsWith('#') ? value : '#1f2937';
+                  })()}
                   onChange={(e) => updateToken('colors.sectionHeadlineHighlight', e.target.value)}
                   className="absolute inset-0 w-full h-full scale-150 cursor-pointer"
                 />

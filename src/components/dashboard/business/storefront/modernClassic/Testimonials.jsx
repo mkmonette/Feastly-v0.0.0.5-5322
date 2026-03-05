@@ -56,14 +56,15 @@ const Testimonials = () => {
           >
             {content.subtitle || 'Testimonials'}
           </span>
-          <h2 className={`${typography.scale.h2} ${typography.weights.black} text-${colors.textPrimary} mt-2 ${typography.fontPrimary}`}>
-            {content.titlePre}{' '}
-            <span
-              className={!colors.primary.startsWith('#') ? `text-${colors.primary}` : ''}
-              style={primaryStyle}
-            >
-              {content.titleHighlight}
-            </span>
+          <h2 className={`${typography.scale.h2} ${typography.weights.black} mt-2 ${typography.fontPrimary}`}>
+            {content.titleHighlight ? (
+              <>
+                <span style={sectionHeadlineNormalStyle}>{content.titlePre}</span>{' '}
+                <span style={sectionHeadlineHighlightStyle}>{content.titleHighlight}</span>
+              </>
+            ) : (
+              <span style={sectionHeadlineNormalStyle}>{content.titlePre}</span>
+            )}
           </h2>
         </div>
 
