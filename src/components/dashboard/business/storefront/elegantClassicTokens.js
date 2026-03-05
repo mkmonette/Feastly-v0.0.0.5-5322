@@ -61,7 +61,7 @@ export const elegantClassicTokens = {
     heroPreText: '#d97706',
     heroHeadlineNormal: '#FFFFFF',
     sectionHeadlineNormal: '#111827',
-    sectionHeadlineHighlight: '#111827',
+    sectionHeadlineHighlight: '#059669',
   },
 
   layout: {

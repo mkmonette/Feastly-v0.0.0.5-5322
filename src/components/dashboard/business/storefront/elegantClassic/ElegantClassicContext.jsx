@@ -93,7 +93,9 @@ const DEFAULT_SECTIONS = [
     name: 'CTA Banner',
     visibility: { enabled: true, devices: ['desktop', 'mobile'], conditions: [] },
     content: {
-      title: 'Ready to Experience Exceptional Dining?',
+      subtitle: 'Special Offer',
+      titlePre: 'Ready to Experience Exceptional',
+      titleHighlight: 'Dining?',
       description: 'Join us today and discover why our customers keep coming back for more.',
       buttonText: 'Order Now'
     }

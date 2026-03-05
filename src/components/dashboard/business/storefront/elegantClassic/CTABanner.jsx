@@ -9,15 +9,33 @@ const CTABanner = () => {
   const content = section?.content || {};
 
   const accentBgStyle = { backgroundColor: colors.accent };
+  const whiteStyle = { color: 'white' };
 
   return (
     <section className={`${layout.sectionPadding} ${layout.horizontalPadding}`} style={accentBgStyle}>
       <div className={`${layout.container} ${layout.containerWidth}`}>
         <div className="text-center max-w-3xl mx-auto">
-          <h2 className={`${typography.scale.h2} ${typography.weights.bold} ${typography.lineHeights.tight} text-white mb-6 ${typography.fontPrimary}`}>
-            {content.title || 'Ready to Experience Exceptional Dining?'}
+          {content.subtitle && (
+            <div className="mb-4">
+              <span
+                className={`${typography.scale.bodySmall} ${typography.weights.semibold} ${typography.tracking.wider} ${typography.transform.uppercase} ${typography.fontSecondary}`}
+                style={whiteStyle}
+              >
+                {content.subtitle}
+              </span>
+            </div>
+          )}
+          <h2 className={`${typography.scale.h2} ${typography.weights.bold} ${typography.lineHeights.tight} mb-6 ${typography.fontPrimary}`}>
+            {content.titleHighlight ? (
+              <>
+                <span style={whiteStyle}>{content.titlePre}</span>{' '}
+                <span style={whiteStyle}>{content.titleHighlight}</span>
+              </>
+            ) : (
+              <span style={whiteStyle}>{content.title || content.titlePre || 'Ready to Experience Exceptional Dining?'}</span>
+            )}
           </h2>
-          <p className={`${typography.scale.bodyLarge} text-white/90 ${typography.lineHeights.relaxed} mb-8 ${typography.fontSecondary}`}>
+          <p className={`${typography.scale.bodyLarge} ${typography.lineHeights.relaxed} mb-8 ${typography.fontSecondary}`} style={{ color: 'rgba(255, 255, 255, 0.9)' }}>
             {content.description || 'Join us today and discover why our customers keep coming back for more.'}
           </p>
           <button
