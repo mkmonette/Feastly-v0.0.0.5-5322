@@ -7,8 +7,8 @@ import TemplateRenderer from './storefront/TemplateRenderer';
 import { StorefrontProvider } from './storefront/StorefrontContext';
 import ModernClassicRenderer from './storefront/modernClassic/ModernClassicRenderer';
 import { ModernClassicProvider } from './storefront/modernClassic/ModernClassicContext';
-import BoldClassicRenderer from './storefront/boldClassic/BoldClassicRenderer';
-import { BoldClassicProvider } from './storefront/boldClassic/BoldClassicContext';
+import ElegantClassicRenderer from './storefront/elegantClassic/ElegantClassicRenderer';
+import { ElegantClassicProvider } from './storefront/elegantClassic/ElegantClassicContext';
 
 const CATEGORIES = [
   { id: 'classic', label: 'Classic' },
@@ -125,12 +125,12 @@ const StorefrontTemplatesPage = () => {
             />
             <TemplatePreviewCard
               categoryId="classic"
-              templateSlug="bold-classic"
-              title="Bold Classic"
+              templateSlug="elegant-classic"
+              title="Elegant Classic"
               label="Classic"
-              description="An urban, edgy design with asymmetric layouts, bold typography, and striking visual contrasts."
-              ProviderComponent={BoldClassicProvider}
-              RendererComponent={BoldClassicRenderer}
+              description="A sophisticated design with spacious layouts, premium aesthetics, and refined typography."
+              ProviderComponent={ElegantClassicProvider}
+              RendererComponent={ElegantClassicRenderer}
             />
           </div>
         ) : (
