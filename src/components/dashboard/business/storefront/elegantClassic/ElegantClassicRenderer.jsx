@@ -1,6 +1,7 @@
 import React from 'react';
 import HeaderHero from './HeaderHero';
 import About from './About';
+import Banner from './Banner';
 import FeaturedProducts from './FeaturedProducts';
 import ProductGrid from './ProductGrid';
 import Gallery from './Gallery';
@@ -79,6 +80,10 @@ const ElegantClassicRenderer = () => {
 
       <SectionWrapper sectionId="about">
         <About />
+      </SectionWrapper>
+
+      <SectionWrapper sectionId="banner">
+        <Banner />
       </SectionWrapper>
 
       <SectionWrapper sectionId="featured">

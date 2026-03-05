@@ -38,6 +38,17 @@ const DEFAULT_SECTIONS = [
     }
   },
   {
+    id: 'banner',
+    name: 'Banner',
+    visibility: { enabled: true, devices: ['desktop', 'mobile'], conditions: [] },
+    content: {
+      title: 'Special Offer',
+      description: 'Limited time offer on selected items. Order now and enjoy exclusive discounts!',
+      buttonText: 'Order Now',
+      showButton: true
+    }
+  },
+  {
     id: 'featured',
     name: 'Featured Products',
     visibility: { enabled: true, devices: ['desktop', 'mobile'], conditions: [] },
