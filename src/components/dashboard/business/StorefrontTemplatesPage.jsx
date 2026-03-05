@@ -9,6 +9,8 @@ import ModernClassicRenderer from './storefront/modernClassic/ModernClassicRende
 import { ModernClassicProvider } from './storefront/modernClassic/ModernClassicContext';
 import ElegantClassicRenderer from './storefront/elegantClassic/ElegantClassicRenderer';
 import { ElegantClassicProvider } from './storefront/elegantClassic/ElegantClassicContext';
+import ModernSplitRenderer from './storefront/modernSplit/ModernSplitRenderer';
+import { ModernSplitStorefrontProvider } from './storefront/modernSplit/ModernSplitProvider';
 
 const CATEGORIES = [
   { id: 'classic', label: 'Classic' },
@@ -131,6 +133,18 @@ const StorefrontTemplatesPage = () => {
               description="A sophisticated design with spacious layouts, premium aesthetics, and refined typography."
               ProviderComponent={ElegantClassicProvider}
               RendererComponent={ElegantClassicRenderer}
+            />
+          </div>
+        ) : activeTab === 'modern' ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <TemplatePreviewCard
+              categoryId="modern"
+              templateSlug="modern-split"
+              title="Modern Split"
+              label="Modern"
+              description="A modern food ordering layout with content on the left and a full-height cart panel on the right."
+              ProviderComponent={ModernSplitStorefrontProvider}
+              RendererComponent={ModernSplitRenderer}
             />
           </div>
         ) : (
