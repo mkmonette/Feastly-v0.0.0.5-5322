@@ -46,10 +46,11 @@ export const boldClassicTokens = {
     }
   },
   colors: {
-    primary: 'emerald-500',
+    primary: '#10b981',
     primaryHover: 'emerald-600',
     primaryLight: 'emerald-50',
     primaryDim: 'emerald-500/10',
+    accent: '#f59e0b',
     secondary: 'amber-500',
     secondaryHover: 'amber-600',
     background: 'white',
@@ -62,6 +63,7 @@ export const boldClassicTokens = {
     textInverseMuted: 'slate-300',
     border: 'slate-200',
     borderLight: 'slate-100',
+    heroPreText: '#10b981',
     heroHeadlinePre: '#FFFFFF',
     sectionHeadlineNormal: '#0F172A',
     sectionHeadlineHighlight: '#0F172A',

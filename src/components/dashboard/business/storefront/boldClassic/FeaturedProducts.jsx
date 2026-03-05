@@ -15,7 +15,8 @@ const FeaturedProducts = () => {
 
   const primaryStyle = colors.primary.startsWith('#') ? { color: colors.primary } : {};
   const primaryBgStyle = colors.primary.startsWith('#') ? { backgroundColor: colors.primary } : {};
-  const secondaryBgStyle = colors.secondary.startsWith('#') ? { backgroundColor: colors.secondary } : {};
+  const accentStyle = (colors.accent || colors.secondary).startsWith('#') ? { backgroundColor: (colors.accent || colors.secondary) } : {};
+  const accentBorderStyle = (colors.accent || colors.secondary).startsWith('#') ? { borderColor: (colors.accent || colors.secondary) } : {};
   const sectionHeadlineNormalStyle = { color: colors.sectionHeadlineNormal };
   const highlightColor = colors.sectionHeadlineHighlight || colors.sectionHeadlineNormal;
   const sectionHeadlineHighlightStyle = { color: highlightColor };
@@ -79,7 +80,12 @@ const FeaturedProducts = () => {
                   )}
                 </div>
 
-                <div className="p-8 bg-black border-t-4 border-white group-hover:border-emerald-500 transition-colors">
+                <div
+                  className="p-8 bg-black border-t-4 border-white transition-colors"
+                  style={{ '--hover-border-color': colors.primary }}
+                  onMouseEnter={(e) => e.currentTarget.style.borderColor = colors.primary}
+                  onMouseLeave={(e) => e.currentTarget.style.borderColor = 'white'}
+                >
                   <div className="flex justify-between items-start mb-4">
                     <h3 className={`${typography.scale.h4} ${typography.weights.black} ${typography.transform.uppercase} ${typography.fontPrimary} line-clamp-1 flex-1`}>
                       {product.name}
@@ -97,8 +103,10 @@ const FeaturedProducts = () => {
                   </p>
 
                   <button
-                    className={`w-full py-4 bg-${colors.primary} text-black ${typography.scale.bodySmall} ${typography.weights.black} ${typography.transform.uppercase} ${typography.tracking.wide} hover:bg-${colors.secondary} transition-all ${typography.fontPrimary}`}
+                    className={`w-full py-4 text-black ${typography.scale.bodySmall} ${typography.weights.black} ${typography.transform.uppercase} ${typography.tracking.wide} transition-all ${typography.fontPrimary}`}
                     style={primaryBgStyle}
+                    onMouseEnter={(e) => e.currentTarget.style.backgroundColor = colors.accent || colors.secondary}
+                    onMouseLeave={(e) => e.currentTarget.style.backgroundColor = colors.primary}
                   >
                     Add to Cart
                   </button>

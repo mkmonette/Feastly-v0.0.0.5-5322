@@ -43,7 +43,10 @@ const ProductGrid = () => {
             activeProducts.map((product, index) => (
               <div
                 key={product.id}
-                className={`group relative border-4 border-${colors.border} hover:border-${colors.primary} transition-all duration-300`}
+                className="group relative border-4 transition-all duration-300"
+                style={{ borderColor: colors.border }}
+                onMouseEnter={(e) => e.currentTarget.style.borderColor = colors.primary}
+                onMouseLeave={(e) => e.currentTarget.style.borderColor = colors.border}
               >
                 <div className="relative h-80 overflow-hidden bg-gray-100">
                   {product.imageUrl ? (
