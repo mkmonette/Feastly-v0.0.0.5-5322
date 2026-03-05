@@ -1,5 +1,6 @@
 import React from 'react';
 import { ModernSplitProvider } from './ModernSplitContext';
+import { useStorefront } from './contextBridge';
 import Header from './Header';
 import Hero from './Hero';
 import FeaturedProducts from './FeaturedProducts';
@@ -23,7 +24,8 @@ const sectionComponents = {
   footer: Footer,
 };
 
-const ModernSplitRenderer = ({ sectionsConfig }) => {
+const ModernSplitContent = () => {
+  const { sectionsConfig } = useStorefront();
   const enabledSections = sectionsConfig.filter(section => section.enabled);
 
   return (
@@ -48,6 +50,10 @@ const ModernSplitRenderer = ({ sectionsConfig }) => {
       </div>
     </ModernSplitProvider>
   );
+};
+
+const ModernSplitRenderer = () => {
+  return <ModernSplitContent />;
 };
 
 export default ModernSplitRenderer;
