@@ -83,8 +83,8 @@ const GlobalSettings = ({ useContextHook }) => {
                 <input
                   type="color"
                   value={(() => {
-                    const value = overrideTokens.colors?.primary || tokens.colors.primary;
-                    return value.startsWith('#') ? value : '#2563eb';
+                    const value = overrideTokens.colors?.primary || tokens.colors?.primary;
+                    return value && value.startsWith('#') ? value : '#2563eb';
                   })()}
                   onChange={(e) => updateToken('colors.primary', e.target.value)}
                   className="absolute inset-0 w-full h-full scale-150 cursor-pointer"
@@ -92,7 +92,7 @@ const GlobalSettings = ({ useContextHook }) => {
               </div>
               <input
                 type="text"
-                value={overrideTokens.colors?.primary || tokens.colors.primary}
+                value={overrideTokens.colors?.primary || tokens.colors?.primary || ''}
                 onChange={(e) => updateToken('colors.primary', e.target.value)}
                 className="w-24 bg-white border border-gray-100 rounded-lg px-2 py-1 text-[10px] font-mono text-gray-500"
               />
@@ -105,8 +105,8 @@ const GlobalSettings = ({ useContextHook }) => {
                 <input
                   type="color"
                   value={(() => {
-                    const value = overrideTokens.colors?.secondary || tokens.colors.secondary;
-                    return value.startsWith('#') ? value : '#111827';
+                    const value = overrideTokens.colors?.secondary || tokens.colors?.secondary;
+                    return value && value.startsWith('#') ? value : '#111827';
                   })()}
                   onChange={(e) => updateToken('colors.secondary', e.target.value)}
                   className="absolute inset-0 w-full h-full scale-150 cursor-pointer"
@@ -114,7 +114,7 @@ const GlobalSettings = ({ useContextHook }) => {
               </div>
               <input
                 type="text"
-                value={overrideTokens.colors?.secondary || tokens.colors.secondary}
+                value={overrideTokens.colors?.secondary || tokens.colors?.secondary || ''}
                 onChange={(e) => updateToken('colors.secondary', e.target.value)}
                 className="w-24 bg-white border border-gray-100 rounded-lg px-2 py-1 text-[10px] font-mono text-gray-500"
               />
@@ -159,7 +159,7 @@ const GlobalSettings = ({ useContextHook }) => {
                 <input
                   type="color"
                   value={(() => {
-                    const value = overrideTokens.colors?.heroPreText || overrideTokens.colors?.heroHeadlinePre || tokens.colors.heroPreText || tokens.colors.heroHeadlinePre;
+                    const value = overrideTokens.colors?.heroPreText || overrideTokens.colors?.heroHeadlinePre || tokens.colors?.heroPreText || tokens.colors?.heroHeadlinePre;
                     return value && value.startsWith('#') ? value : '#ffffff';
                   })()}
                   onChange={(e) => updateToken('colors.heroPreText', e.target.value)}
@@ -168,7 +168,7 @@ const GlobalSettings = ({ useContextHook }) => {
               </div>
               <input
                 type="text"
-                value={overrideTokens.colors?.heroPreText || overrideTokens.colors?.heroHeadlinePre || tokens.colors.heroPreText || tokens.colors.heroHeadlinePre}
+                value={overrideTokens.colors?.heroPreText || overrideTokens.colors?.heroHeadlinePre || tokens.colors?.heroPreText || tokens.colors?.heroHeadlinePre || ''}
                 onChange={(e) => updateToken('colors.heroPreText', e.target.value)}
                 className="w-24 bg-white border border-gray-100 rounded-lg px-2 py-1 text-[10px] font-mono text-gray-500"
               />
@@ -181,7 +181,7 @@ const GlobalSettings = ({ useContextHook }) => {
                 <input
                   type="color"
                   value={(() => {
-                    const value = overrideTokens.colors?.sectionHeadlineNormal || tokens.colors.sectionHeadlineNormal;
+                    const value = overrideTokens.colors?.sectionHeadlineNormal || tokens.colors?.sectionHeadlineNormal;
                     return value && value.startsWith('#') ? value : '#1f2937';
                   })()}
                   onChange={(e) => updateToken('colors.sectionHeadlineNormal', e.target.value)}
@@ -190,7 +190,7 @@ const GlobalSettings = ({ useContextHook }) => {
               </div>
               <input
                 type="text"
-                value={overrideTokens.colors?.sectionHeadlineNormal || tokens.colors.sectionHeadlineNormal}
+                value={overrideTokens.colors?.sectionHeadlineNormal || tokens.colors?.sectionHeadlineNormal || ''}
                 onChange={(e) => updateToken('colors.sectionHeadlineNormal', e.target.value)}
                 className="w-24 bg-white border border-gray-100 rounded-lg px-2 py-1 text-[10px] font-mono text-gray-500"
               />
@@ -203,7 +203,7 @@ const GlobalSettings = ({ useContextHook }) => {
                 <input
                   type="color"
                   value={(() => {
-                    const value = overrideTokens.colors?.sectionHeadlineHighlight || tokens.colors.sectionHeadlineHighlight || tokens.colors.sectionHeadlineNormal;
+                    const value = overrideTokens.colors?.sectionHeadlineHighlight || tokens.colors?.sectionHeadlineHighlight || tokens.colors?.sectionHeadlineNormal;
                     return value && value.startsWith('#') ? value : '#1f2937';
                   })()}
                   onChange={(e) => updateToken('colors.sectionHeadlineHighlight', e.target.value)}
@@ -212,7 +212,7 @@ const GlobalSettings = ({ useContextHook }) => {
               </div>
               <input
                 type="text"
-                value={overrideTokens.colors?.sectionHeadlineHighlight || tokens.colors.sectionHeadlineHighlight || tokens.colors.sectionHeadlineNormal}
+                value={overrideTokens.colors?.sectionHeadlineHighlight || tokens.colors?.sectionHeadlineHighlight || tokens.colors?.sectionHeadlineNormal || ''}
                 onChange={(e) => updateToken('colors.sectionHeadlineHighlight', e.target.value)}
                 className="w-24 bg-white border border-gray-100 rounded-lg px-2 py-1 text-[10px] font-mono text-gray-500"
               />
