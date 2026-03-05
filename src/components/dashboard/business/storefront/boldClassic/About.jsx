@@ -13,6 +13,9 @@ const About = () => {
 
   const primaryTextStyle = colors.primary.startsWith('#') ? { color: colors.primary } : {};
   const primaryBgStyle = colors.primary.startsWith('#') ? { backgroundColor: colors.primary } : {};
+  const sectionHeadlineNormalStyle = { color: colors.sectionHeadlineNormal };
+  const highlightColor = colors.sectionHeadlineHighlight || colors.sectionHeadlineNormal;
+  const sectionHeadlineHighlightStyle = { color: highlightColor };
   const imagePosition = content.imagePosition || 'right';
 
   const ImageSection = (
@@ -41,14 +44,15 @@ const About = () => {
             About Us
           </span>
         </div>
-        <h2 className={`${typography.scale.h2} ${typography.weights.black} text-${colors.textPrimary} ${typography.transform.uppercase} ${typography.lineHeights.tight} ${typography.fontPrimary}`}>
-          {content.titlePre}{' '}
-          <span
-            className={!colors.primary.startsWith('#') ? `text-${colors.primary}` : ''}
-            style={primaryTextStyle}
-          >
-            {content.titleHighlight}
-          </span>
+        <h2 className={`${typography.scale.h2} ${typography.weights.black} ${typography.transform.uppercase} ${typography.lineHeights.tight} ${typography.fontPrimary}`}>
+          {content.titleHighlight ? (
+            <>
+              <span style={sectionHeadlineNormalStyle}>{content.titlePre}</span>{' '}
+              <span style={sectionHeadlineHighlightStyle}>{content.titleHighlight}</span>
+            </>
+          ) : (
+            <span style={sectionHeadlineNormalStyle}>{content.titlePre}</span>
+          )}
         </h2>
       </div>
 

@@ -14,6 +14,9 @@ const FeaturedProducts = () => {
   const content = section?.content || {};
 
   const primaryStyle = colors.primary.startsWith('#') ? { color: colors.primary } : {};
+  const sectionHeadlineNormalStyle = { color: colors.sectionHeadlineNormal };
+  const highlightColor = colors.sectionHeadlineHighlight || colors.sectionHeadlineNormal;
+  const sectionHeadlineHighlightStyle = { color: highlightColor };
 
   // Get featured products
   const featuredProducts = products
@@ -29,8 +32,14 @@ const FeaturedProducts = () => {
         >
           {content.subtitle}
         </span>
-        <h2 className={`${typography.scale.h2} ${typography.weights.black} text-${colors.textPrimary} ${typography.transform.uppercase} ${typography.tracking.tighter} ${typography.fontPrimary}`}>
-          {content.titlePre} <span style={primaryStyle}>{content.titleHighlight}</span>
+        <h2 className={`${typography.scale.h2} ${typography.weights.black} ${typography.transform.uppercase} ${typography.tracking.tighter} ${typography.fontPrimary}`}>
+          {content.titleHighlight ? (
+            <>
+              <span style={sectionHeadlineNormalStyle}>{content.titlePre}</span> <span style={sectionHeadlineHighlightStyle}>{content.titleHighlight}</span>
+            </>
+          ) : (
+            <span style={sectionHeadlineNormalStyle}>{content.titlePre}</span>
+          )}
         </h2>
       </div>
       

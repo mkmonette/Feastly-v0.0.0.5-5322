@@ -16,6 +16,9 @@ const FeaturedProducts = () => {
   const primaryStyle = colors.primary.startsWith('#') ? { color: colors.primary } : {};
   const primaryBgStyle = colors.primary.startsWith('#') ? { backgroundColor: colors.primary } : {};
   const secondaryBgStyle = colors.secondary.startsWith('#') ? { backgroundColor: colors.secondary } : {};
+  const sectionHeadlineNormalStyle = { color: colors.sectionHeadlineNormal };
+  const highlightColor = colors.sectionHeadlineHighlight || colors.sectionHeadlineNormal;
+  const sectionHeadlineHighlightStyle = { color: highlightColor };
 
   const featuredProducts = products
     .filter(p => p.flags?.featured && p.status === 'Active')
@@ -34,13 +37,14 @@ const FeaturedProducts = () => {
             </span>
           </div>
           <h2 className={`${typography.scale.h2} ${typography.weights.black} ${typography.transform.uppercase} ${typography.lineHeights.tight} ${typography.fontPrimary}`}>
-            {content.titlePre}{' '}
-            <span
-              className={!colors.primary.startsWith('#') ? `text-${colors.primary}` : ''}
-              style={primaryStyle}
-            >
-              {content.titleHighlight}
-            </span>
+            {content.titleHighlight ? (
+              <>
+                <span style={sectionHeadlineNormalStyle}>{content.titlePre}</span>{' '}
+                <span style={sectionHeadlineHighlightStyle}>{content.titleHighlight}</span>
+              </>
+            ) : (
+              <span style={sectionHeadlineNormalStyle}>{content.titlePre}</span>
+            )}
           </h2>
         </div>
 

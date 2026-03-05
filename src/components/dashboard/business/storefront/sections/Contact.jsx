@@ -14,6 +14,9 @@ const Contact = () => {
   const primaryStyle = colors.primary.startsWith('#') ? { color: colors.primary } : {};
   const primaryBgStyle = colors.primary.startsWith('#') ? { backgroundColor: colors.primary + '20' } : {};
   const secondaryBgStyle = colors.secondary.startsWith('#') ? { backgroundColor: colors.secondary } : {};
+  const sectionHeadlineNormalStyle = { color: colors.sectionHeadlineNormal };
+  const highlightColor = colors.sectionHeadlineHighlight || colors.sectionHeadlineNormal;
+  const sectionHeadlineHighlightStyle = { color: highlightColor };
 
   return (
     <section className={`${layout.sectionPaddingLarge} ${layout.horizontalPadding} bg-${colors.background} ${typography.fontSecondary}`}>
@@ -25,8 +28,14 @@ const Contact = () => {
           >
             {content.subtitle}
           </span>
-          <h2 className={`${typography.scale.h2} ${typography.weights.black} text-${colors.textPrimary} ${typography.transform.uppercase} ${typography.tracking.tighter} mb-4 ${typography.fontPrimary}`}>
-            {content.titlePre} <span style={primaryStyle}>{content.titleHighlight}</span>
+          <h2 className={`${typography.scale.h2} ${typography.weights.black} ${typography.transform.uppercase} ${typography.tracking.tighter} mb-4 ${typography.fontPrimary}`}>
+            {content.titleHighlight ? (
+              <>
+                <span style={sectionHeadlineNormalStyle}>{content.titlePre}</span> <span style={sectionHeadlineHighlightStyle}>{content.titleHighlight}</span>
+              </>
+            ) : (
+              <span style={sectionHeadlineNormalStyle}>{content.titlePre}</span>
+            )}
           </h2>
           <p className={`text-${colors.textMuted} ${typography.scale.body} mb-8`}>
             {content.description}

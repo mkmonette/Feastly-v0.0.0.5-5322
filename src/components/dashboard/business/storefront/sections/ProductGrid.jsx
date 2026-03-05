@@ -16,6 +16,9 @@ const ProductGrid = () => {
 
   const primaryStyle = colors.primary.startsWith('#') ? { color: colors.primary } : {};
   const secondaryBgStyle = colors.secondary.startsWith('#') ? { backgroundColor: colors.secondary } : {};
+  const sectionHeadlineNormalStyle = { color: colors.sectionHeadlineNormal };
+  const highlightColor = colors.sectionHeadlineHighlight || colors.sectionHeadlineNormal;
+  const sectionHeadlineHighlightStyle = { color: highlightColor };
 
   // Filter products based on active category
   const filteredProducts = products.filter(product => {
@@ -35,8 +38,14 @@ const ProductGrid = () => {
           >
             {content.subtitle}
           </span>
-          <h2 className={`${typography.scale.h2} ${typography.weights.black} text-${colors.textPrimary} ${typography.transform.uppercase} ${typography.tracking.tighter} ${typography.lineHeights.none} ${typography.fontPrimary}`}>
-            {content.titlePre} <span style={primaryStyle}>{content.titleHighlight}</span>
+          <h2 className={`${typography.scale.h2} ${typography.weights.black} ${typography.transform.uppercase} ${typography.tracking.tighter} ${typography.lineHeights.none} ${typography.fontPrimary}`}>
+            {content.titleHighlight ? (
+              <>
+                <span style={sectionHeadlineNormalStyle}>{content.titlePre}</span> <span style={sectionHeadlineHighlightStyle}>{content.titleHighlight}</span>
+              </>
+            ) : (
+              <span style={sectionHeadlineNormalStyle}>{content.titlePre}</span>
+            )}
           </h2>
         </div>
         <div className="flex gap-4 overflow-x-auto no-scrollbar pb-2">

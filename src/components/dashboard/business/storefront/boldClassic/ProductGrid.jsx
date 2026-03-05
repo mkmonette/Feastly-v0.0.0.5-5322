@@ -15,6 +15,9 @@ const ProductGrid = () => {
 
   const primaryStyle = colors.primary.startsWith('#') ? { color: colors.primary } : {};
   const primaryBgStyle = colors.primary.startsWith('#') ? { backgroundColor: colors.primary } : {};
+  const sectionHeadlineNormalStyle = { color: colors.sectionHeadlineNormal };
+  const highlightColor = colors.sectionHeadlineHighlight || colors.sectionHeadlineNormal;
+  const sectionHeadlineHighlightStyle = { color: highlightColor };
 
   const activeProducts = products.filter(p => p.status === 'Active').slice(0, 6);
 
@@ -22,14 +25,15 @@ const ProductGrid = () => {
     <section className={`${layout.sectionPaddingLarge} bg-${colors.background} ${layout.horizontalPadding}`}>
       <div className={`${layout.container} ${layout.containerWidth}`}>
         <div className="text-center mb-20">
-          <h2 className={`${typography.scale.h2} ${typography.weights.black} text-${colors.textPrimary} ${typography.transform.uppercase} mb-8 ${typography.fontPrimary}`}>
-            {content.titlePre}{' '}
-            <span
-              className={!colors.primary.startsWith('#') ? `text-${colors.primary}` : ''}
-              style={primaryStyle}
-            >
-              {content.titleHighlight}
-            </span>
+          <h2 className={`${typography.scale.h2} ${typography.weights.black} ${typography.transform.uppercase} mb-8 ${typography.fontPrimary}`}>
+            {content.titleHighlight ? (
+              <>
+                <span style={sectionHeadlineNormalStyle}>{content.titlePre}</span>{' '}
+                <span style={sectionHeadlineHighlightStyle}>{content.titleHighlight}</span>
+              </>
+            ) : (
+              <span style={sectionHeadlineNormalStyle}>{content.titlePre}</span>
+            )}
           </h2>
           <div className={`w-32 h-2 bg-${colors.primary} mx-auto`} style={primaryBgStyle} />
         </div>

@@ -11,6 +11,9 @@ const About = () => {
   const primaryStyle = colors.primary.startsWith('#') ? { color: colors.primary } : {};
   const primaryBgStyle = colors.primary.startsWith('#') ? { backgroundColor: colors.primary + '20' } : {};
   const borderStyle = colors.primary.startsWith('#') ? { borderColor: colors.primary } : {};
+  const sectionHeadlineNormalStyle = { color: colors.sectionHeadlineNormal };
+  const highlightColor = colors.sectionHeadlineHighlight || colors.sectionHeadlineNormal;
+  const sectionHeadlineHighlightStyle = { color: highlightColor };
 
   return (
     <section className={`${layout.sectionPaddingLarge} ${layout.horizontalPadding} bg-${colors.background} ${typography.fontSecondary}`}>
@@ -44,9 +47,16 @@ const About = () => {
               className={`text-${colors.primary} ${typography.weights.black} ${typography.transform.uppercase} ${typography.tracking.widest} ${typography.scale.h4} mb-4 block ${typography.fontPrimary}`}
               style={primaryStyle}
             >Our Story</span>
-            <h2 className={`${typography.scale.h2} ${typography.weights.black} text-${colors.textPrimary} ${typography.lineHeights.tight} ${typography.transform.uppercase} ${typography.tracking.tighter} mb-8 ${typography.fontPrimary}`}>
-              {content.titlePre} <br />
-              <span style={primaryStyle}>{content.titleHighlight}</span>
+            <h2 className={`${typography.scale.h2} ${typography.weights.black} ${typography.lineHeights.tight} ${typography.transform.uppercase} ${typography.tracking.tighter} mb-8 ${typography.fontPrimary}`}>
+              {content.titleHighlight ? (
+                <>
+                  <span style={sectionHeadlineNormalStyle}>{content.titlePre}</span>
+                  <br />
+                  <span style={sectionHeadlineHighlightStyle}>{content.titleHighlight}</span>
+                </>
+              ) : (
+                <span style={sectionHeadlineNormalStyle}>{content.titlePre}</span>
+              )}
             </h2>
             <p className={`text-gray-600 ${typography.scale.body} ${typography.lineHeights.relaxed} mb-12 text-left`}>
               {content.description}
