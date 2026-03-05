@@ -13,7 +13,8 @@ const Gallery = () => {
   const primaryStyle = colors.primary.startsWith('#') ? { color: colors.primary } : {};
   const primaryBgStyle = colors.primary.startsWith('#') ? { backgroundColor: colors.primary } : {};
   const sectionHeadlineNormalStyle = { color: colors.sectionHeadlineNormal };
-  const sectionHeadlineHighlightStyle = { color: colors.sectionHeadlineHighlight };
+  const highlightColor = colors.sectionHeadlineHighlight || colors.sectionHeadlineNormal;
+  const sectionHeadlineHighlightStyle = { color: highlightColor };
 
   const defaultImages = [
     "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800",
@@ -32,11 +33,8 @@ const Gallery = () => {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-20 gap-8">
           <div className="text-left">
             <h2 className={`${typography.scale.h2} ${typography.weights.black} ${typography.transform.uppercase} ${typography.fontPrimary}`}>
-              {content.titlePre}{' '}
-              <span
-                className={!colors.primary.startsWith('#') ? `text-${colors.primary}` : ''}
-                style={primaryStyle}
-              >
+              <span style={sectionHeadlineNormalStyle}>{content.titlePre}</span>{' '}
+              <span style={sectionHeadlineHighlightStyle}>
                 {content.titleHighlight}
               </span>
             </h2>

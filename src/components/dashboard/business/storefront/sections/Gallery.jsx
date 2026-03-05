@@ -19,7 +19,8 @@ const Gallery = () => {
 
   const primaryStyle = colors.primary.startsWith('#') ? { color: colors.primary } : {};
   const sectionHeadlineNormalStyle = { color: colors.sectionHeadlineNormal };
-  const sectionHeadlineHighlightStyle = { color: colors.sectionHeadlineHighlight };
+  const highlightColor = colors.sectionHeadlineHighlight || colors.sectionHeadlineNormal;
+  const sectionHeadlineHighlightStyle = { color: highlightColor };
 
   return (
     <section className={`${layout.sectionPaddingLarge} ${layout.horizontalPadding} bg-${colors.surface}`}>

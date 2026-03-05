@@ -15,7 +15,8 @@ const HeaderHero = () => {
   const primaryStyle = colors.primary.startsWith('#') ? { backgroundColor: colors.primary } : {};
   const primaryTextStyle = colors.primary.startsWith('#') ? { color: colors.primary } : {};
   const secondaryButtonStyle = colors.secondary.startsWith('#') ? { backgroundColor: colors.secondary } : {};
-  const heroPreStyle = { color: colors.heroHeadlinePre };
+  const heroPreTextColor = colors.heroPreText || colors.heroHeadlinePre || colors.primary;
+  const heroPreStyle = { color: heroPreTextColor };
 
   const showButton1 = heroContent.showButton1 !== false;
   const showButton2 = heroContent.showButton2 !== false;

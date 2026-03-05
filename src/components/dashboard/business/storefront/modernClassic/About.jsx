@@ -13,7 +13,8 @@ const About = () => {
 
   const primaryTextStyle = colors.primary.startsWith('#') ? { color: colors.primary } : {};
   const sectionHeadlineNormalStyle = { color: colors.sectionHeadlineNormal };
-  const sectionHeadlineHighlightStyle = { color: colors.sectionHeadlineHighlight };
+  const highlightColor = colors.sectionHeadlineHighlight || colors.sectionHeadlineNormal;
+  const sectionHeadlineHighlightStyle = { color: highlightColor };
   const imagePosition = content.imagePosition || 'left';
 
   const ImageSection = (

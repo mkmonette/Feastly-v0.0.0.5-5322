@@ -13,7 +13,8 @@ const Testimonials = () => {
   const primaryStyle = colors.primary.startsWith('#') ? { color: colors.primary } : {};
   const primaryBgStyle = colors.primary.startsWith('#') ? { backgroundColor: colors.primary } : {};
   const sectionHeadlineNormalStyle = { color: colors.sectionHeadlineNormal };
-  const sectionHeadlineHighlightStyle = { color: colors.sectionHeadlineHighlight };
+  const highlightColor = colors.sectionHeadlineHighlight || colors.sectionHeadlineNormal;
+  const sectionHeadlineHighlightStyle = { color: highlightColor };
 
   const defaultTestimonials = [
     {
@@ -59,12 +60,9 @@ const Testimonials = () => {
               {content.subtitle || 'Testimonials'}
             </span>
           </div>
-          <h2 className={`${typography.scale.h2} ${typography.weights.black} text-${colors.textPrimary} ${typography.transform.uppercase} ${typography.fontPrimary}`}>
-            {content.titlePre}{' '}
-            <span
-              className={!colors.primary.startsWith('#') ? `text-${colors.primary}` : ''}
-              style={primaryStyle}
-            >
+          <h2 className={`${typography.scale.h2} ${typography.weights.black} ${typography.transform.uppercase} ${typography.fontPrimary}`}>
+            <span style={sectionHeadlineNormalStyle}>{content.titlePre}</span>{' '}
+            <span style={sectionHeadlineHighlightStyle}>
               {content.titleHighlight}
             </span>
           </h2>

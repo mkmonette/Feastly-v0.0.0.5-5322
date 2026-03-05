@@ -14,7 +14,8 @@ const CTABanner = () => {
   const primaryBgStyle = colors.primary.startsWith('#') ? { backgroundColor: colors.primary } : {};
   const secondaryBgStyle = colors.secondary.startsWith('#') ? { backgroundColor: colors.secondary } : {};
   const sectionHeadlineNormalStyle = { color: colors.sectionHeadlineNormal };
-  const sectionHeadlineHighlightStyle = { color: colors.sectionHeadlineHighlight };
+  const highlightColor = colors.sectionHeadlineHighlight || colors.sectionHeadlineNormal;
+  const sectionHeadlineHighlightStyle = { color: highlightColor };
 
   return (
     <section className={`${layout.sectionPaddingLarge} bg-${colors.textPrimary} text-white ${layout.horizontalPadding} relative overflow-hidden`}>
@@ -41,11 +42,8 @@ const CTABanner = () => {
             <div>
               <div className={`w-24 h-2 bg-${colors.primary} mb-8`} style={primaryBgStyle} />
               <h2 className={`${typography.scale.h2} ${typography.weights.black} ${typography.transform.uppercase} ${typography.lineHeights.tight} ${typography.fontPrimary}`}>
-                {content.titlePre}{' '}
-                <span
-                  className={!colors.primary.startsWith('#') ? `text-${colors.primary}` : ''}
-                  style={primaryStyle}
-                >
+                <span style={sectionHeadlineNormalStyle}>{content.titlePre}</span>{' '}
+                <span style={sectionHeadlineHighlightStyle}>
                   {content.titleHighlight}
                 </span>
               </h2>
