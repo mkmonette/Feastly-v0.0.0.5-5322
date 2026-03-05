@@ -30,6 +30,6 @@ export const useStorefront = () => {
   }
   return {
     sectionsConfig: context.sectionsConfig,
-    updateSectionContent: context.updateSectionContent,
+    updateSection: context.updateSection,
   };
 };

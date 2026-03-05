@@ -1,5 +1,4 @@
 import React from 'react';
-import { ElegantClassicProvider } from './ElegantClassicContext';
 import HeaderHero from './HeaderHero';
 import About from './About';
 import FeaturedProducts from './FeaturedProducts';
@@ -9,36 +8,107 @@ import Testimonials from './Testimonials';
 import CTABanner from './CTABanner';
 import Contact from './Contact';
 import Footer from './Footer';
+import { useStorefront } from './contextBridge';
 
-const ElegantClassicRenderer = ({ tokens, businessData, sectionsConfig, updateSectionContent }) => {
-  const sectionComponents = {
-    hero: HeaderHero,
-    about: About,
-    featured: FeaturedProducts,
-    products: ProductGrid,
-    gallery: Gallery,
-    testimonials: Testimonials,
-    cta: CTABanner,
-    contact: Contact,
-    footer: Footer,
+function compare(a, operator, b) {
+  switch (operator) {
+    case ">": return a > b;
+    case "<": return a < b;
+    case "=":
+    case "equals": return a === b;
+    case "!=":
+    case "not_equals": return a !== b;
+    case ">=": return a >= b;
+    case "<=": return a <= b;
+    default: return false;
+  }
+}
+
+function evaluateConditions(conditions, context) {
+  if (!conditions || conditions.length === 0) return true;
+
+  return conditions.every(condition => {
+    switch (condition.type) {
+      case "auth":
+        return compare(context.userStatus, condition.operator || 'equals', condition.value);
+      case "cart_item_count":
+        return compare(context.cartItemCount, condition.operator, condition.value);
+      default:
+        return true;
+    }
+  });
+}
+
+const SectionWrapper = ({ sectionId, children }) => {
+  const { sectionsConfig } = useStorefront();
+  const section = sectionsConfig.find(s => s.id === sectionId);
+
+  if (!section || !section.visibility?.enabled) return null;
+
+  const context = {
+    userStatus: 'guest',
+    cartItemCount: 0
   };
 
-  const visibleSections = sectionsConfig.filter(section => section.visible !== false);
+  if (!evaluateConditions(section.visibility.conditions, context)) {
+    return null;
+  }
+
+  const devices = section.visibility.devices || ['desktop', 'mobile'];
+  const hideOnMobile = !devices.includes('mobile');
+  const hideOnDesktop = !devices.includes('desktop');
+
+  const visibilityClasses = [
+    hideOnMobile ? 'hidden md:block' : '',
+    hideOnDesktop ? 'md:hidden' : '',
+  ].filter(Boolean).join(' ');
 
   return (
-    <ElegantClassicProvider
-      tokens={tokens}
-      businessData={businessData}
-      sectionsConfig={sectionsConfig}
-      updateSectionContent={updateSectionContent}
-    >
-      <div className="elegant-classic-template">
-        {visibleSections.map((section) => {
-          const SectionComponent = sectionComponents[section.id];
-          return SectionComponent ? <SectionComponent key={section.id} /> : null;
-        })}
-      </div>
-    </ElegantClassicProvider>
+    <div className={visibilityClasses}>
+      {children}
+    </div>
+  );
+};
+
+const ElegantClassicRenderer = () => {
+  return (
+    <div className="w-full bg-white">
+      <SectionWrapper sectionId="hero">
+        <HeaderHero />
+      </SectionWrapper>
+
+      <SectionWrapper sectionId="about">
+        <About />
+      </SectionWrapper>
+
+      <SectionWrapper sectionId="featured">
+        <FeaturedProducts />
+      </SectionWrapper>
+
+      <SectionWrapper sectionId="products">
+        <ProductGrid />
+      </SectionWrapper>
+
+      <SectionWrapper sectionId="gallery">
+        <Gallery />
+      </SectionWrapper>
+
+      <SectionWrapper sectionId="testimonials">
+        <Testimonials />
+      </SectionWrapper>
+
+      <SectionWrapper sectionId="cta">
+        <CTABanner />
+      </SectionWrapper>
+
+      <SectionWrapper sectionId="contact">
+        <Contact />
+      </SectionWrapper>
+
+      <SectionWrapper sectionId="footer">
+        <Footer />
+      </SectionWrapper>
+    </div>
   );
 };
 
