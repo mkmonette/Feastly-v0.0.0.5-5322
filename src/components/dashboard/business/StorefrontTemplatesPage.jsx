@@ -140,6 +140,15 @@ const StorefrontTemplatesPage = () => {
               ProviderComponent={ElegantClassicProvider}
               RendererComponent={ElegantClassicRenderer}
             />
+            <TemplatePreviewCard
+              categoryId="classic"
+              templateSlug="warm-culinary"
+              title="Warm Culinary"
+              label="Classic"
+              description="A warm, inviting design with rounded cards, elegant serif typography, and cozy beige tones perfect for culinary businesses."
+              ProviderComponent={WarmCulinaryProvider}
+              RendererComponent={WarmCulinaryRenderer}
+            />
           </div>
         ) : activeTab === 'modern' ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -151,15 +160,6 @@ const StorefrontTemplatesPage = () => {
               description="A modern food ordering layout with content on the left and a full-height cart panel on the right."
               ProviderComponent={ModernSplitStorefrontProvider}
               RendererComponent={ModernSplitRenderer}
-            />
-            <TemplatePreviewCard
-              categoryId="modern"
-              templateSlug="warm-culinary"
-              title="Warm Culinary"
-              label="Modern"
-              description="A warm, inviting design with rounded cards, elegant serif typography, and cozy beige tones perfect for culinary businesses."
-              ProviderComponent={WarmCulinaryProvider}
-              RendererComponent={WarmCulinaryRenderer}
             />
           </div>
         ) : activeTab === 'mobile' ? (
