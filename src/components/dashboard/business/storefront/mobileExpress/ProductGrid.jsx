@@ -31,48 +31,44 @@ const ProductGrid = () => {
         )}
       </div>
 
-      <div className="space-y-4 max-w-2xl mx-auto">
+      <div className="grid grid-cols-2 gap-3">
         {products.map(product => (
           <div
             key={product.id}
-            className={`${tokens.layout.borderRadius.card} overflow-hidden ${tokens.effects.shadow.card}`}
+            className={`${tokens.layout.borderRadius.card} overflow-hidden ${tokens.effects.shadow.card} flex flex-col`}
             style={{
               backgroundColor: tokens.colors.cardBackground,
               border: `1px solid ${tokens.colors.border}`
             }}
           >
-            <div className="flex gap-4 p-4">
-              <div className={`flex-shrink-0 w-24 h-24 ${tokens.layout.borderRadius.image} overflow-hidden`}>
-                <img
-                  src={product.image || 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg'}
-                  alt={product.name}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              <div className="flex-1 min-w-0">
-                <h3
-                  className="text-base font-black mb-1 truncate"
-                  style={{ color: tokens.colors.primaryText }}
-                >
-                  {product.name}
-                </h3>
-                <p className="text-xs text-gray-600 mb-2 line-clamp-2">
-                  {product.description || 'Delicious and freshly made'}
-                </p>
-                <span
-                  className="text-xl font-black"
-                  style={{ color: tokens.colors.primary }}
-                >
-                  {formatCurrency(product.price)}
-                </span>
-              </div>
+            <div className={`w-full aspect-square ${tokens.layout.borderRadius.image} overflow-hidden`}>
+              <img
+                src={product.image || 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg'}
+                alt={product.name}
+                className="w-full h-full object-cover"
+              />
             </div>
 
-            <div className="px-4 pb-4">
+            <div className="p-3 flex-1 flex flex-col">
+              <h3
+                className="text-sm font-black mb-1 line-clamp-2"
+                style={{ color: tokens.colors.primaryText }}
+              >
+                {product.name}
+              </h3>
+              <p className="text-xs text-gray-600 mb-2 line-clamp-2 flex-1">
+                {product.description || 'Delicious and freshly made'}
+              </p>
+              <span
+                className="text-lg font-black mb-2"
+                style={{ color: tokens.colors.primary }}
+              >
+                {formatCurrency(product.price)}
+              </span>
+
               <button
                 onClick={() => addToCart(product)}
-                className={`w-full py-4 ${tokens.layout.borderRadius.button} font-black text-sm flex items-center justify-center gap-2 transition-all hover:scale-105 active:scale-95 ${tokens.effects.shadow.button}`}
+                className={`w-full py-3 ${tokens.layout.borderRadius.button} font-bold text-xs flex items-center justify-center gap-1.5 transition-all hover:scale-105 active:scale-95 ${tokens.effects.shadow.button}`}
                 style={{
                   backgroundColor: tokens.colors.primary,
                   color: tokens.colors.cartButtonText

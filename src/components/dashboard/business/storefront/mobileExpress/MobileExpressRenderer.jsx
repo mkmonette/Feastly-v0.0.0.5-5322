@@ -75,52 +75,54 @@ const SectionWrapper = ({ sectionId, children }) => {
 
 const MobileExpressRenderer = () => {
   return (
-    <div className="w-full bg-white relative">
-      <SectionWrapper sectionId="header">
-        <Header />
-      </SectionWrapper>
+    <div className="w-full bg-white relative flex justify-center">
+      <div className="w-full max-w-[420px]">
+        <SectionWrapper sectionId="header">
+          <Header />
+        </SectionWrapper>
 
-      <SectionWrapper sectionId="hero">
-        <Hero />
-      </SectionWrapper>
+        <SectionWrapper sectionId="hero">
+          <Hero />
+        </SectionWrapper>
 
-      <SectionWrapper sectionId="categories">
-        <CategoryTabs />
-      </SectionWrapper>
+        <SectionWrapper sectionId="categories">
+          <CategoryTabs />
+        </SectionWrapper>
 
-      <SectionWrapper sectionId="featured">
-        <FeaturedProducts />
-      </SectionWrapper>
+        <SectionWrapper sectionId="featured">
+          <FeaturedProducts />
+        </SectionWrapper>
 
-      <SectionWrapper sectionId="products">
-        <ProductGrid />
-      </SectionWrapper>
+        <SectionWrapper sectionId="products">
+          <ProductGrid />
+        </SectionWrapper>
 
-      <SectionWrapper sectionId="banner">
-        <Banner />
-      </SectionWrapper>
+        <SectionWrapper sectionId="banner">
+          <Banner />
+        </SectionWrapper>
 
-      <SectionWrapper sectionId="gallery">
-        <Gallery />
-      </SectionWrapper>
+        <SectionWrapper sectionId="gallery">
+          <Gallery />
+        </SectionWrapper>
 
-      <SectionWrapper sectionId="testimonials">
-        <Testimonials />
-      </SectionWrapper>
+        <SectionWrapper sectionId="testimonials">
+          <Testimonials />
+        </SectionWrapper>
 
-      <SectionWrapper sectionId="cta">
-        <CTABanner />
-      </SectionWrapper>
+        <SectionWrapper sectionId="cta">
+          <CTABanner />
+        </SectionWrapper>
 
-      <SectionWrapper sectionId="contact">
-        <Contact />
-      </SectionWrapper>
+        <SectionWrapper sectionId="contact">
+          <Contact />
+        </SectionWrapper>
 
-      <SectionWrapper sectionId="footer">
-        <Footer />
-      </SectionWrapper>
+        <SectionWrapper sectionId="footer">
+          <Footer />
+        </SectionWrapper>
 
-      <CartDrawer />
+        <CartDrawer />
+      </div>
     </div>
   );
 };

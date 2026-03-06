@@ -9,7 +9,7 @@ const CategoryTabs = () => {
 
   return (
     <div className="sticky top-[73px] z-40 bg-white shadow-sm py-3 overflow-x-auto">
-      <div className="flex gap-2 px-4 min-w-max">
+      <div className="flex gap-2 px-4 justify-center">
         {categories.map(category => {
           const categoryId = category.toLowerCase();
           const isActive = activeCategory === categoryId;
