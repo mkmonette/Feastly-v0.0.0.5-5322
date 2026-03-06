@@ -19,6 +19,8 @@ import WarmCulinaryRenderer from './storefront/warmCulinary/WarmCulinaryRenderer
 import { WarmCulinaryProvider } from './storefront/warmCulinary/WarmCulinaryContext';
 import MinimalRecipeRenderer from './storefront/minimalRecipe/MinimalRecipeRenderer';
 import { MinimalRecipeProvider } from './storefront/minimalRecipe/MinimalRecipeContext';
+import FreshCartRenderer from './storefront/freshCart/FreshCartRenderer';
+import { FreshCartProvider } from './storefront/freshCart/FreshCartContext';
 
 const CATEGORIES = [
   { id: 'classic', label: 'Classic' },
@@ -171,6 +173,15 @@ const StorefrontTemplatesPage = () => {
               description="A clean, minimalist design with serif typography, rounded cards, and soft neutrals inspired by modern recipe cards."
               ProviderComponent={MinimalRecipeProvider}
               RendererComponent={MinimalRecipeRenderer}
+            />
+            <TemplatePreviewCard
+              categoryId="modern"
+              templateSlug="fresh-cart"
+              title="Fresh Cart"
+              label="Modern"
+              description="A vibrant 2-column template with teal accents, left content area, and fixed right cart panel with rounded product cards."
+              ProviderComponent={FreshCartProvider}
+              RendererComponent={FreshCartRenderer}
             />
           </div>
         ) : activeTab === 'mobile' ? (
