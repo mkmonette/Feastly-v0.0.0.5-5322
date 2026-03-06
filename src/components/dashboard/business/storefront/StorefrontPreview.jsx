@@ -16,6 +16,8 @@ import QuickOrderRenderer from './quickOrder/QuickOrderRenderer';
 import { QuickOrderProvider } from './quickOrder/QuickOrderContext';
 import WarmCulinaryRenderer from './warmCulinary/WarmCulinaryRenderer';
 import { WarmCulinaryProvider } from './warmCulinary/WarmCulinaryContext';
+import MinimalRecipeRenderer from './minimalRecipe/MinimalRecipeRenderer';
+import { MinimalRecipeProvider } from './minimalRecipe/MinimalRecipeContext';
 
 const TEMPLATE_CONFIG = {
   'base-classic': {
@@ -37,6 +39,10 @@ const TEMPLATE_CONFIG = {
   'warm-culinary': {
     Provider: WarmCulinaryProvider,
     Renderer: WarmCulinaryRenderer
+  },
+  'minimal-recipe': {
+    Provider: MinimalRecipeProvider,
+    Renderer: MinimalRecipeRenderer
   },
   'mobile-express': {
     Provider: MobileExpressProvider,
