@@ -15,8 +15,6 @@ import MobileExpressRenderer from './storefront/mobileExpress/MobileExpressRende
 import { MobileExpressProvider } from './storefront/mobileExpress/MobileExpressContext';
 import QuickOrderRenderer from './storefront/quickOrder/QuickOrderRenderer';
 import { QuickOrderProvider } from './storefront/quickOrder/QuickOrderContext';
-import ModernCardRenderer from './storefront/modernCard/ModernCardRenderer';
-import { ModernCardProvider } from './storefront/modernCard/ModernCardContext';
 
 const CATEGORIES = [
   { id: 'classic', label: 'Classic' },
@@ -151,15 +149,6 @@ const StorefrontTemplatesPage = () => {
               description="A modern food ordering layout with content on the left and a full-height cart panel on the right."
               ProviderComponent={ModernSplitStorefrontProvider}
               RendererComponent={ModernSplitRenderer}
-            />
-            <TemplatePreviewCard
-              categoryId="modern"
-              templateSlug="modern-card"
-              title="Modern Card"
-              label="Modern"
-              description="Clean, elegant card-based design with rounded corners and minimal aesthetic, perfect for showcasing products in a sophisticated mobile-first layout."
-              ProviderComponent={ModernCardProvider}
-              RendererComponent={ModernCardRenderer}
             />
           </div>
         ) : activeTab === 'mobile' ? (

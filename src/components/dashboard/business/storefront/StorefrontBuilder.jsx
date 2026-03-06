@@ -15,8 +15,6 @@ import MobileExpressRenderer from './mobileExpress/MobileExpressRenderer';
 import { MobileExpressProvider, useMobileExpress } from './mobileExpress/MobileExpressContext';
 import QuickOrderRenderer from './quickOrder/QuickOrderRenderer';
 import { QuickOrderProvider, useQuickOrder } from './quickOrder/QuickOrderContext';
-import ModernCardRenderer from './modernCard/ModernCardRenderer';
-import { ModernCardProvider, useModernCard } from './modernCard/ModernCardContext';
 
 const TEMPLATE_CONFIG = {
   'base-classic': {
@@ -42,12 +40,6 @@ const TEMPLATE_CONFIG = {
     Renderer: ModernSplitRenderer,
     useContext: useModernSplitStorefront,
     title: 'Modern Split Template'
-  },
-  'modern-card': {
-    Provider: ModernCardProvider,
-    Renderer: ModernCardRenderer,
-    useContext: useModernCard,
-    title: 'Modern Card Template'
   },
   'mobile-express': {
     Provider: MobileExpressProvider,
