@@ -1,6 +1,5 @@
 import React from 'react';
-import { WarmCulinaryProvider } from './WarmCulinaryContext';
-import { useStorefront } from './contextBridge';
+import { WarmCulinaryProvider, useWarmCulinary } from './WarmCulinaryContext';
 import Header from './Header';
 import Hero from './Hero';
 import FeaturedProducts from './FeaturedProducts';
@@ -24,25 +23,27 @@ const sectionComponents = {
 };
 
 const WarmCulinaryContent = () => {
-  const { sectionsConfig } = useStorefront();
+  const { sectionsConfig } = useWarmCulinary();
   const enabledSections = sectionsConfig.filter(section => section.enabled);
 
   return (
-    <WarmCulinaryProvider>
-      <div className="w-full bg-white">
-        {enabledSections.map((section) => {
-          const Component = sectionComponents[section.id];
-          if (!Component) return null;
+    <div className="w-full bg-white">
+      {enabledSections.map((section) => {
+        const Component = sectionComponents[section.id];
+        if (!Component) return null;
 
-          return <Component key={section.id} />;
-        })}
-      </div>
-    </WarmCulinaryProvider>
+        return <Component key={section.id} />;
+      })}
+    </div>
   );
 };
 
 const WarmCulinaryRenderer = () => {
-  return <WarmCulinaryContent />;
+  return (
+    <WarmCulinaryProvider>
+      <WarmCulinaryContent />
+    </WarmCulinaryProvider>
+  );
 };
 
 export default WarmCulinaryRenderer;

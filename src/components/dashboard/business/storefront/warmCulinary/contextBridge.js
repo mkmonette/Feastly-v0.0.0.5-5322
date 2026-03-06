@@ -1,5 +1,5 @@
-import { useStorefront as useStorefrontOriginal } from '../StorefrontContext';
+import { useWarmCulinary } from './WarmCulinaryContext';
 
 export const useStorefront = () => {
-  return useStorefrontOriginal();
+  return useWarmCulinary();
 };
