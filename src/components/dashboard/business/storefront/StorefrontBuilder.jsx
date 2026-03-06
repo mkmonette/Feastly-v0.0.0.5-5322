@@ -15,6 +15,8 @@ import MobileExpressRenderer from './mobileExpress/MobileExpressRenderer';
 import { MobileExpressProvider, useMobileExpress } from './mobileExpress/MobileExpressContext';
 import QuickOrderRenderer from './quickOrder/QuickOrderRenderer';
 import { QuickOrderProvider, useQuickOrder } from './quickOrder/QuickOrderContext';
+import WarmCulinaryRenderer from './warmCulinary/WarmCulinaryRenderer';
+import { WarmCulinaryProvider, useWarmCulinary } from './warmCulinary/WarmCulinaryContext';
 
 const TEMPLATE_CONFIG = {
   'base-classic': {
@@ -40,6 +42,12 @@ const TEMPLATE_CONFIG = {
     Renderer: ModernSplitRenderer,
     useContext: useModernSplitStorefront,
     title: 'Modern Split Template'
+  },
+  'warm-culinary': {
+    Provider: WarmCulinaryProvider,
+    Renderer: WarmCulinaryRenderer,
+    useContext: useWarmCulinary,
+    title: 'Warm Culinary Template'
   },
   'mobile-express': {
     Provider: MobileExpressProvider,
