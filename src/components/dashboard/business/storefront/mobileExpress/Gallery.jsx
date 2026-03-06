@@ -27,7 +27,19 @@ const Gallery = () => {
         />
       </div>
 
-      <div className="flex gap-4 overflow-x-auto pb-2 snap-x snap-mandatory">
+      <style>{`
+        .gallery-scroll::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
+      <div
+        className="flex gap-4 overflow-x-auto pb-2 snap-x snap-mandatory gallery-scroll"
+        style={{
+          scrollbarWidth: 'none',
+          msOverflowStyle: 'none',
+          WebkitOverflowScrolling: 'touch'
+        }}
+      >
         {images.map((image, index) => (
           <div
             key={index}

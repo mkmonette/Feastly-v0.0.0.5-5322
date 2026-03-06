@@ -29,11 +29,23 @@ const Testimonials = () => {
         />
       </div>
 
-      <div className="space-y-4 max-w-2xl mx-auto">
+      <style>{`
+        .testimonials-scroll::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
+      <div
+        className="flex gap-4 overflow-x-auto pb-2 snap-x snap-mandatory testimonials-scroll"
+        style={{
+          scrollbarWidth: 'none',
+          msOverflowStyle: 'none',
+          WebkitOverflowScrolling: 'touch'
+        }}
+      >
         {testimonials.map((testimonial, index) => (
           <div
             key={index}
-            className={`${tokens.layout.borderRadius.card} p-6 ${tokens.effects.shadow.card}`}
+            className={`flex-shrink-0 w-80 ${tokens.layout.borderRadius.card} p-6 ${tokens.effects.shadow.card} snap-center`}
             style={{
               backgroundColor: tokens.colors.cardBackground,
               border: `1px solid ${tokens.colors.border}`
