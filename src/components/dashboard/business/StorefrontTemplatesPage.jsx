@@ -17,6 +17,8 @@ import QuickOrderRenderer from './storefront/quickOrder/QuickOrderRenderer';
 import { QuickOrderProvider } from './storefront/quickOrder/QuickOrderContext';
 import WarmCulinaryRenderer from './storefront/warmCulinary/WarmCulinaryRenderer';
 import { WarmCulinaryProvider } from './storefront/warmCulinary/WarmCulinaryContext';
+import MinimalRecipeRenderer from './storefront/minimalRecipe/MinimalRecipeRenderer';
+import { MinimalRecipeProvider } from './storefront/minimalRecipe/MinimalRecipeContext';
 
 const CATEGORIES = [
   { id: 'classic', label: 'Classic' },
@@ -160,6 +162,15 @@ const StorefrontTemplatesPage = () => {
               description="A modern food ordering layout with content on the left and a full-height cart panel on the right."
               ProviderComponent={ModernSplitStorefrontProvider}
               RendererComponent={ModernSplitRenderer}
+            />
+            <TemplatePreviewCard
+              categoryId="modern"
+              templateSlug="minimal-recipe"
+              title="Minimal Recipe"
+              label="Modern"
+              description="A clean, minimalist design with serif typography, rounded cards, and soft neutrals inspired by modern recipe cards."
+              ProviderComponent={MinimalRecipeProvider}
+              RendererComponent={MinimalRecipeRenderer}
             />
           </div>
         ) : activeTab === 'mobile' ? (
