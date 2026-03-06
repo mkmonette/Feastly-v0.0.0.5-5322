@@ -15,6 +15,8 @@ import MobileExpressRenderer from './storefront/mobileExpress/MobileExpressRende
 import { MobileExpressProvider } from './storefront/mobileExpress/MobileExpressContext';
 import QuickOrderRenderer from './storefront/quickOrder/QuickOrderRenderer';
 import { QuickOrderProvider } from './storefront/quickOrder/QuickOrderContext';
+import WarmCulinaryRenderer from './storefront/warmCulinary/WarmCulinaryRenderer';
+import { WarmCulinaryProvider } from './storefront/warmCulinary/WarmCulinaryContext';
 
 const CATEGORIES = [
   { id: 'classic', label: 'Classic' },
@@ -149,6 +151,15 @@ const StorefrontTemplatesPage = () => {
               description="A modern food ordering layout with content on the left and a full-height cart panel on the right."
               ProviderComponent={ModernSplitStorefrontProvider}
               RendererComponent={ModernSplitRenderer}
+            />
+            <TemplatePreviewCard
+              categoryId="modern"
+              templateSlug="warm-culinary"
+              title="Warm Culinary"
+              label="Modern"
+              description="A warm, inviting design with rounded cards, elegant serif typography, and cozy beige tones perfect for culinary businesses."
+              ProviderComponent={WarmCulinaryProvider}
+              RendererComponent={WarmCulinaryRenderer}
             />
           </div>
         ) : activeTab === 'mobile' ? (
