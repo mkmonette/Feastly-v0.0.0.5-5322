@@ -37,7 +37,7 @@ const CartPanel = () => {
           style={{
             fontSize: tokens.typography.fontSize.lg,
             fontWeight: tokens.typography.fontWeight.extrabold,
-            background: tokens.colors.gradients.hero,
+            background: tokens.colors.gradients.primary.css,
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
             backgroundClip: 'text',
@@ -246,7 +246,7 @@ const CartPanel = () => {
               style={{
                 fontSize: tokens.typography.fontSize.xl,
                 fontWeight: tokens.typography.fontWeight.extrabold,
-                background: tokens.colors.gradients.hero,
+                background: tokens.colors.gradients.primary.css,
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',

@@ -12,9 +12,21 @@ export const modernGradientTokens = {
       tertiary: '#A0AEC0'
     },
     gradients: {
-      hero: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-      card: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-      accent: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)'
+      primary: {
+        from: '#667eea',
+        to: '#764ba2',
+        css: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
+      },
+      secondary: {
+        from: '#f093fb',
+        to: '#f5576c',
+        css: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)'
+      },
+      accent: {
+        from: '#4facfe',
+        to: '#00f2fe',
+        css: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)'
+      }
     },
     cart: {
       background: '#FAFBFC',
@@ -86,7 +98,9 @@ export const modernGradientTokens = {
       borderBottom: '1px solid #E9ECEF'
     },
     hero: {
-      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+      get background() {
+        return modernGradientTokens.colors.gradients.primary.css;
+      },
       minHeight: '380px',
       padding: '3rem'
     },
@@ -102,7 +116,9 @@ export const modernGradientTokens = {
     },
     button: {
       primary: {
-        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+        get background() {
+          return modernGradientTokens.colors.gradients.primary.css;
+        },
         color: '#FFFFFF',
         borderRadius: '0.75rem',
         padding: '0.75rem 1.5rem',
@@ -122,7 +138,9 @@ export const modernGradientTokens = {
       background: '#FAFBFC',
       padding: '1.5rem',
       itemSpacing: '1rem',
-      checkoutButtonGradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
+      get checkoutButtonGradient() {
+        return modernGradientTokens.colors.gradients.primary.css;
+      }
     }
   }
 };
