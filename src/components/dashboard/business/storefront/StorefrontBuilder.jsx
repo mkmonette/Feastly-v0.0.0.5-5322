@@ -19,6 +19,10 @@ import WarmCulinaryRenderer from './warmCulinary/WarmCulinaryRenderer';
 import { WarmCulinaryProvider, useWarmCulinary } from './warmCulinary/WarmCulinaryContext';
 import MinimalRecipeRenderer from './minimalRecipe/MinimalRecipeRenderer';
 import { MinimalRecipeProvider, useMinimalRecipe } from './minimalRecipe/MinimalRecipeContext';
+import ModernMinimalRenderer from './modernMinimal/ModernMinimalRenderer';
+import { ModernMinimalProvider, useModernMinimal } from './modernMinimal/ModernMinimalContext';
+import ModernGradientRenderer from './modernGradient/ModernGradientRenderer';
+import { ModernGradientProvider, useModernGradient } from './modernGradient/ModernGradientContext';
 
 const TEMPLATE_CONFIG = {
   'base-classic': {
@@ -68,6 +72,18 @@ const TEMPLATE_CONFIG = {
     Renderer: QuickOrderRenderer,
     useContext: useQuickOrder,
     title: 'Quick Order Form Template'
+  },
+  'modern-minimal': {
+    Provider: ModernMinimalProvider,
+    Renderer: ModernMinimalRenderer,
+    useContext: useModernMinimal,
+    title: 'Modern Minimal Template'
+  },
+  'modern-gradient': {
+    Provider: ModernGradientProvider,
+    Renderer: ModernGradientRenderer,
+    useContext: useModernGradient,
+    title: 'Modern Gradient Template'
   }
 };
 
