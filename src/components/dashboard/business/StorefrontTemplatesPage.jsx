@@ -23,6 +23,8 @@ import MobileVisualMenuRenderer from './storefront/mobileVisualMenu/MobileVisual
 import { MobileVisualMenuProvider } from './storefront/mobileVisualMenu/MobileVisualMenuContext';
 import MobileCompactMenuRenderer from './storefront/mobileCompactMenu/MobileCompactMenuRenderer';
 import { MobileCompactMenuProvider } from './storefront/mobileCompactMenu/MobileCompactMenuContext';
+import MobileNativeRenderer from './storefront/mobileNative/MobileNativeRenderer';
+import { MobileNativeProvider } from './storefront/mobileNative/MobileNativeContext';
 
 const CATEGORIES = [
   { id: 'classic', label: 'Classic' },
@@ -205,6 +207,15 @@ const StorefrontTemplatesPage = () => {
               description="Space-efficient mobile template with compact list layout for quick browsing and fast ordering."
               ProviderComponent={MobileCompactMenuProvider}
               RendererComponent={MobileCompactMenuRenderer}
+            />
+            <TemplatePreviewCard
+              categoryId="mobile"
+              templateSlug="mobile-native"
+              title="Mobile Native"
+              label="Mobile"
+              description="iOS-inspired native app design with compact elements, search, and smooth interactions for app-like experience."
+              ProviderComponent={MobileNativeProvider}
+              RendererComponent={MobileNativeRenderer}
             />
           </div>
         ) : activeTab === 'ordering_form' ? (

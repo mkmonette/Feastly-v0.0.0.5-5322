@@ -23,6 +23,8 @@ import MobileVisualMenuRenderer from './mobileVisualMenu/MobileVisualMenuRendere
 import { MobileVisualMenuProvider, useMobileVisualMenu } from './mobileVisualMenu/MobileVisualMenuContext';
 import MobileCompactMenuRenderer from './mobileCompactMenu/MobileCompactMenuRenderer';
 import { MobileCompactMenuProvider, useMobileCompactMenu } from './mobileCompactMenu/MobileCompactMenuContext';
+import MobileNativeRenderer from './mobileNative/MobileNativeRenderer';
+import { MobileNativeProvider, useMobileNative } from './mobileNative/MobileNativeContext';
 
 const TEMPLATE_CONFIG = {
   'base-classic': {
@@ -78,6 +80,12 @@ const TEMPLATE_CONFIG = {
     Renderer: MobileCompactMenuRenderer,
     useContext: useMobileCompactMenu,
     title: 'Mobile Compact Menu Template'
+  },
+  'mobile-native': {
+    Provider: MobileNativeProvider,
+    Renderer: MobileNativeRenderer,
+    useContext: useMobileNative,
+    title: 'Mobile Native Template'
   },
   'quick-order': {
     Provider: QuickOrderProvider,
