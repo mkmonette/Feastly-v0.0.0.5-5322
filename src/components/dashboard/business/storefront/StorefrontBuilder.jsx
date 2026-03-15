@@ -23,12 +23,6 @@ import MobileCompactMenuRenderer from './mobileCompactMenu/MobileCompactMenuRend
 import { MobileCompactMenuProvider, useMobileCompactMenu } from './mobileCompactMenu/MobileCompactMenuContext';
 import MobileNativeRenderer from './mobileNative/MobileNativeRenderer';
 import { MobileNativeProvider, useMobileNative } from './mobileNative/MobileNativeContext';
-import BoldClassicRenderer from './boldClassic/BoldClassicRenderer';
-import { BoldClassicProvider, useBoldClassic } from './boldClassic/BoldClassicContext';
-import FreshCartRenderer from './freshCart/FreshCartRenderer';
-import { FreshCartProvider, useFreshCart } from './freshCart/FreshCartContext';
-import ModernGradientRenderer from './modernGradient/ModernGradientRenderer';
-import { ModernGradientProvider, useModernGradient } from './modernGradient/ModernGradientContext';
 
 const TEMPLATE_CONFIG = {
   'base-classic': {
@@ -42,24 +36,6 @@ const TEMPLATE_CONFIG = {
     Renderer: ModernClassicRenderer,
     useContext: useModernClassic,
     title: 'Modern Classic Template'
-  },
-  'bold-classic': {
-    Provider: BoldClassicProvider,
-    Renderer: BoldClassicRenderer,
-    useContext: useBoldClassic,
-    title: 'Bold Classic Template'
-  },
-  'fresh-cart': {
-    Provider: FreshCartProvider,
-    Renderer: FreshCartRenderer,
-    useContext: useFreshCart,
-    title: 'Fresh Cart Template'
-  },
-  'modern-gradient': {
-    Provider: ModernGradientProvider,
-    Renderer: ModernGradientRenderer,
-    useContext: useModernGradient,
-    title: 'Modern Gradient Template'
   },
   'modern-split': {
     Provider: ModernSplitStorefrontProvider,

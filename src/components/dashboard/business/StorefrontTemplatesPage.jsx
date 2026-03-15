@@ -23,12 +23,6 @@ import MobileCompactMenuRenderer from './storefront/mobileCompactMenu/MobileComp
 import { MobileCompactMenuProvider } from './storefront/mobileCompactMenu/MobileCompactMenuContext';
 import MobileNativeRenderer from './storefront/mobileNative/MobileNativeRenderer';
 import { MobileNativeProvider } from './storefront/mobileNative/MobileNativeContext';
-import BoldClassicRenderer from './storefront/boldClassic/BoldClassicRenderer';
-import { BoldClassicProvider } from './storefront/boldClassic/BoldClassicContext';
-import FreshCartRenderer from './storefront/freshCart/FreshCartRenderer';
-import { FreshCartProvider } from './storefront/freshCart/FreshCartContext';
-import ModernGradientRenderer from './storefront/modernGradient/ModernGradientRenderer';
-import { ModernGradientProvider } from './storefront/modernGradient/ModernGradientContext';
 
 const CATEGORIES = [
   { id: 'classic', label: 'Classic' },
@@ -142,33 +136,6 @@ const StorefrontTemplatesPage = () => {
               description="A contemporary take on classic design with split hero layout and horizontal product carousel."
               ProviderComponent={ModernClassicProvider}
               RendererComponent={ModernClassicRenderer}
-            />
-            <TemplatePreviewCard
-              categoryId="classic"
-              templateSlug="bold-classic"
-              title="Bold Classic"
-              label="Classic"
-              description="High contrast design with bold typography and striking aesthetics for maximum visual impact."
-              ProviderComponent={BoldClassicProvider}
-              RendererComponent={BoldClassicRenderer}
-            />
-            <TemplatePreviewCard
-              categoryId="classic"
-              templateSlug="fresh-cart"
-              title="Fresh Cart"
-              label="Classic"
-              description="Clean and bright product-focused design ideal for fresh produce and organic markets."
-              ProviderComponent={FreshCartProvider}
-              RendererComponent={FreshCartRenderer}
-            />
-            <TemplatePreviewCard
-              categoryId="classic"
-              templateSlug="modern-gradient"
-              title="Modern Gradient"
-              label="Classic"
-              description="Stylish gradients and modern aesthetics create a vibrant, contemporary dining experience."
-              ProviderComponent={ModernGradientProvider}
-              RendererComponent={ModernGradientRenderer}
             />
             <TemplatePreviewCard
               categoryId="classic"

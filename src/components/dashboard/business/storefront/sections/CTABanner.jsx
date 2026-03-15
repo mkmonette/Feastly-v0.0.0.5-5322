@@ -1,10 +1,9 @@
 import React from 'react';
 import { useStorefrontTokens, useStorefront } from '../StorefrontContext';
 
-const CTABanner = ({ useContext }) => {
-  const contextHook = useContext || useStorefront;
-  const { tokens, businessData, sectionsConfig } = contextHook();
-  const { typography, colors, layout } = tokens;
+const CTABanner = () => {
+  const { typography, colors, layout } = useStorefrontTokens();
+  const { sectionsConfig } = useStorefront();
 
   const section = sectionsConfig.find(s => s.id === 'cta');
   const content = section?.content || {};

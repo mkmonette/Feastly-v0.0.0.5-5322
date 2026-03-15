@@ -1,94 +1,146 @@
-const modernGradientTokens = {
-  typography: {
-    fontPrimary: 'font-sans',
-    fontSecondary: 'font-sans',
-    scale: {
-      h1: 'text-6xl md:text-8xl',
-      h2: 'text-4xl md:text-6xl',
-      h2_alt: 'text-3xl md:text-5xl',
-      h3: 'text-2xl',
-      h4: 'text-sm',
-      h4_xs: 'text-xs',
-      bodyLarge: 'text-xl',
-      bodyLarge_alt: 'text-lg',
-      body: 'text-base',
-      bodySmall: 'text-sm',
-      xs: 'text-[10px]',
-      xs_alt: 'text-xs',
+export const modernGradientTokens = {
+  colors: {
+    primary: '#FF6B6B',
+    secondary: '#4ECDC4',
+    accent: '#FFE66D',
+    background: '#FFFFFF',
+    surface: '#F8F9FA',
+    border: '#E9ECEF',
+    text: {
+      primary: '#2D3748',
+      secondary: '#718096',
+      tertiary: '#A0AEC0'
     },
-    weights: {
-      black: 'font-black',
-      extrabold: 'font-extrabold',
-      bold: 'font-bold',
-      semibold: 'font-semibold',
-      medium: 'font-medium',
-      normal: 'font-normal',
+    gradients: {
+      primary: {
+        from: '#667eea',
+        to: '#764ba2',
+        css: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
+      },
+      secondary: {
+        from: '#f093fb',
+        to: '#f5576c',
+        css: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)'
+      },
+      accent: {
+        from: '#4facfe',
+        to: '#00f2fe',
+        css: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)'
+      }
     },
-    tracking: {
-      tighter: 'tracking-tighter',
-      tight: 'tracking-tight',
-      normal: 'tracking-normal',
-      wide: 'tracking-wide',
-      widest: 'tracking-widest',
-    },
-    lineHeights: {
-      none: 'leading-none',
-      tight: 'leading-tight',
-      snug: 'leading-snug',
-      normal: 'leading-normal',
-      relaxed: 'leading-relaxed',
-      loose: 'leading-loose',
-    },
-    transform: {
-      uppercase: 'uppercase',
-      capitalize: 'capitalize',
-      none: 'normal-case',
+    cart: {
+      background: '#FAFBFC',
+      border: '#E9ECEF',
+      itemBg: '#FFFFFF'
     }
   },
-  colors: {
-    primary: '#EC4899',
-    primaryHover: '#DB2777',
-    primaryLight: '#FCE7F3',
-    primaryDim: 'rgba(236, 72, 153, 0.15)',
-    secondary: '#8B5CF6',
-    secondaryHover: '#7C3AED',
-    background: '#FFFFFF',
-    surface: '#FAFAFA',
-    surfaceAlt: '#F5F5F5',
-    textPrimary: '#0F172A',
-    textMuted: '#64748B',
-    textSubtle: '#94A3B8',
-    textInverse: '#FFFFFF',
-    textInverseMuted: '#E2E8F0',
-    border: '#F1F5F9',
-    borderLight: '#F8FAFC',
-    accent: '#EC4899',
-    heroPreText: '#EC4899',
-    heroHeadlinePre: '#0F172A',
-    heroHeadlineNormal: '#0F172A',
-    heroHeadlineHighlight: '#EC4899',
-    sectionHeadlineNormal: '#0F172A',
-    sectionHeadlineHighlight: '#EC4899',
+  typography: {
+    fontFamily: {
+      primary: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+      secondary: 'system-ui, sans-serif'
+    },
+    fontSize: {
+      xs: '0.75rem',
+      sm: '0.875rem',
+      base: '0.9375rem',
+      lg: '1rem',
+      xl: '1.125rem',
+      '2xl': '1.5rem',
+      '3xl': '2rem',
+      '4xl': '2.5rem'
+    },
+    fontWeight: {
+      normal: '400',
+      medium: '500',
+      semibold: '600',
+      bold: '700',
+      extrabold: '800'
+    },
+    lineHeight: {
+      tight: '1.2',
+      normal: '1.5',
+      relaxed: '1.75'
+    }
+  },
+  spacing: {
+    xs: '0.5rem',
+    sm: '0.75rem',
+    md: '1rem',
+    lg: '1.5rem',
+    xl: '2rem',
+    '2xl': '3rem',
+    '3xl': '4rem'
+  },
+  borderRadius: {
+    sm: '0.5rem',
+    md: '0.75rem',
+    lg: '1rem',
+    xl: '1.5rem',
+    full: '9999px'
+  },
+  shadows: {
+    sm: '0 1px 3px rgba(0, 0, 0, 0.05)',
+    md: '0 4px 8px rgba(0, 0, 0, 0.08)',
+    lg: '0 10px 20px rgba(0, 0, 0, 0.1)',
+    xl: '0 20px 40px rgba(0, 0, 0, 0.15)',
+    gradient: '0 8px 32px rgba(102, 126, 234, 0.25)'
   },
   layout: {
-    container: 'mx-auto',
-    containerWidth: 'max-w-7xl',
-    sectionPaddingLarge: 'py-28',
-    sectionPaddingMedium: 'py-20',
-    sectionPaddingSmall: 'py-14',
-    horizontalPadding: 'px-6 md:px-12',
-    gridGapLarge: 'gap-20',
-    gridGapMedium: 'gap-14',
-    gridGapSmall: 'gap-8',
-    borderRadiusLarge: 'rounded-[48px]',
-    borderRadiusMedium: 'rounded-[36px]',
-    borderRadiusSmall: 'rounded-[24px]',
-    borderRadiusBase: 'rounded-2xl',
-    borderRadiusIcon: 'rounded-3xl',
-    shadow: 'shadow-lg',
-    shadowLarge: 'shadow-2xl',
-    shadowPrimary: 'shadow-pink-500/25',
+    maxWidth: '1400px',
+    contentWidth: '65%',
+    cartWidth: '35%',
+    gutter: '2rem'
+  },
+  components: {
+    header: {
+      height: '4.5rem',
+      background: '#FFFFFF',
+      borderBottom: '1px solid #E9ECEF'
+    },
+    hero: {
+      get background() {
+        return modernGradientTokens.colors.gradients.primary.css;
+      },
+      minHeight: '380px',
+      padding: '3rem'
+    },
+    productCard: {
+      background: '#FFFFFF',
+      border: '1px solid #E9ECEF',
+      borderRadius: '1rem',
+      padding: '1rem',
+      hover: {
+        shadow: '0 8px 24px rgba(0, 0, 0, 0.12)',
+        transform: 'translateY(-4px)'
+      }
+    },
+    button: {
+      primary: {
+        get background() {
+          return modernGradientTokens.colors.gradients.primary.css;
+        },
+        color: '#FFFFFF',
+        borderRadius: '0.75rem',
+        padding: '0.75rem 1.5rem',
+        fontSize: '0.875rem',
+        fontWeight: '600'
+      },
+      secondary: {
+        background: '#F8F9FA',
+        color: '#2D3748',
+        borderRadius: '0.75rem',
+        padding: '0.75rem 1.5rem',
+        fontSize: '0.875rem',
+        fontWeight: '600'
+      }
+    },
+    cart: {
+      background: '#FAFBFC',
+      padding: '1.5rem',
+      itemSpacing: '1rem',
+      get checkoutButtonGradient() {
+        return modernGradientTokens.colors.gradients.primary.css;
+      }
+    }
   }
 };
-
-export default modernGradientTokens;

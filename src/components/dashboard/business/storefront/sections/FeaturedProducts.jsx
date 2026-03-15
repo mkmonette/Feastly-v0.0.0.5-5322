@@ -6,11 +6,10 @@ import { useProducts } from '@/context/ProductContext';
 import { formatCurrency } from '@/common/currency';
 import Headline from '../Headline';
 
-const FeaturedProducts = ({ useContext }) => {
-  const contextHook = useContext || useStorefront;
-  const { tokens, businessData, sectionsConfig } = contextHook();
-  const { typography, colors, layout } = tokens;
+const FeaturedProducts = () => {
+  const { typography, colors, layout } = useStorefrontTokens();
   const { products } = useProducts();
+  const { sectionsConfig } = useStorefront();
 
   const section = sectionsConfig.find(s => s.id === 'featured');
   const content = section?.content || {};
