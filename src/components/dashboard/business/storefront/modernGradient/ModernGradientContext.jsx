@@ -15,19 +15,119 @@ export const ModernGradientProvider = ({ children }) => {
   const [overrideTokens, setOverrideTokens] = useState({});
   const [sectionsConfig, setSectionsConfig] = useState([
     {
+      id: 'header',
+      name: 'Header',
+      visibility: { enabled: true, devices: ['desktop', 'mobile'], conditions: [] },
+      content: { logoText: 'GRADIENT EATS' }
+    },
+    {
       id: 'hero',
-      name: 'Hero Section',
-      visibility: { enabled: true, devices: ['desktop', 'mobile'] }
+      name: 'Hero',
+      visibility: { enabled: true, devices: ['desktop', 'mobile'], conditions: [] },
+      content: {
+        preText: 'Welcome to',
+        titlePre: 'Vibrant Flavors',
+        titleHighlight: 'Bold Colors',
+        subtitle: 'Experience dining with stunning visual appeal and exceptional taste.',
+        button1Text: 'Explore Menu',
+        button2Text: 'Order Now',
+        showButton1: true,
+        showButton2: true
+      }
+    },
+    {
+      id: 'about',
+      name: 'About Us',
+      visibility: { enabled: true, devices: ['desktop', 'mobile'], conditions: [] },
+      content: {
+        titlePre: 'Our',
+        titleHighlight: 'Vision',
+        description: 'We combine bold flavors with stunning presentation to create unforgettable experiences.',
+        buttonText: 'Learn More',
+        experienceYears: '8+',
+        experienceText: 'Years',
+        imagePosition: 'left'
+      }
+    },
+    {
+      id: 'banner',
+      name: 'Banner',
+      visibility: { enabled: true, devices: ['desktop', 'mobile'], conditions: [] },
+      content: {
+        textPre: 'Bold Flavors • Vibrant Colors • ',
+        textHighlight: 'Visit Us',
+        useGradient: true
+      }
+    },
+    {
+      id: 'featured',
+      name: 'Featured Products',
+      visibility: { enabled: true, devices: ['desktop', 'mobile'], conditions: [] },
+      content: {
+        titlePre: "Chef's",
+        titleHighlight: 'Specials',
+        subtitle: 'Featured'
+      }
     },
     {
       id: 'products',
-      name: 'Products',
-      visibility: { enabled: true, devices: ['desktop', 'mobile'] }
+      name: 'Product Grid',
+      visibility: { enabled: true, devices: ['desktop', 'mobile'], conditions: [] },
+      content: {
+        titlePre: 'Full',
+        titleHighlight: 'Menu',
+        subtitle: 'Our Menu'
+      }
+    },
+    {
+      id: 'gallery',
+      name: 'Gallery',
+      visibility: { enabled: true, devices: ['desktop', 'mobile'], conditions: [] },
+      content: {
+        titlePre: 'Visual',
+        titleHighlight: 'Journey'
+      }
+    },
+    {
+      id: 'testimonials',
+      name: 'Testimonials',
+      visibility: { enabled: true, devices: ['desktop', 'mobile'], conditions: [] },
+      content: {
+        titlePre: 'Happy',
+        titleHighlight: 'Customers',
+        subtitle: 'Reviews'
+      }
+    },
+    {
+      id: 'cta',
+      name: 'CTA Banner',
+      visibility: { enabled: true, devices: ['desktop', 'mobile'], conditions: [] },
+      content: {
+        titlePre: 'Ready for',
+        titleHighlight: 'Adventure?',
+        subtitle: 'Join us for a colorful culinary experience.',
+        buttonText: 'Book Now'
+      }
+    },
+    {
+      id: 'contact',
+      name: 'Contact',
+      visibility: { enabled: true, devices: ['desktop', 'mobile'], conditions: [] },
+      content: {
+        titlePre: 'Connect',
+        titleHighlight: 'With Us',
+        subtitle: 'Contact',
+        description: 'We would love to hear from you. Reach out anytime.'
+      }
     },
     {
       id: 'footer',
       name: 'Footer',
-      visibility: { enabled: true, devices: ['desktop', 'mobile'] }
+      visibility: { enabled: true, devices: ['desktop', 'mobile'], conditions: [] },
+      content: {
+        footerDescription: 'Bold flavors, vibrant experiences, unforgettable moments.',
+        copyrightText: ''
+      }
     }
   ]);
   const [contentData, setContentData] = useState({});
