@@ -21,6 +21,8 @@ import MinimalRecipeRenderer from './minimalRecipe/MinimalRecipeRenderer';
 import { MinimalRecipeProvider, useMinimalRecipe } from './minimalRecipe/MinimalRecipeContext';
 import MobileCardMenuRenderer from './mobileCardMenu/MobileCardMenuRenderer';
 import { MobileCardMenuProvider, useMobileCardMenu } from './mobileCardMenu/MobileCardMenuContext';
+import MobileCompactMenuRenderer from './mobileCompactMenu/MobileCompactMenuRenderer';
+import { MobileCompactMenuProvider, useMobileCompactMenu } from './mobileCompactMenu/MobileCompactMenuContext';
 
 const TEMPLATE_CONFIG = {
   'base-classic': {
@@ -76,6 +78,12 @@ const TEMPLATE_CONFIG = {
     Renderer: MobileCardMenuRenderer,
     useContext: useMobileCardMenu,
     title: 'Mobile Card Menu Template'
+  },
+  'mobile-compact-menu': {
+    Provider: MobileCompactMenuProvider,
+    Renderer: MobileCompactMenuRenderer,
+    useContext: useMobileCompactMenu,
+    title: 'Mobile Compact Menu Template'
   }
 };
 

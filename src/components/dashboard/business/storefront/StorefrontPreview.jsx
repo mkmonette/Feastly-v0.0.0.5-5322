@@ -20,6 +20,8 @@ import MinimalRecipeRenderer from './minimalRecipe/MinimalRecipeRenderer';
 import { MinimalRecipeProvider } from './minimalRecipe/MinimalRecipeContext';
 import MobileCardMenuRenderer from './mobileCardMenu/MobileCardMenuRenderer';
 import { MobileCardMenuProvider } from './mobileCardMenu/MobileCardMenuContext';
+import MobileCompactMenuRenderer from './mobileCompactMenu/MobileCompactMenuRenderer';
+import { MobileCompactMenuProvider } from './mobileCompactMenu/MobileCompactMenuContext';
 
 const TEMPLATE_CONFIG = {
   'base-classic': {
@@ -57,6 +59,10 @@ const TEMPLATE_CONFIG = {
   'mobile-card-menu': {
     Provider: MobileCardMenuProvider,
     Renderer: MobileCardMenuRenderer
+  },
+  'mobile-compact-menu': {
+    Provider: MobileCompactMenuProvider,
+    Renderer: MobileCompactMenuRenderer
   }
 };
 
