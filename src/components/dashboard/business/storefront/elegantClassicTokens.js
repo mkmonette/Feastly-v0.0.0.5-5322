@@ -47,6 +47,7 @@ export const elegantClassicTokens = {
   colors: {
     primary: '#d97706',
     primaryHover: '#b45309',
+    secondary: '#059669',
     accent: '#059669',
     accentHover: '#047857',
     background: '#FFFFFF',
