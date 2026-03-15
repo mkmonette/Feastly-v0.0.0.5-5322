@@ -19,6 +19,10 @@ import WarmCulinaryRenderer from './storefront/warmCulinary/WarmCulinaryRenderer
 import { WarmCulinaryProvider } from './storefront/warmCulinary/WarmCulinaryContext';
 import MinimalRecipeRenderer from './storefront/minimalRecipe/MinimalRecipeRenderer';
 import { MinimalRecipeProvider } from './storefront/minimalRecipe/MinimalRecipeContext';
+import MobileVisualMenuRenderer from './storefront/mobileVisualMenu/MobileVisualMenuRenderer';
+import { MobileVisualMenuProvider } from './storefront/mobileVisualMenu/MobileVisualMenuContext';
+import MobileCompactMenuRenderer from './storefront/mobileCompactMenu/MobileCompactMenuRenderer';
+import { MobileCompactMenuProvider } from './storefront/mobileCompactMenu/MobileCompactMenuContext';
 
 const CATEGORIES = [
   { id: 'classic', label: 'Classic' },
@@ -183,6 +187,24 @@ const StorefrontTemplatesPage = () => {
               description="A mobile-first food ordering template optimized for phone users, with large touch targets and vertical layout."
               ProviderComponent={MobileExpressProvider}
               RendererComponent={MobileExpressRenderer}
+            />
+            <TemplatePreviewCard
+              categoryId="mobile"
+              templateSlug="mobile-visual-menu"
+              title="Mobile Visual Menu"
+              label="Mobile"
+              description="Visual-rich mobile template with emphasis on food photography, large images, and modern card-based design."
+              ProviderComponent={MobileVisualMenuProvider}
+              RendererComponent={MobileVisualMenuRenderer}
+            />
+            <TemplatePreviewCard
+              categoryId="mobile"
+              templateSlug="mobile-compact-menu"
+              title="Mobile Compact Menu"
+              label="Mobile"
+              description="Space-efficient mobile template with compact list layout for quick browsing and fast ordering."
+              ProviderComponent={MobileCompactMenuProvider}
+              RendererComponent={MobileCompactMenuRenderer}
             />
           </div>
         ) : activeTab === 'ordering_form' ? (
