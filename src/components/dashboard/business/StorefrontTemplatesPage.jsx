@@ -19,16 +19,6 @@ import WarmCulinaryRenderer from './storefront/warmCulinary/WarmCulinaryRenderer
 import { WarmCulinaryProvider } from './storefront/warmCulinary/WarmCulinaryContext';
 import MinimalRecipeRenderer from './storefront/minimalRecipe/MinimalRecipeRenderer';
 import { MinimalRecipeProvider } from './storefront/minimalRecipe/MinimalRecipeContext';
-import ModernSplitCartRenderer from './storefront/modernSplitCart/ModernSplitCartRenderer';
-import { ModernSplitCartProvider } from './storefront/modernSplitCart/ModernSplitCartContext';
-import ModernMenuCartRenderer from './storefront/modernMenuCart/ModernMenuCartRenderer';
-import { ModernMenuCartProvider } from './storefront/modernMenuCart/ModernMenuCartContext';
-import MobileCardMenuRenderer from './storefront/mobileCardMenu/MobileCardMenuRenderer';
-import { MobileCardMenuProvider } from './storefront/mobileCardMenu/MobileCardMenuContext';
-import MobileCompactMenuRenderer from './storefront/mobileCompactMenu/MobileCompactMenuRenderer';
-import { MobileCompactMenuProvider } from './storefront/mobileCompactMenu/MobileCompactMenuContext';
-import MobileVisualMenuRenderer from './storefront/mobileVisualMenu/MobileVisualMenuRenderer';
-import { MobileVisualMenuProvider } from './storefront/mobileVisualMenu/MobileVisualMenuContext';
 
 const CATEGORIES = [
   { id: 'classic', label: 'Classic' },
@@ -182,24 +172,6 @@ const StorefrontTemplatesPage = () => {
               ProviderComponent={ModernSplitStorefrontProvider}
               RendererComponent={ModernSplitRenderer}
             />
-            <TemplatePreviewCard
-              categoryId="modern"
-              templateSlug="modern-split-cart"
-              title="Modern Split Cart"
-              label="Modern"
-              description="Clean 2-column layout with scrollable content (70%) and sticky full-height cart panel (30%) featuring soft shadows and modern UI."
-              ProviderComponent={ModernSplitCartProvider}
-              RendererComponent={ModernSplitCartRenderer}
-            />
-            <TemplatePreviewCard
-              categoryId="modern"
-              templateSlug="modern-menu-cart"
-              title="Modern Menu Cart"
-              label="Modern"
-              description="Menu-focused 2-column design with category tabs, dense product grid (65%), and full-height order summary panel (35%)."
-              ProviderComponent={ModernMenuCartProvider}
-              RendererComponent={ModernMenuCartRenderer}
-            />
           </div>
         ) : activeTab === 'mobile' ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -211,33 +183,6 @@ const StorefrontTemplatesPage = () => {
               description="A mobile-first food ordering template optimized for phone users, with large touch targets and vertical layout."
               ProviderComponent={MobileExpressProvider}
               RendererComponent={MobileExpressRenderer}
-            />
-            <TemplatePreviewCard
-              categoryId="mobile"
-              templateSlug="mobile-card-menu"
-              title="Mobile Card Menu"
-              label="Mobile"
-              description="Mobile-first design with 2-column product cards featuring image on top, clean spacing, and bottom slide-up cart."
-              ProviderComponent={MobileCardMenuProvider}
-              RendererComponent={MobileCardMenuRenderer}
-            />
-            <TemplatePreviewCard
-              categoryId="mobile"
-              templateSlug="mobile-compact-menu"
-              title="Mobile Compact Menu"
-              label="Mobile"
-              description="Dense 2-column layout with compact horizontal cards (image left, text right) optimized for fast browsing."
-              ProviderComponent={MobileCompactMenuProvider}
-              RendererComponent={MobileCompactMenuRenderer}
-            />
-            <TemplatePreviewCard
-              categoryId="mobile"
-              templateSlug="mobile-visual-menu"
-              title="Mobile Visual Menu"
-              label="Mobile"
-              description="Image-dominant 2-column grid with gradient overlays, large product photos, and modern food app aesthetics."
-              ProviderComponent={MobileVisualMenuProvider}
-              RendererComponent={MobileVisualMenuRenderer}
             />
           </div>
         ) : activeTab === 'ordering_form' ? (
