@@ -4,12 +4,12 @@ import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '@/common/SafeIcon';
 import { formatCurrency } from '@/common/currency';
 
-const ProductGrid = ({ products }) => {
-  const { tokens, addToCart } = useMobileNative();
+const ProductGrid = () => {
+  const { tokens, products, addToCart } = useMobileNative();
 
   return (
     <div className={`${tokens.layout.mobileMaxWidth} mx-auto px-4 ${tokens.layout.spacing.section}`}>
-      <div className="space-y-2">
+      <div className="grid grid-cols-2 gap-2.5">
         {products.map((product) => (
           <div
             key={product.id}
@@ -19,58 +19,55 @@ const ProductGrid = ({ products }) => {
               boxShadow: tokens.effects.shadow.card
             }}
           >
-            <div className="flex gap-3 p-2.5">
-              <div className={`w-20 h-20 ${tokens.layout.borderRadius.image} overflow-hidden bg-gray-100 flex-shrink-0`}>
-                {product.images?.[0] ? (
-                  <img
-                    src={product.images[0]}
-                    alt={product.name}
-                    className="w-full h-full object-cover"
-                  />
-                ) : (
-                  <div className="w-full h-full flex items-center justify-center">
-                    <SafeIcon icon={FiIcons.FiImage} className="text-2xl text-gray-300" />
-                  </div>
-                )}
-              </div>
-
-              <div className="flex-1 min-w-0 flex flex-col justify-between py-0.5">
-                <div>
-                  <h3
-                    className={`text-[15px] ${tokens.typography.headingWeight} leading-tight mb-0.5`}
-                    style={{ color: tokens.colors.primaryText }}
-                  >
-                    {product.name}
-                  </h3>
-                  {product.description && (
-                    <p
-                      className="text-[13px] line-clamp-1"
-                      style={{ color: tokens.colors.sectionNormalText }}
-                    >
-                      {product.description}
-                    </p>
-                  )}
+            <div className={`w-full aspect-square ${tokens.layout.borderRadius.image} overflow-hidden bg-gray-100`}>
+              {product.images?.[0] ? (
+                <img
+                  src={product.images[0]}
+                  alt={product.name}
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                <div className="w-full h-full flex items-center justify-center">
+                  <SafeIcon icon={FiIcons.FiImage} className="text-3xl text-gray-300" />
                 </div>
+              )}
+            </div>
 
-                <div className="flex items-center justify-between mt-1">
-                  <span
-                    className={`text-[17px] ${tokens.typography.headingWeight}`}
-                    style={{ color: tokens.colors.primary }}
-                  >
-                    {formatCurrency(product.price)}
-                  </span>
+            <div className="p-2.5">
+              <h3
+                className={`text-[14px] ${tokens.typography.headingWeight} leading-tight mb-1 line-clamp-1`}
+                style={{ color: tokens.colors.primaryText }}
+              >
+                {product.name}
+              </h3>
 
-                  <button
-                    onClick={() => addToCart(product)}
-                    className={`px-3 py-1.5 ${tokens.layout.borderRadius.button} text-[13px] font-semibold text-white active:scale-95 transition-transform`}
-                    style={{
-                      backgroundColor: tokens.colors.primary,
-                      boxShadow: tokens.effects.shadow.button
-                    }}
-                  >
-                    Add
-                  </button>
-                </div>
+              {product.description && (
+                <p
+                  className="text-[12px] line-clamp-2 mb-2"
+                  style={{ color: tokens.colors.sectionNormalText }}
+                >
+                  {product.description}
+                </p>
+              )}
+
+              <div className="flex items-center justify-between">
+                <span
+                  className={`text-[16px] ${tokens.typography.headingWeight}`}
+                  style={{ color: tokens.colors.primary }}
+                >
+                  {formatCurrency(product.price)}
+                </span>
+
+                <button
+                  onClick={() => addToCart(product)}
+                  className={`w-7 h-7 ${tokens.layout.borderRadius.button} flex items-center justify-center text-white active:scale-95 transition-transform`}
+                  style={{
+                    backgroundColor: tokens.colors.primary,
+                    boxShadow: tokens.effects.shadow.button
+                  }}
+                >
+                  <SafeIcon icon={FiIcons.FiPlus} className="text-[16px]" />
+                </button>
               </div>
             </div>
           </div>

@@ -1,45 +1,133 @@
-import React, { useState, useMemo } from 'react';
+import React from 'react';
 import { useMobileNative } from './MobileNativeContext';
 import Header from './Header';
+import Hero from './Hero';
 import SearchBar from './SearchBar';
 import CategoryTabs from './CategoryTabs';
+import FeaturedProducts from './FeaturedProducts';
 import ProductGrid from './ProductGrid';
+import Banner from './Banner';
+import Gallery from './Gallery';
+import Testimonials from './Testimonials';
+import CTABanner from './CTABanner';
+import Contact from './Contact';
+import Footer from './Footer';
 import CartDrawer from './CartDrawer';
 
-const MobileNativeRenderer = () => {
-  const { tokens, products } = useMobileNative();
-  const [isCartOpen, setIsCartOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [activeCategory, setActiveCategory] = useState('All');
+function compare(a, operator, b) {
+  switch (operator) {
+    case ">": return a > b;
+    case "<": return a < b;
+    case "=":
+    case "equals": return a === b;
+    case "!=":
+    case "not_equals": return a !== b;
+    case ">=": return a >= b;
+    case "<=": return a <= b;
+    default: return false;
+  }
+}
 
-  const categories = useMemo(() => {
-    const cats = new Set(products.map(p => p.category).filter(Boolean));
-    return ['All', ...Array.from(cats)];
-  }, [products]);
+function evaluateConditions(conditions, context) {
+  if (!conditions || conditions.length === 0) return true;
 
-  const filteredProducts = useMemo(() => {
-    return products.filter(product => {
-      const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                          product.description?.toLowerCase().includes(searchQuery.toLowerCase());
-      const matchesCategory = activeCategory === 'All' || product.category === activeCategory;
-      return matchesSearch && matchesCategory;
-    });
-  }, [products, searchQuery, activeCategory]);
+  return conditions.every(condition => {
+    switch (condition.type) {
+      case "auth":
+        return compare(context.userStatus, condition.operator || 'equals', condition.value);
+      case "cart_item_count":
+        return compare(context.cartItemCount, condition.operator, condition.value);
+      default:
+        return true;
+    }
+  });
+}
+
+const SectionWrapper = ({ sectionId, children }) => {
+  const { sectionsConfig, cartItemCount } = useMobileNative();
+  const section = sectionsConfig.find(s => s.id === sectionId);
+
+  if (!section || !section.visibility?.enabled) return null;
+
+  const context = {
+    userStatus: 'guest',
+    cartItemCount: cartItemCount || 0
+  };
+
+  if (!evaluateConditions(section.visibility.conditions, context)) {
+    return null;
+  }
+
+  const devices = section.visibility.devices || ['desktop', 'mobile'];
+  const hideOnMobile = !devices.includes('mobile');
+  const hideOnDesktop = !devices.includes('desktop');
+
+  const visibilityClasses = [
+    hideOnMobile ? 'hidden md:block' : '',
+    hideOnDesktop ? 'md:hidden' : '',
+  ].filter(Boolean).join(' ');
 
   return (
-    <div
-      className={`min-h-screen ${tokens.typography.fontPrimary}`}
-      style={{ backgroundColor: tokens.colors.background }}
-    >
-      <Header onCartClick={() => setIsCartOpen(true)} />
-      <SearchBar searchQuery={searchQuery} onSearchChange={setSearchQuery} />
-      <CategoryTabs
-        categories={categories}
-        activeCategory={activeCategory}
-        onCategoryChange={setActiveCategory}
-      />
-      <ProductGrid products={filteredProducts} />
-      <CartDrawer isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
+    <div className={visibilityClasses}>
+      {children}
+    </div>
+  );
+};
+
+const MobileNativeRenderer = () => {
+  return (
+    <div className="w-full bg-white relative flex justify-center">
+      <div className="w-full max-w-[420px]">
+        <SectionWrapper sectionId="header">
+          <Header />
+        </SectionWrapper>
+
+        <SectionWrapper sectionId="hero">
+          <Hero />
+        </SectionWrapper>
+
+        <SectionWrapper sectionId="search">
+          <SearchBar />
+        </SectionWrapper>
+
+        <SectionWrapper sectionId="categories">
+          <CategoryTabs />
+        </SectionWrapper>
+
+        <SectionWrapper sectionId="featured">
+          <FeaturedProducts />
+        </SectionWrapper>
+
+        <SectionWrapper sectionId="products">
+          <ProductGrid />
+        </SectionWrapper>
+
+        <SectionWrapper sectionId="banner">
+          <Banner />
+        </SectionWrapper>
+
+        <SectionWrapper sectionId="gallery">
+          <Gallery />
+        </SectionWrapper>
+
+        <SectionWrapper sectionId="testimonials">
+          <Testimonials />
+        </SectionWrapper>
+
+        <SectionWrapper sectionId="cta">
+          <CTABanner />
+        </SectionWrapper>
+
+        <SectionWrapper sectionId="contact">
+          <Contact />
+        </SectionWrapper>
+
+        <SectionWrapper sectionId="footer">
+          <Footer />
+        </SectionWrapper>
+
+        <CartDrawer />
+      </div>
     </div>
   );
 };

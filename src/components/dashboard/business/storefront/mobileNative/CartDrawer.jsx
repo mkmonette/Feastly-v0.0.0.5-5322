@@ -4,23 +4,23 @@ import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '@/common/SafeIcon';
 import { formatCurrency } from '@/common/currency';
 
-const CartDrawer = ({ isOpen, onClose }) => {
-  const { tokens, cart, removeFromCart, updateCartQuantity } = useMobileNative();
+const CartDrawer = () => {
+  const { tokens, cart, removeFromCart, updateCartQuantity, isCartOpen, setIsCartOpen } = useMobileNative();
 
   const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
 
   return (
     <>
-      {isOpen && (
+      {isCartOpen && (
         <div
           className="fixed inset-0 bg-black/40 z-50 backdrop-blur-sm"
-          onClick={onClose}
+          onClick={() => setIsCartOpen(false)}
         />
       )}
 
       <div
         className={`fixed top-0 right-0 h-full w-full max-w-sm bg-white z-50 transform transition-transform duration-300 ease-out ${
-          isOpen ? 'translate-x-0' : 'translate-x-full'
+          isCartOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
         style={{ backgroundColor: tokens.colors.background }}
       >
@@ -36,7 +36,7 @@ const CartDrawer = ({ isOpen, onClose }) => {
               Cart
             </h2>
             <button
-              onClick={onClose}
+              onClick={() => setIsCartOpen(false)}
               className="p-1.5 rounded-lg active:scale-95 transition-transform"
               style={{ color: tokens.colors.sectionNormalText }}
             >

@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useMobileNative } from './MobileNativeContext';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '@/common/SafeIcon';
 
-const SearchBar = ({ searchQuery, onSearchChange }) => {
+const SearchBar = () => {
   const { tokens } = useMobileNative();
+  const [searchQuery, setSearchQuery] = useState('');
 
   return (
     <div className={`${tokens.layout.mobileMaxWidth} mx-auto px-4 pt-3 pb-2`}>
@@ -23,14 +24,14 @@ const SearchBar = ({ searchQuery, onSearchChange }) => {
         <input
           type="text"
           value={searchQuery}
-          onChange={(e) => onSearchChange(e.target.value)}
+          onChange={(e) => setSearchQuery(e.target.value)}
           placeholder="Search menu..."
           className="flex-1 text-[15px] bg-transparent outline-none"
           style={{ color: tokens.colors.primaryText }}
         />
         {searchQuery && (
           <button
-            onClick={() => onSearchChange('')}
+            onClick={() => setSearchQuery('')}
             className="p-1 active:scale-90 transition-transform"
             style={{ color: tokens.colors.sectionNormalText }}
           >

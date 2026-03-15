@@ -3,10 +3,8 @@ import { useMobileNative } from './MobileNativeContext';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '@/common/SafeIcon';
 
-const Header = ({ onCartClick }) => {
-  const { tokens, cart } = useMobileNative();
-
-  const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+const Header = () => {
+  const { tokens, cartItemCount, setIsCartOpen } = useMobileNative();
 
   return (
     <header
@@ -30,17 +28,17 @@ const Header = ({ onCartClick }) => {
         </div>
 
         <button
-          onClick={onCartClick}
+          onClick={() => setIsCartOpen(true)}
           className="relative p-1.5 rounded-lg active:scale-95 transition-transform"
           style={{ color: tokens.colors.primary }}
         >
           <SafeIcon icon={FiIcons.FiShoppingBag} className="text-[22px]" />
-          {cartCount > 0 && (
+          {cartItemCount > 0 && (
             <span
               className="absolute -top-1 -right-1 w-4 h-4 rounded-full text-[10px] font-semibold flex items-center justify-center text-white"
               style={{ backgroundColor: tokens.colors.systemRed }}
             >
-              {cartCount}
+              {cartItemCount}
             </span>
           )}
         </button>
