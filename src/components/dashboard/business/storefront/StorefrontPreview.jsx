@@ -18,6 +18,10 @@ import WarmCulinaryRenderer from './warmCulinary/WarmCulinaryRenderer';
 import { WarmCulinaryProvider } from './warmCulinary/WarmCulinaryContext';
 import MinimalRecipeRenderer from './minimalRecipe/MinimalRecipeRenderer';
 import { MinimalRecipeProvider } from './minimalRecipe/MinimalRecipeContext';
+import MobileVisualMenuRenderer from './mobileVisualMenu/MobileVisualMenuRenderer';
+import { MobileVisualMenuProvider } from './mobileVisualMenu/MobileVisualMenuContext';
+import MobileCompactMenuRenderer from './mobileCompactMenu/MobileCompactMenuRenderer';
+import { MobileCompactMenuProvider } from './mobileCompactMenu/MobileCompactMenuContext';
 
 const TEMPLATE_CONFIG = {
   'base-classic': {
@@ -47,6 +51,14 @@ const TEMPLATE_CONFIG = {
   'mobile-express': {
     Provider: MobileExpressProvider,
     Renderer: MobileExpressRenderer
+  },
+  'mobile-visual-menu': {
+    Provider: MobileVisualMenuProvider,
+    Renderer: MobileVisualMenuRenderer
+  },
+  'mobile-compact-menu': {
+    Provider: MobileCompactMenuProvider,
+    Renderer: MobileCompactMenuRenderer
   },
   'quick-order': {
     Provider: QuickOrderProvider,
