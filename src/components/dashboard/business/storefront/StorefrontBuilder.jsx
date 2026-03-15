@@ -19,6 +19,10 @@ import WarmCulinaryRenderer from './warmCulinary/WarmCulinaryRenderer';
 import { WarmCulinaryProvider, useWarmCulinary } from './warmCulinary/WarmCulinaryContext';
 import MinimalRecipeRenderer from './minimalRecipe/MinimalRecipeRenderer';
 import { MinimalRecipeProvider, useMinimalRecipe } from './minimalRecipe/MinimalRecipeContext';
+import ModernSplitCartRenderer from './modernSplitCart/ModernSplitCartRenderer';
+import { ModernSplitCartProvider, useModernSplitCart } from './modernSplitCart/ModernSplitCartContext';
+import ModernMenuCartRenderer from './modernMenuCart/ModernMenuCartRenderer';
+import { ModernMenuCartProvider, useModernMenuCart } from './modernMenuCart/ModernMenuCartContext';
 
 const TEMPLATE_CONFIG = {
   'base-classic': {
@@ -68,6 +72,18 @@ const TEMPLATE_CONFIG = {
     Renderer: QuickOrderRenderer,
     useContext: useQuickOrder,
     title: 'Quick Order Form Template'
+  },
+  'modern-split-cart': {
+    Provider: ModernSplitCartProvider,
+    Renderer: ModernSplitCartRenderer,
+    useContext: useModernSplitCart,
+    title: 'Modern Split Cart Template'
+  },
+  'modern-menu-cart': {
+    Provider: ModernMenuCartProvider,
+    Renderer: ModernMenuCartRenderer,
+    useContext: useModernMenuCart,
+    title: 'Modern Menu Cart Template'
   }
 };
 

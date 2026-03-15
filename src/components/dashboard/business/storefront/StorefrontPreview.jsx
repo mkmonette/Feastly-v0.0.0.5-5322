@@ -18,6 +18,10 @@ import WarmCulinaryRenderer from './warmCulinary/WarmCulinaryRenderer';
 import { WarmCulinaryProvider } from './warmCulinary/WarmCulinaryContext';
 import MinimalRecipeRenderer from './minimalRecipe/MinimalRecipeRenderer';
 import { MinimalRecipeProvider } from './minimalRecipe/MinimalRecipeContext';
+import ModernSplitCartRenderer from './modernSplitCart/ModernSplitCartRenderer';
+import { ModernSplitCartProvider } from './modernSplitCart/ModernSplitCartContext';
+import ModernMenuCartRenderer from './modernMenuCart/ModernMenuCartRenderer';
+import { ModernMenuCartProvider } from './modernMenuCart/ModernMenuCartContext';
 
 const TEMPLATE_CONFIG = {
   'base-classic': {
@@ -51,6 +55,14 @@ const TEMPLATE_CONFIG = {
   'quick-order': {
     Provider: QuickOrderProvider,
     Renderer: QuickOrderRenderer
+  },
+  'modern-split-cart': {
+    Provider: ModernSplitCartProvider,
+    Renderer: ModernSplitCartRenderer
+  },
+  'modern-menu-cart': {
+    Provider: ModernMenuCartProvider,
+    Renderer: ModernMenuCartRenderer
   }
 };
 

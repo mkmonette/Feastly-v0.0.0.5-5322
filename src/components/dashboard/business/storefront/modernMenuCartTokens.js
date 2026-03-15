@@ -1,0 +1,66 @@
+export const modernMenuCartTokens = {
+  colors: {
+    background: '#fafafa',
+    surface: '#ffffff',
+    surfaceHover: '#f9f9f9',
+    border: '#e0e0e0',
+    primaryText: '#212121',
+    secondaryText: '#757575',
+    accent: '#f97316',
+    accentHover: '#ea580c',
+    shadow: 'rgba(0, 0, 0, 0.06)',
+    sectionHeadlineNormal: '#212121',
+    sectionHeadlineHighlight: '#f97316',
+    heroPreText: '#757575',
+    buttonText: '#ffffff',
+    cartBackground: '#ffffff',
+    cartBorder: '#e0e0e0',
+    categoryTabActive: '#f97316',
+    categoryTabInactive: '#9e9e9e',
+  },
+  typography: {
+    fontFamily: {
+      heading: "'Inter', -apple-system, sans-serif",
+      body: "'Inter', -apple-system, sans-serif",
+    },
+    fontSize: {
+      heroTitle: '2rem',
+      heroSubtitle: '1rem',
+      sectionTitle: '1.75rem',
+      productTitle: '0.9375rem',
+      bodyText: '0.875rem',
+      smallText: '0.8125rem',
+      categoryTab: '0.9375rem',
+    },
+    fontWeight: {
+      heading: '700',
+      subheading: '600',
+      body: '400',
+      bold: '600',
+    },
+    lineHeight: {
+      heading: '1.2',
+      body: '1.5',
+    },
+  },
+  spacing: {
+    sectionPadding: '3rem 0',
+    cardPadding: '1.25rem',
+    containerMaxWidth: '1400px',
+    gridGap: '1.25rem',
+  },
+  borderRadius: {
+    card: '10px',
+    button: '8px',
+    image: '8px',
+  },
+  shadows: {
+    card: '0 1px 2px rgba(0, 0, 0, 0.06)',
+    cardHover: '0 3px 10px rgba(0, 0, 0, 0.1)',
+    cartPanel: '-3px 0 12px rgba(0, 0, 0, 0.05)',
+  },
+  layout: {
+    contentWidth: '65%',
+    cartWidth: '35%',
+  },
+};

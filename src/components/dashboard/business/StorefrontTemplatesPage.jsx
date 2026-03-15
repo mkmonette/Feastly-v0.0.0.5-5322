@@ -19,6 +19,10 @@ import WarmCulinaryRenderer from './storefront/warmCulinary/WarmCulinaryRenderer
 import { WarmCulinaryProvider } from './storefront/warmCulinary/WarmCulinaryContext';
 import MinimalRecipeRenderer from './storefront/minimalRecipe/MinimalRecipeRenderer';
 import { MinimalRecipeProvider } from './storefront/minimalRecipe/MinimalRecipeContext';
+import ModernSplitCartRenderer from './storefront/modernSplitCart/ModernSplitCartRenderer';
+import { ModernSplitCartProvider } from './storefront/modernSplitCart/ModernSplitCartContext';
+import ModernMenuCartRenderer from './storefront/modernMenuCart/ModernMenuCartRenderer';
+import { ModernMenuCartProvider } from './storefront/modernMenuCart/ModernMenuCartContext';
 
 const CATEGORIES = [
   { id: 'classic', label: 'Classic' },
@@ -171,6 +175,24 @@ const StorefrontTemplatesPage = () => {
               description="A modern food ordering layout with content on the left and a full-height cart panel on the right."
               ProviderComponent={ModernSplitStorefrontProvider}
               RendererComponent={ModernSplitRenderer}
+            />
+            <TemplatePreviewCard
+              categoryId="modern"
+              templateSlug="modern-split-cart"
+              title="Modern Split Cart"
+              label="Modern"
+              description="Clean 2-column layout with scrollable content (70%) and sticky full-height cart panel (30%) featuring soft shadows and modern UI."
+              ProviderComponent={ModernSplitCartProvider}
+              RendererComponent={ModernSplitCartRenderer}
+            />
+            <TemplatePreviewCard
+              categoryId="modern"
+              templateSlug="modern-menu-cart"
+              title="Modern Menu Cart"
+              label="Modern"
+              description="Menu-focused 2-column design with category tabs, dense product grid (65%), and full-height order summary panel (35%)."
+              ProviderComponent={ModernMenuCartProvider}
+              RendererComponent={ModernMenuCartRenderer}
             />
           </div>
         ) : activeTab === 'mobile' ? (
