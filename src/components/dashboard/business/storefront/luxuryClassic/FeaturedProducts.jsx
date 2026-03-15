@@ -7,51 +7,57 @@ const FeaturedProducts = () => {
   const { typography, colors, layout } = tokens;
 
   const featured = [
-    { id: 1, name: 'Wagyu Beef Tenderloin', price: 89.00, description: 'Premium cut with truffle butter' },
-    { id: 2, name: 'Lobster Thermidor', price: 75.00, description: 'Classic French preparation' },
-    { id: 3, name: 'Caviar Tasting', price: 120.00, description: 'Selection of three finest caviars' },
+    { id: 1, name: 'Wagyu Steak', price: 85.00, description: 'Premium Japanese beef' },
+    { id: 2, name: 'Lobster Thermidor', price: 65.00, description: 'Classic French preparation' },
+    { id: 3, name: 'Truffle Risotto', price: 45.00, description: 'Black truffle, Arborio rice' },
   ];
 
   return (
     <section className={`${layout.sectionPaddingLarge} ${layout.horizontalPadding}`} style={{ backgroundColor: colors.surface }}>
       <div className={`${layout.container} ${layout.containerWidth}`}>
-        <div className="text-center mb-16">
-          <span className={`${typography.scale.xs} ${typography.weights.medium} ${typography.tracking.widest} ${typography.transform.uppercase} ${typography.fontSecondary}`} style={{ color: colors.primary }}>
-            Signature Selections
-          </span>
-          <h2 className={`${typography.scale.h2} ${typography.weights.light} ${typography.fontPrimary} mt-4`} style={{ color: colors.textPrimary }}>
-            Featured Dishes
+        <div className="text-center mb-20">
+          <div className="flex items-center justify-center gap-3 mb-6">
+            <div className="h-px w-16" style={{ backgroundColor: colors.primary }} />
+            <span className={`${typography.scale.xs} ${typography.weights.medium} ${typography.tracking.widest} ${typography.transform.uppercase} ${typography.fontSecondary}`} style={{ color: colors.primary }}>
+              Signature Collection
+            </span>
+            <div className="h-px w-16" style={{ backgroundColor: colors.primary }} />
+          </div>
+          <h2 className={`${typography.scale.h2} ${typography.weights.light} ${typography.fontPrimary}`} style={{ color: colors.textInverse }}>
+            Our Finest <span className={typography.weights.medium} style={{ color: colors.primary }}>Selection</span>
           </h2>
         </div>
 
         <div className={`grid md:grid-cols-3 ${layout.gridGapMedium}`}>
           {featured.map((product) => (
-            <div key={product.id} className="group border p-8 transition-all hover:border-opacity-100" style={{
-              backgroundColor: colors.background,
-              borderColor: colors.border
+            <div key={product.id} className={`group p-8 border transition-all hover:border-opacity-100`} style={{
+              backgroundColor: colors.surfaceAlt,
+              borderColor: colors.border,
+              borderWidth: '1px'
             }}>
-              <div className="aspect-square bg-gradient-to-br mb-6" style={{
-                backgroundImage: `linear-gradient(135deg, ${colors.surface}, ${colors.surfaceAlt})`
+              <div className={`aspect-square mb-8`} style={{
+                backgroundColor: colors.surface
               }} />
 
-              <h3 className={`${typography.scale.h4} ${typography.weights.medium} ${typography.fontPrimary} mb-2`} style={{ color: colors.textPrimary }}>
+              <h3 className={`${typography.scale.h4} ${typography.weights.light} ${typography.fontPrimary} mb-3`} style={{ color: colors.textInverse }}>
                 {product.name}
               </h3>
 
-              <p className={`${typography.scale.bodySmall} ${typography.weights.regular} ${typography.lineHeights.relaxed} ${typography.fontSecondary} mb-4`} style={{ color: colors.textMuted }}>
+              <p className={`${typography.scale.bodySmall} ${typography.weights.regular} ${typography.lineHeights.relaxed} ${typography.fontSecondary} mb-6`} style={{ color: colors.textInverseMuted }}>
                 {product.description}
               </p>
 
-              <div className="flex items-center justify-between pt-4 border-t" style={{ borderColor: colors.border }}>
-                <span className={`${typography.scale.h4} ${typography.weights.medium} ${typography.fontSecondary}`} style={{ color: colors.primary }}>
+              <div className="flex items-center justify-between pt-6 border-t" style={{ borderColor: colors.border }}>
+                <span className={`${typography.scale.h4} ${typography.weights.light} ${typography.fontSecondary}`} style={{ color: colors.primary }}>
                   {formatCurrency(product.price)}
                 </span>
                 <button
                   onClick={() => addToCart(product)}
-                  className={`px-6 py-2 ${typography.scale.bodySmall} ${typography.weights.semibold} ${typography.tracking.wide} ${typography.transform.uppercase} ${typography.fontSecondary} transition-all`}
+                  className={`px-8 py-3 border ${typography.scale.xs} ${typography.weights.semibold} ${typography.tracking.widest} ${typography.transform.uppercase} ${typography.fontSecondary} transition-all hover:bg-opacity-100`}
                   style={{
-                    backgroundColor: colors.primary,
-                    color: colors.textInverse
+                    borderColor: colors.primary,
+                    color: colors.primary,
+                    backgroundColor: 'transparent'
                   }}
                 >
                   Add

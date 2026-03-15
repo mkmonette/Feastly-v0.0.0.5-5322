@@ -8,24 +8,26 @@ const Header = () => {
   const { typography, colors, layout } = tokens;
 
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-md border-b" style={{
-      backgroundColor: `${colors.background}CC`,
-      borderColor: colors.border
+    <header className={`sticky top-0 z-50 backdrop-blur-md border-b`} style={{
+      backgroundColor: `${colors.background}F5`,
+      borderColor: colors.border,
+      borderWidth: '1px'
     }}>
       <div className={`${layout.container} ${layout.containerWidth} ${layout.horizontalPadding} py-6 flex items-center justify-between`}>
         <div className="flex items-center gap-4">
-          <div className="w-12 h-12 flex items-center justify-center border" style={{
+          <div className={`w-12 h-12 flex items-center justify-center border`} style={{
             borderColor: colors.primary,
-            color: colors.primary
+            color: colors.primary,
+            borderWidth: '1px'
           }}>
             <SafeIcon icon={FiIcons.FiStar} className="text-2xl" />
           </div>
-          <span className={`${typography.scale.h4} ${typography.weights.medium} ${typography.fontPrimary}`} style={{ color: colors.textPrimary }}>
-            Luxury Dining
+          <span className={`${typography.scale.h4} ${typography.weights.light} ${typography.fontPrimary}`} style={{ color: colors.textPrimary }}>
+            LUXURY
           </span>
         </div>
 
-        <nav className="hidden md:flex items-center gap-10">
+        <nav className="hidden md:flex items-center gap-12">
           {['Menu', 'About', 'Gallery', 'Contact'].map((item) => (
             <button
               key={item}
@@ -37,12 +39,16 @@ const Header = () => {
           ))}
         </nav>
 
-        <button onClick={toggleCart} className="relative" style={{ color: colors.textPrimary }}>
-          <SafeIcon icon={FiIcons.FiShoppingBag} className="text-2xl" />
+        <button onClick={toggleCart} className={`relative px-5 py-3 border`} style={{
+          borderColor: colors.border,
+          color: colors.textPrimary,
+          borderWidth: '1px'
+        }}>
+          <SafeIcon icon={FiIcons.FiShoppingBag} className="text-xl" />
           {cartCount > 0 && (
-            <span className="absolute -top-2 -right-2 w-5 h-5 flex items-center justify-center text-xs font-bold" style={{
+            <span className={`absolute -top-2 -right-2 w-6 h-6 flex items-center justify-center ${typography.scale.xs} ${typography.weights.semibold}`} style={{
               backgroundColor: colors.primary,
-              color: colors.textInverse
+              color: colors.surface
             }}>
               {cartCount}
             </span>

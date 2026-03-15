@@ -10,69 +10,86 @@ const Contact = () => {
   return (
     <section className={`${layout.sectionPaddingLarge} ${layout.horizontalPadding}`} style={{ backgroundColor: colors.background }}>
       <div className={`${layout.container} ${layout.containerWidth}`}>
-        <div className="grid md:grid-cols-2 gap-16">
+        <div className="grid md:grid-cols-2 gap-20">
           <div>
-            <h2 className={`${typography.scale.h2} ${typography.weights.light} ${typography.fontPrimary} mb-8`} style={{ color: colors.textPrimary }}>
+            <h2 className={`${typography.scale.h2} ${typography.weights.light} ${typography.fontPrimary} mb-12`} style={{ color: colors.textPrimary }}>
               Visit Us
             </h2>
 
-            <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <SafeIcon icon={FiIcons.FiMapPin} className="text-xl" style={{ color: colors.primary }} />
+            <div className="space-y-8">
+              <div className="flex items-start gap-5">
+                <div className={`w-14 h-14 flex items-center justify-center border`} style={{
+                  borderColor: colors.border,
+                  color: colors.primary
+                }}>
+                  <SafeIcon icon={FiIcons.FiMapPin} className="text-xl" />
+                </div>
                 <div>
-                  <p className={`${typography.scale.body} ${typography.weights.regular} ${typography.fontSecondary}`} style={{ color: colors.textMuted }}>
-                    123 Luxury Avenue<br />New York, NY 10001
+                  <p className={`${typography.scale.body} ${typography.weights.regular} ${typography.fontSecondary}`} style={{ color: colors.textPrimary }}>
+                    123 Fifth Avenue<br />New York, NY 10001
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                <SafeIcon icon={FiIcons.FiPhone} className="text-xl" style={{ color: colors.primary }} />
-                <p className={`${typography.scale.body} ${typography.weights.regular} ${typography.fontSecondary}`} style={{ color: colors.textMuted }}>
-                  (555) 123-4567
+              <div className="flex items-start gap-5">
+                <div className={`w-14 h-14 flex items-center justify-center border`} style={{
+                  borderColor: colors.border,
+                  color: colors.primary
+                }}>
+                  <SafeIcon icon={FiIcons.FiPhone} className="text-xl" />
+                </div>
+                <p className={`${typography.scale.body} ${typography.weights.regular} ${typography.fontSecondary}`} style={{ color: colors.textPrimary }}>
+                  (212) 555-0123
                 </p>
               </div>
 
-              <div className="flex items-start gap-4">
-                <SafeIcon icon={FiIcons.FiMail} className="text-xl" style={{ color: colors.primary }} />
-                <p className={`${typography.scale.body} ${typography.weights.regular} ${typography.fontSecondary}`} style={{ color: colors.textMuted }}>
-                  reservations@luxury.com
+              <div className="flex items-start gap-5">
+                <div className={`w-14 h-14 flex items-center justify-center border`} style={{
+                  borderColor: colors.border,
+                  color: colors.primary
+                }}>
+                  <SafeIcon icon={FiIcons.FiClock} className="text-xl" />
+                </div>
+                <p className={`${typography.scale.body} ${typography.weights.regular} ${typography.fontSecondary}`} style={{ color: colors.textPrimary }}>
+                  Tue-Sun: 6:00 PM - 11:00 PM
                 </p>
               </div>
             </div>
           </div>
 
           <div>
-            <h3 className={`${typography.scale.h3} ${typography.weights.light} ${typography.fontPrimary} mb-6`} style={{ color: colors.textPrimary }}>
-              Reserve a Table
+            <h3 className={`${typography.scale.h3} ${typography.weights.regular} ${typography.fontPrimary} mb-8`} style={{ color: colors.textPrimary }}>
+              Reservations
             </h3>
 
-            <div className="space-y-4">
+            <div className="space-y-6">
               <input
                 type="text"
                 placeholder="Name"
-                className={`w-full p-4 border ${typography.fontSecondary}`}
+                className={`w-full p-5 border ${typography.fontSecondary}`}
                 style={{
-                  backgroundColor: colors.surface,
+                  backgroundColor: colors.background,
                   borderColor: colors.border,
-                  color: colors.textPrimary
+                  color: colors.textPrimary,
+                  borderWidth: '1px'
                 }}
               />
               <input
                 type="email"
                 placeholder="Email"
-                className={`w-full p-4 border ${typography.fontSecondary}`}
+                className={`w-full p-5 border ${typography.fontSecondary}`}
                 style={{
-                  backgroundColor: colors.surface,
+                  backgroundColor: colors.background,
                   borderColor: colors.border,
-                  color: colors.textPrimary
+                  color: colors.textPrimary,
+                  borderWidth: '1px'
                 }}
               />
-              <button className={`w-full py-4 ${typography.scale.bodySmall} ${typography.weights.semibold} ${typography.tracking.wide} ${typography.transform.uppercase} ${typography.fontSecondary}`} style={{
+              <button className={`w-full py-5 ${typography.scale.bodySmall} ${typography.weights.semibold} ${typography.tracking.widest} ${typography.transform.uppercase} ${typography.fontSecondary} transition-all`} style={{
                 backgroundColor: colors.primary,
-                color: colors.textInverse
+                color: colors.surface
               }}>
-                Book Now
+                Reserve Table
               </button>
             </div>
           </div>
