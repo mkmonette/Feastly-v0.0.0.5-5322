@@ -19,6 +19,8 @@ import WarmCulinaryRenderer from './storefront/warmCulinary/WarmCulinaryRenderer
 import { WarmCulinaryProvider } from './storefront/warmCulinary/WarmCulinaryContext';
 import MinimalRecipeRenderer from './storefront/minimalRecipe/MinimalRecipeRenderer';
 import { MinimalRecipeProvider } from './storefront/minimalRecipe/MinimalRecipeContext';
+import MobileCardMenuRenderer from './storefront/mobileCardMenu/MobileCardMenuRenderer';
+import { MobileCardMenuProvider } from './storefront/mobileCardMenu/MobileCardMenuContext';
 
 const CATEGORIES = [
   { id: 'classic', label: 'Classic' },
@@ -183,6 +185,15 @@ const StorefrontTemplatesPage = () => {
               description="A mobile-first food ordering template optimized for phone users, with large touch targets and vertical layout."
               ProviderComponent={MobileExpressProvider}
               RendererComponent={MobileExpressRenderer}
+            />
+            <TemplatePreviewCard
+              categoryId="mobile"
+              templateSlug="mobile-card-menu"
+              title="Mobile Card Menu"
+              label="Mobile"
+              description="Modern mobile-first template with 2-column product cards, clean design, and full-height desktop cart for seamless ordering."
+              ProviderComponent={MobileCardMenuProvider}
+              RendererComponent={MobileCardMenuRenderer}
             />
           </div>
         ) : activeTab === 'ordering_form' ? (
