@@ -1,61 +1,45 @@
 export const mobileVisualMenuTokens = {
   colors: {
-    background: '#ffffff',
-    surface: '#ffffff',
-    surfaceHover: '#fafafa',
-    border: '#e5e7eb',
-    primaryText: '#1f2937',
-    secondaryText: '#6b7280',
-    accent: '#ec4899',
-    accentHover: '#db2777',
-    shadow: 'rgba(0, 0, 0, 0.08)',
-    sectionHeadlineNormal: '#1f2937',
-    sectionHeadlineHighlight: '#ec4899',
-    heroPreText: '#6b7280',
-    buttonText: '#ffffff',
-    cartBackground: '#ffffff',
-    cartBorder: '#e5e7eb',
-    floatingButtonShadow: 'rgba(236, 72, 153, 0.3)',
-    overlayGradient: 'linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0))',
+    primary: '#10B981',
+    secondary: '#0F172A',
+    accent: '#F59E0B',
+    primaryText: '#0F172A',
+    sectionNormalText: '#475569',
+    sectionHighlightText: '#10B981',
+    heroPreText: '#FFFFFF',
+    heroHeadline: '#FFFFFF',
+    heroHeadlineHighlight: '#10B981',
+    background: '#F8FAFC',
+    cardBackground: '#FFFFFF',
+    border: '#E2E8F0',
+    cartButtonBg: '#10B981',
+    cartButtonText: '#FFFFFF'
   },
   typography: {
-    fontFamily: {
-      heading: "'Inter', -apple-system, sans-serif",
-      body: "'Inter', -apple-system, sans-serif",
-    },
-    fontSize: {
-      heroTitle: '2.25rem',
-      heroSubtitle: '1rem',
-      sectionTitle: '1.625rem',
-      productTitle: '0.9375rem',
-      bodyText: '0.875rem',
-      smallText: '0.8125rem',
-    },
-    fontWeight: {
-      heading: '700',
-      subheading: '600',
-      body: '400',
-      bold: '600',
-    },
-    lineHeight: {
-      heading: '1.2',
-      body: '1.5',
-    },
+    fontPrimary: 'font-sans',
+    fontSecondary: 'font-sans',
+    headingWeight: 'font-bold',
+    bodyWeight: 'font-normal'
   },
-  spacing: {
-    sectionPadding: '2.5rem 1rem',
-    cardPadding: '0',
-    containerMaxWidth: '420px',
-    gridGap: '1rem',
+  layout: {
+    containerWidth: 'max-w-7xl',
+    mobileMaxWidth: 'max-w-md',
+    spacing: {
+      section: 'py-6',
+      card: 'p-3',
+      button: 'px-5 py-3'
+    },
+    borderRadius: {
+      card: 'rounded-2xl',
+      button: 'rounded-xl',
+      image: 'rounded-xl'
+    }
   },
-  borderRadius: {
-    card: '14px',
-    button: '8px',
-    image: '14px',
-  },
-  shadows: {
-    card: '0 3px 8px rgba(0, 0, 0, 0.08)',
-    cardHover: '0 6px 16px rgba(0, 0, 0, 0.12)',
-    floatingButton: '0 4px 16px rgba(236, 72, 153, 0.3)',
-  },
+  effects: {
+    shadow: {
+      card: 'shadow-sm',
+      button: 'shadow-sm',
+      floating: 'shadow-xl'
+    }
+  }
 };

@@ -1,60 +1,45 @@
 export const mobileCompactMenuTokens = {
   colors: {
-    background: '#fafafa',
-    surface: '#ffffff',
-    surfaceHover: '#f7f7f7',
-    border: '#e0e0e0',
-    primaryText: '#212121',
-    secondaryText: '#757575',
-    accent: '#3b82f6',
-    accentHover: '#2563eb',
-    shadow: 'rgba(0, 0, 0, 0.05)',
-    sectionHeadlineNormal: '#212121',
-    sectionHeadlineHighlight: '#3b82f6',
-    heroPreText: '#757575',
-    buttonText: '#ffffff',
-    cartBackground: '#ffffff',
-    cartBorder: '#e0e0e0',
-    floatingButtonShadow: 'rgba(59, 130, 246, 0.3)',
+    primary: '#3B82F6',
+    secondary: '#1E293B',
+    accent: '#EC4899',
+    primaryText: '#1E293B',
+    sectionNormalText: '#64748B',
+    sectionHighlightText: '#3B82F6',
+    heroPreText: '#FFFFFF',
+    heroHeadline: '#FFFFFF',
+    heroHeadlineHighlight: '#3B82F6',
+    background: '#FFFFFF',
+    cardBackground: '#F1F5F9',
+    border: '#CBD5E1',
+    cartButtonBg: '#3B82F6',
+    cartButtonText: '#FFFFFF'
   },
   typography: {
-    fontFamily: {
-      heading: "'Inter', -apple-system, sans-serif",
-      body: "'Inter', -apple-system, sans-serif",
-    },
-    fontSize: {
-      heroTitle: '1.875rem',
-      heroSubtitle: '0.9375rem',
-      sectionTitle: '1.375rem',
-      productTitle: '0.875rem',
-      bodyText: '0.8125rem',
-      smallText: '0.75rem',
-    },
-    fontWeight: {
-      heading: '700',
-      subheading: '600',
-      body: '400',
-      bold: '600',
-    },
-    lineHeight: {
-      heading: '1.2',
-      body: '1.4',
-    },
+    fontPrimary: 'font-sans',
+    fontSecondary: 'font-sans',
+    headingWeight: 'font-extrabold',
+    bodyWeight: 'font-normal'
   },
-  spacing: {
-    sectionPadding: '2rem 1rem',
-    cardPadding: '0.75rem',
-    containerMaxWidth: '420px',
-    gridGap: '0.75rem',
+  layout: {
+    containerWidth: 'max-w-7xl',
+    mobileMaxWidth: 'max-w-md',
+    spacing: {
+      section: 'py-5',
+      card: 'p-2',
+      button: 'px-4 py-2.5'
+    },
+    borderRadius: {
+      card: 'rounded-lg',
+      button: 'rounded-lg',
+      image: 'rounded-md'
+    }
   },
-  borderRadius: {
-    card: '8px',
-    button: '6px',
-    image: '6px',
-  },
-  shadows: {
-    card: '0 1px 3px rgba(0, 0, 0, 0.05)',
-    cardHover: '0 2px 8px rgba(0, 0, 0, 0.08)',
-    floatingButton: '0 4px 16px rgba(59, 130, 246, 0.3)',
-  },
+  effects: {
+    shadow: {
+      card: 'shadow-none',
+      button: 'shadow-sm',
+      floating: 'shadow-lg'
+    }
+  }
 };
