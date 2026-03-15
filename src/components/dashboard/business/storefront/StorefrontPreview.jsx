@@ -22,6 +22,12 @@ import ModernSplitCartRenderer from './modernSplitCart/ModernSplitCartRenderer';
 import { ModernSplitCartProvider } from './modernSplitCart/ModernSplitCartContext';
 import ModernMenuCartRenderer from './modernMenuCart/ModernMenuCartRenderer';
 import { ModernMenuCartProvider } from './modernMenuCart/ModernMenuCartContext';
+import MobileCardMenuRenderer from './mobileCardMenu/MobileCardMenuRenderer';
+import { MobileCardMenuProvider } from './mobileCardMenu/MobileCardMenuContext';
+import MobileCompactMenuRenderer from './mobileCompactMenu/MobileCompactMenuRenderer';
+import { MobileCompactMenuProvider } from './mobileCompactMenu/MobileCompactMenuContext';
+import MobileVisualMenuRenderer from './mobileVisualMenu/MobileVisualMenuRenderer';
+import { MobileVisualMenuProvider } from './mobileVisualMenu/MobileVisualMenuContext';
 
 const TEMPLATE_CONFIG = {
   'base-classic': {
@@ -63,6 +69,18 @@ const TEMPLATE_CONFIG = {
   'modern-menu-cart': {
     Provider: ModernMenuCartProvider,
     Renderer: ModernMenuCartRenderer
+  },
+  'mobile-card-menu': {
+    Provider: MobileCardMenuProvider,
+    Renderer: MobileCardMenuRenderer
+  },
+  'mobile-compact-menu': {
+    Provider: MobileCompactMenuProvider,
+    Renderer: MobileCompactMenuRenderer
+  },
+  'mobile-visual-menu': {
+    Provider: MobileVisualMenuProvider,
+    Renderer: MobileVisualMenuRenderer
   }
 };
 

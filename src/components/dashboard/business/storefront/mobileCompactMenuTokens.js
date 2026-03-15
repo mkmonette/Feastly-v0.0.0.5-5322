@@ -1,0 +1,60 @@
+export const mobileCompactMenuTokens = {
+  colors: {
+    background: '#fafafa',
+    surface: '#ffffff',
+    surfaceHover: '#f7f7f7',
+    border: '#e0e0e0',
+    primaryText: '#212121',
+    secondaryText: '#757575',
+    accent: '#3b82f6',
+    accentHover: '#2563eb',
+    shadow: 'rgba(0, 0, 0, 0.05)',
+    sectionHeadlineNormal: '#212121',
+    sectionHeadlineHighlight: '#3b82f6',
+    heroPreText: '#757575',
+    buttonText: '#ffffff',
+    cartBackground: '#ffffff',
+    cartBorder: '#e0e0e0',
+    floatingButtonShadow: 'rgba(59, 130, 246, 0.3)',
+  },
+  typography: {
+    fontFamily: {
+      heading: "'Inter', -apple-system, sans-serif",
+      body: "'Inter', -apple-system, sans-serif",
+    },
+    fontSize: {
+      heroTitle: '1.875rem',
+      heroSubtitle: '0.9375rem',
+      sectionTitle: '1.375rem',
+      productTitle: '0.875rem',
+      bodyText: '0.8125rem',
+      smallText: '0.75rem',
+    },
+    fontWeight: {
+      heading: '700',
+      subheading: '600',
+      body: '400',
+      bold: '600',
+    },
+    lineHeight: {
+      heading: '1.2',
+      body: '1.4',
+    },
+  },
+  spacing: {
+    sectionPadding: '2rem 1rem',
+    cardPadding: '0.75rem',
+    containerMaxWidth: '420px',
+    gridGap: '0.75rem',
+  },
+  borderRadius: {
+    card: '8px',
+    button: '6px',
+    image: '6px',
+  },
+  shadows: {
+    card: '0 1px 3px rgba(0, 0, 0, 0.05)',
+    cardHover: '0 2px 8px rgba(0, 0, 0, 0.08)',
+    floatingButton: '0 4px 16px rgba(59, 130, 246, 0.3)',
+  },
+};

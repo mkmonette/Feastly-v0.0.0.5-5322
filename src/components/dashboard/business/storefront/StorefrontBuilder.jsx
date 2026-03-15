@@ -23,6 +23,12 @@ import ModernSplitCartRenderer from './modernSplitCart/ModernSplitCartRenderer';
 import { ModernSplitCartProvider, useModernSplitCart } from './modernSplitCart/ModernSplitCartContext';
 import ModernMenuCartRenderer from './modernMenuCart/ModernMenuCartRenderer';
 import { ModernMenuCartProvider, useModernMenuCart } from './modernMenuCart/ModernMenuCartContext';
+import MobileCardMenuRenderer from './mobileCardMenu/MobileCardMenuRenderer';
+import { MobileCardMenuProvider, useMobileCardMenu } from './mobileCardMenu/MobileCardMenuContext';
+import MobileCompactMenuRenderer from './mobileCompactMenu/MobileCompactMenuRenderer';
+import { MobileCompactMenuProvider, useMobileCompactMenu } from './mobileCompactMenu/MobileCompactMenuContext';
+import MobileVisualMenuRenderer from './mobileVisualMenu/MobileVisualMenuRenderer';
+import { MobileVisualMenuProvider, useMobileVisualMenu } from './mobileVisualMenu/MobileVisualMenuContext';
 
 const TEMPLATE_CONFIG = {
   'base-classic': {
@@ -84,6 +90,24 @@ const TEMPLATE_CONFIG = {
     Renderer: ModernMenuCartRenderer,
     useContext: useModernMenuCart,
     title: 'Modern Menu Cart Template'
+  },
+  'mobile-card-menu': {
+    Provider: MobileCardMenuProvider,
+    Renderer: MobileCardMenuRenderer,
+    useContext: useMobileCardMenu,
+    title: 'Mobile Card Menu Template'
+  },
+  'mobile-compact-menu': {
+    Provider: MobileCompactMenuProvider,
+    Renderer: MobileCompactMenuRenderer,
+    useContext: useMobileCompactMenu,
+    title: 'Mobile Compact Menu Template'
+  },
+  'mobile-visual-menu': {
+    Provider: MobileVisualMenuProvider,
+    Renderer: MobileVisualMenuRenderer,
+    useContext: useMobileVisualMenu,
+    title: 'Mobile Visual Menu Template'
   }
 };
 

@@ -1,0 +1,61 @@
+export const mobileVisualMenuTokens = {
+  colors: {
+    background: '#ffffff',
+    surface: '#ffffff',
+    surfaceHover: '#fafafa',
+    border: '#e5e7eb',
+    primaryText: '#1f2937',
+    secondaryText: '#6b7280',
+    accent: '#ec4899',
+    accentHover: '#db2777',
+    shadow: 'rgba(0, 0, 0, 0.08)',
+    sectionHeadlineNormal: '#1f2937',
+    sectionHeadlineHighlight: '#ec4899',
+    heroPreText: '#6b7280',
+    buttonText: '#ffffff',
+    cartBackground: '#ffffff',
+    cartBorder: '#e5e7eb',
+    floatingButtonShadow: 'rgba(236, 72, 153, 0.3)',
+    overlayGradient: 'linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0))',
+  },
+  typography: {
+    fontFamily: {
+      heading: "'Inter', -apple-system, sans-serif",
+      body: "'Inter', -apple-system, sans-serif",
+    },
+    fontSize: {
+      heroTitle: '2.25rem',
+      heroSubtitle: '1rem',
+      sectionTitle: '1.625rem',
+      productTitle: '0.9375rem',
+      bodyText: '0.875rem',
+      smallText: '0.8125rem',
+    },
+    fontWeight: {
+      heading: '700',
+      subheading: '600',
+      body: '400',
+      bold: '600',
+    },
+    lineHeight: {
+      heading: '1.2',
+      body: '1.5',
+    },
+  },
+  spacing: {
+    sectionPadding: '2.5rem 1rem',
+    cardPadding: '0',
+    containerMaxWidth: '420px',
+    gridGap: '1rem',
+  },
+  borderRadius: {
+    card: '14px',
+    button: '8px',
+    image: '14px',
+  },
+  shadows: {
+    card: '0 3px 8px rgba(0, 0, 0, 0.08)',
+    cardHover: '0 6px 16px rgba(0, 0, 0, 0.12)',
+    floatingButton: '0 4px 16px rgba(236, 72, 153, 0.3)',
+  },
+};
