@@ -19,8 +19,6 @@ import WarmCulinaryRenderer from './storefront/warmCulinary/WarmCulinaryRenderer
 import { WarmCulinaryProvider } from './storefront/warmCulinary/WarmCulinaryContext';
 import MinimalRecipeRenderer from './storefront/minimalRecipe/MinimalRecipeRenderer';
 import { MinimalRecipeProvider } from './storefront/minimalRecipe/MinimalRecipeContext';
-import FreshCartRenderer from './storefront/freshCart/FreshCartRenderer';
-import { FreshCartProvider } from './storefront/freshCart/FreshCartContext';
 
 const CATEGORIES = [
   { id: 'classic', label: 'Classic' },
@@ -153,6 +151,15 @@ const StorefrontTemplatesPage = () => {
               ProviderComponent={WarmCulinaryProvider}
               RendererComponent={WarmCulinaryRenderer}
             />
+            <TemplatePreviewCard
+              categoryId="classic"
+              templateSlug="minimal-recipe"
+              title="Minimal Recipe"
+              label="Classic"
+              description="A clean, minimalist design with serif typography, rounded cards, and soft neutrals inspired by modern recipe cards."
+              ProviderComponent={MinimalRecipeProvider}
+              RendererComponent={MinimalRecipeRenderer}
+            />
           </div>
         ) : activeTab === 'modern' ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -164,24 +171,6 @@ const StorefrontTemplatesPage = () => {
               description="A modern food ordering layout with content on the left and a full-height cart panel on the right."
               ProviderComponent={ModernSplitStorefrontProvider}
               RendererComponent={ModernSplitRenderer}
-            />
-            <TemplatePreviewCard
-              categoryId="modern"
-              templateSlug="minimal-recipe"
-              title="Minimal Recipe"
-              label="Modern"
-              description="A clean, minimalist design with serif typography, rounded cards, and soft neutrals inspired by modern recipe cards."
-              ProviderComponent={MinimalRecipeProvider}
-              RendererComponent={MinimalRecipeRenderer}
-            />
-            <TemplatePreviewCard
-              categoryId="modern"
-              templateSlug="fresh-cart"
-              title="Fresh Cart"
-              label="Modern"
-              description="A vibrant 2-column template with teal accents, left content area, and fixed right cart panel with rounded product cards."
-              ProviderComponent={FreshCartProvider}
-              RendererComponent={FreshCartRenderer}
             />
           </div>
         ) : activeTab === 'mobile' ? (

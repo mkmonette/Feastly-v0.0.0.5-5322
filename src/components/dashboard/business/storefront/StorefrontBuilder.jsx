@@ -19,8 +19,6 @@ import WarmCulinaryRenderer from './warmCulinary/WarmCulinaryRenderer';
 import { WarmCulinaryProvider, useWarmCulinary } from './warmCulinary/WarmCulinaryContext';
 import MinimalRecipeRenderer from './minimalRecipe/MinimalRecipeRenderer';
 import { MinimalRecipeProvider, useMinimalRecipe } from './minimalRecipe/MinimalRecipeContext';
-import FreshCartRenderer from './freshCart/FreshCartRenderer';
-import { FreshCartProvider, useFreshCart } from './freshCart/FreshCartContext';
 
 const TEMPLATE_CONFIG = {
   'base-classic': {
@@ -58,12 +56,6 @@ const TEMPLATE_CONFIG = {
     Renderer: MinimalRecipeRenderer,
     useContext: useMinimalRecipe,
     title: 'Minimal Recipe Template'
-  },
-  'fresh-cart': {
-    Provider: FreshCartProvider,
-    Renderer: FreshCartRenderer,
-    useContext: useFreshCart,
-    title: 'Fresh Cart Template'
   },
   'mobile-express': {
     Provider: MobileExpressProvider,
