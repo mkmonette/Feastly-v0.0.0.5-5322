@@ -19,10 +19,6 @@ import WarmCulinaryRenderer from './storefront/warmCulinary/WarmCulinaryRenderer
 import { WarmCulinaryProvider } from './storefront/warmCulinary/WarmCulinaryContext';
 import MinimalRecipeRenderer from './storefront/minimalRecipe/MinimalRecipeRenderer';
 import { MinimalRecipeProvider } from './storefront/minimalRecipe/MinimalRecipeContext';
-import ModernMinimalRenderer from './storefront/modernMinimal/ModernMinimalRenderer';
-import { ModernMinimalProvider } from './storefront/modernMinimal/ModernMinimalContext';
-import ModernGradientRenderer from './storefront/modernGradient/ModernGradientRenderer';
-import { ModernGradientProvider } from './storefront/modernGradient/ModernGradientContext';
 
 const CATEGORIES = [
   { id: 'classic', label: 'Classic' },
@@ -175,24 +171,6 @@ const StorefrontTemplatesPage = () => {
               description="A modern food ordering layout with content on the left and a full-height cart panel on the right."
               ProviderComponent={ModernSplitStorefrontProvider}
               RendererComponent={ModernSplitRenderer}
-            />
-            <TemplatePreviewCard
-              categoryId="modern"
-              templateSlug="modern-minimal"
-              title="Modern Minimal"
-              label="Modern"
-              description="Clean and minimalist design with sleek typography, subtle shadows, and a sophisticated black-and-white aesthetic."
-              ProviderComponent={ModernMinimalProvider}
-              RendererComponent={ModernMinimalRenderer}
-            />
-            <TemplatePreviewCard
-              categoryId="modern"
-              templateSlug="modern-gradient"
-              title="Modern Gradient"
-              label="Modern"
-              description="Bold and vibrant design featuring colorful gradients, dynamic product cards, and eye-catching visual effects."
-              ProviderComponent={ModernGradientProvider}
-              RendererComponent={ModernGradientRenderer}
             />
           </div>
         ) : activeTab === 'mobile' ? (
