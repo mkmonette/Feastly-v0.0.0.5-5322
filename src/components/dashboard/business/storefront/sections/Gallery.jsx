@@ -2,9 +2,10 @@ import React from 'react';
 import { useStorefrontTokens, useStorefront } from '../StorefrontContext';
 import Headline from '../Headline';
 
-const Gallery = () => {
-  const { layout, colors, typography } = useStorefrontTokens();
-  const { sectionsConfig } = useStorefront();
+const Gallery = ({ useContext }) => {
+  const contextHook = useContext || useStorefront;
+  const { tokens, businessData, sectionsConfig } = contextHook();
+  const { layout, colors, typography } = tokens;
 
   const section = sectionsConfig.find(s => s.id === 'gallery');
   const content = section?.content || {};

@@ -6,10 +6,11 @@ import { useProducts } from '@/context/ProductContext';
 import { formatCurrency } from '@/common/currency';
 import Headline from '../Headline';
 
-const ProductGrid = () => {
-  const { typography, colors, layout } = useStorefrontTokens();
+const ProductGrid = ({ useContext }) => {
+  const contextHook = useContext || useStorefront;
+  const { tokens, businessData, sectionsConfig } = contextHook();
+  const { typography, colors, layout } = tokens;
   const { products, categories } = useProducts();
-  const { sectionsConfig } = useStorefront();
   const [activeCategory, setActiveCategory] = useState('All');
 
   const section = sectionsConfig.find(s => s.id === 'products');

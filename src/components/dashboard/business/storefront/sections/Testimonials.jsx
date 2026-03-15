@@ -31,9 +31,10 @@ const defaultTestimonials = [
   }
 ];
 
-const Testimonials = () => {
-  const { typography, colors, layout } = useStorefrontTokens();
-  const { sectionsConfig } = useStorefront();
+const Testimonials = ({ useContext }) => {
+  const contextHook = useContext || useStorefront;
+  const { tokens, businessData, sectionsConfig } = contextHook();
+  const { typography, colors, layout } = tokens;
 
   const section = sectionsConfig.find(s => s.id === 'testimonials');
   const content = section?.content || {};

@@ -3,10 +3,10 @@ import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '@/common/SafeIcon';
 import { useStorefrontTokens, useStorefrontBusinessData, useStorefront } from '../StorefrontContext';
 
-const Header = () => {
-  const { typography, colors, layout } = useStorefrontTokens();
-  const { sectionsConfig } = useStorefront();
-  const businessData = useStorefrontBusinessData();
+const Header = ({ useContext }) => {
+  const contextHook = useContext || useStorefront;
+  const { tokens, businessData, sectionsConfig } = contextHook();
+  const { typography, colors, layout } = tokens;
   
   const section = sectionsConfig.find(s => s.id === 'header');
   const content = section?.content || { logoText: 'FEASTLY' };
