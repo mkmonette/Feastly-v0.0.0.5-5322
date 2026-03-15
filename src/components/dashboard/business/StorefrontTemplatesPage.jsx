@@ -7,8 +7,6 @@ import TemplateRenderer from './storefront/TemplateRenderer';
 import { StorefrontProvider } from './storefront/StorefrontContext';
 import ModernClassicRenderer from './storefront/modernClassic/ModernClassicRenderer';
 import { ModernClassicProvider } from './storefront/modernClassic/ModernClassicContext';
-import ElegantClassicRenderer from './storefront/elegantClassic/ElegantClassicRenderer';
-import { ElegantClassicProvider } from './storefront/elegantClassic/ElegantClassicContext';
 import ModernSplitRenderer from './storefront/modernSplit/ModernSplitRenderer';
 import { ModernSplitStorefrontProvider } from './storefront/modernSplit/ModernSplitProvider';
 import MobileExpressRenderer from './storefront/mobileExpress/MobileExpressRenderer';
@@ -138,15 +136,6 @@ const StorefrontTemplatesPage = () => {
               description="A contemporary take on classic design with split hero layout and horizontal product carousel."
               ProviderComponent={ModernClassicProvider}
               RendererComponent={ModernClassicRenderer}
-            />
-            <TemplatePreviewCard
-              categoryId="classic"
-              templateSlug="elegant-classic"
-              title="Elegant Classic"
-              label="Classic"
-              description="A sophisticated design with spacious layouts, premium aesthetics, and refined typography."
-              ProviderComponent={ElegantClassicProvider}
-              RendererComponent={ElegantClassicRenderer}
             />
             <TemplatePreviewCard
               categoryId="classic"
