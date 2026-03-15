@@ -7,9 +7,7 @@ export default function Hero() {
   const { sectionsConfig } = useStorefront();
   const heroSection = sectionsConfig.find(s => s.id === 'hero');
 
-  if (!heroSection?.visible) return null;
-
-  const content = heroSection.content || {};
+  const content = heroSection?.content || {};
 
   return (
     <section
