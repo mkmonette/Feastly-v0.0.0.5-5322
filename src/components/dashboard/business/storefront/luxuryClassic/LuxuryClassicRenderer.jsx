@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLuxuryClassic } from './LuxuryClassicContext';
+import { LuxuryClassicProvider, useLuxuryClassic } from './LuxuryClassicContext';
 import Header from './Header';
 import Hero from './Hero';
 import FeaturedProducts from './FeaturedProducts';
@@ -11,7 +11,7 @@ import Contact from './Contact';
 import Footer from './Footer';
 import CartPanel from './CartPanel';
 
-const LuxuryClassicRenderer = () => {
+const LuxuryClassicContent = () => {
   const { tokens } = useLuxuryClassic();
 
   return (
@@ -27,6 +27,14 @@ const LuxuryClassicRenderer = () => {
       <Footer />
       <CartPanel />
     </div>
+  );
+};
+
+const LuxuryClassicRenderer = () => {
+  return (
+    <LuxuryClassicProvider>
+      <LuxuryClassicContent />
+    </LuxuryClassicProvider>
   );
 };
 

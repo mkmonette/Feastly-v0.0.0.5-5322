@@ -1,5 +1,5 @@
 import React from 'react';
-import { useRefinedClassic } from './RefinedClassicContext';
+import { RefinedClassicProvider, useRefinedClassic } from './RefinedClassicContext';
 import Header from './Header';
 import Hero from './Hero';
 import FeaturedProducts from './FeaturedProducts';
@@ -11,7 +11,7 @@ import Contact from './Contact';
 import Footer from './Footer';
 import CartPanel from './CartPanel';
 
-const RefinedClassicRenderer = () => {
+const RefinedClassicContent = () => {
   const { tokens } = useRefinedClassic();
 
   return (
@@ -27,6 +27,14 @@ const RefinedClassicRenderer = () => {
       <Footer />
       <CartPanel />
     </div>
+  );
+};
+
+const RefinedClassicRenderer = () => {
+  return (
+    <RefinedClassicProvider>
+      <RefinedClassicContent />
+    </RefinedClassicProvider>
   );
 };
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useVibrantClassic } from './VibrantClassicContext';
+import { VibrantClassicProvider, useVibrantClassic } from './VibrantClassicContext';
 import Header from './Header';
 import Hero from './Hero';
 import FeaturedProducts from './FeaturedProducts';
@@ -11,7 +11,7 @@ import Contact from './Contact';
 import Footer from './Footer';
 import CartPanel from './CartPanel';
 
-const VibrantClassicRenderer = () => {
+const VibrantClassicContent = () => {
   const { tokens } = useVibrantClassic();
 
   return (
@@ -27,6 +27,14 @@ const VibrantClassicRenderer = () => {
       <Footer />
       <CartPanel />
     </div>
+  );
+};
+
+const VibrantClassicRenderer = () => {
+  return (
+    <VibrantClassicProvider>
+      <VibrantClassicContent />
+    </VibrantClassicProvider>
   );
 };
 
