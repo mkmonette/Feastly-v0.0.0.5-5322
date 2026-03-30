@@ -106,13 +106,6 @@ const SAMPLE_CATEGORIES = [
 ];
 
 export const ModernDashboardProvider = ({ children, products, categories }) => {
-  console.log('[ModernDashboardProvider] Initializing with:', {
-    hasProducts: !!products,
-    productsCount: products?.length || 0,
-    hasCategories: !!categories,
-    categoriesCount: categories?.length || 0
-  });
-
   const finalProducts = products && products.length > 0 ? products : SAMPLE_PRODUCTS;
   const finalCategories = categories && categories.length > 0 ? categories : SAMPLE_CATEGORIES;
   const [cart, setCart] = useState([]);
@@ -188,13 +181,6 @@ export const ModernDashboardProvider = ({ children, products, categories }) => {
     newProducts,
     categories: finalCategories
   };
-
-  console.log('[ModernDashboardProvider] Providing context value:', {
-    tokensName: modernDashboardTokens?.name,
-    layoutType: modernDashboardTokens?.layout?.type,
-    filteredProductsCount: filteredProducts.length,
-    featuredProductsCount: featuredProducts.length
-  });
 
   return (
     <ModernDashboardContext.Provider value={value}>

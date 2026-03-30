@@ -90,7 +90,6 @@ const SectionWrapper = ({ sectionId, children }) => {
  * It consumes data from StorefrontContext and ProductContext.
  */
 const TemplateRenderer = () => {
-  console.log('[TemplateRenderer] Default template renderer is rendering');
   return (
     <div className="w-full bg-white">
       <SectionWrapper sectionId="header">

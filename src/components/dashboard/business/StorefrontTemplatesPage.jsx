@@ -47,16 +47,6 @@ const TemplatePreviewCard = ({ categoryId, templateSlug, title, label, descripti
   const Provider = ProviderComponent || StorefrontProvider;
   const Renderer = RendererComponent || TemplateRenderer;
 
-  console.log(`[${templateSlug}] Template Card:`, {
-    hasProviderComponent: !!ProviderComponent,
-    hasRendererComponent: !!RendererComponent,
-    ProviderName: Provider?.name || Provider?.displayName || 'unknown',
-    RendererName: Renderer?.name || Renderer?.displayName || 'unknown',
-    isDefault: !ProviderComponent && !RendererComponent,
-    RendererComponent,
-    actualRenderer: Renderer
-  });
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -67,7 +57,6 @@ const TemplatePreviewCard = ({ categoryId, templateSlug, title, label, descripti
         {/* Real Scaled Preview */}
         <div className="absolute inset-0 scale-[0.25] origin-top-left pointer-events-none select-none overflow-hidden" style={{ width: '400%', height: '400%' }}>
           <Provider>
-            {console.log(`[TemplatePreviewCard] Template: ${templateSlug}, Renderer:`, Renderer.name || Renderer.displayName || 'unknown', 'Provider:', Provider.name || Provider.displayName || 'unknown')}
             <Renderer />
           </Provider>
         </div>
@@ -134,13 +123,6 @@ const StorefrontTemplatesPage = () => {
       <div className="min-h-[500px]">
         {activeTab === 'classic' ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <TemplatePreviewCard
-              categoryId="classic"
-              templateSlug="base-classic"
-              title="Base Classic"
-              label="Classic"
-              description="A timeless multi-section layout perfect for restaurants and food businesses."
-            />
             <TemplatePreviewCard
               categoryId="classic"
               templateSlug="modern-classic"
