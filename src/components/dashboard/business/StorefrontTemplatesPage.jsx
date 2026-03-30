@@ -52,7 +52,9 @@ const TemplatePreviewCard = ({ categoryId, templateSlug, title, label, descripti
     hasRendererComponent: !!RendererComponent,
     ProviderName: Provider?.name || Provider?.displayName || 'unknown',
     RendererName: Renderer?.name || Renderer?.displayName || 'unknown',
-    isDefault: !ProviderComponent && !RendererComponent
+    isDefault: !ProviderComponent && !RendererComponent,
+    RendererComponent,
+    actualRenderer: Renderer
   });
 
   return (
