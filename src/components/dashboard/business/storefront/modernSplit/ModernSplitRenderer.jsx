@@ -1,5 +1,4 @@
 import React from 'react';
-import { ModernSplitProvider } from './ModernSplitContext';
 import { useStorefront } from './contextBridge';
 import Header from './Header';
 import Hero from './Hero';
@@ -29,26 +28,24 @@ const ModernSplitContent = () => {
   const enabledSections = sectionsConfig.filter(section => section.enabled);
 
   return (
-    <ModernSplitProvider>
-      <div className="flex min-h-screen">
-        <div className="flex-1 lg:w-[70%] overflow-x-hidden">
-          {enabledSections.map((section) => {
-            const Component = sectionComponents[section.id];
-            if (!Component) return null;
+    <div className="flex min-h-screen">
+      <div className="flex-1 lg:w-[70%] overflow-x-hidden">
+        {enabledSections.map((section) => {
+          const Component = sectionComponents[section.id];
+          if (!Component) return null;
 
-            return <Component key={section.id} />;
-          })}
-        </div>
-
-        <div className="hidden lg:block lg:w-[30%] lg:flex-shrink-0">
-          <CartPanel />
-        </div>
-
-        <div className="lg:hidden">
-          <CartPanel />
-        </div>
+          return <Component key={section.id} />;
+        })}
       </div>
-    </ModernSplitProvider>
+
+      <div className="hidden lg:block lg:w-[30%] lg:flex-shrink-0">
+        <CartPanel />
+      </div>
+
+      <div className="lg:hidden">
+        <CartPanel />
+      </div>
+    </div>
   );
 };
 
