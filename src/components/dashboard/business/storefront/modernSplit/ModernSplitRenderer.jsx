@@ -3,6 +3,7 @@ import { ModernSplitProvider } from './ModernSplitContext';
 import { useStorefront } from './contextBridge';
 import Header from './Header';
 import Hero from './Hero';
+import About from './About';
 import FeaturedProducts from './FeaturedProducts';
 import ProductGrid from './ProductGrid';
 import Gallery from './Gallery';
@@ -15,6 +16,7 @@ import CartPanel from './CartPanel';
 const sectionComponents = {
   header: Header,
   hero: Hero,
+  about: About,
   featured: FeaturedProducts,
   products: ProductGrid,
   gallery: Gallery,
