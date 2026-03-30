@@ -23,12 +23,6 @@ import MobileCompactMenuRenderer from './storefront/mobileCompactMenu/MobileComp
 import { MobileCompactMenuProvider } from './storefront/mobileCompactMenu/MobileCompactMenuContext';
 import MobileNativeRenderer from './storefront/mobileNative/MobileNativeRenderer';
 import { MobileNativeProvider } from './storefront/mobileNative/MobileNativeContext';
-import LuxuryClassicRenderer from './storefront/luxuryClassic/LuxuryClassicRenderer';
-import { LuxuryClassicProvider } from './storefront/luxuryClassic/LuxuryClassicContext';
-import VibrantClassicRenderer from './storefront/vibrantClassic/VibrantClassicRenderer';
-import { VibrantClassicProvider } from './storefront/vibrantClassic/VibrantClassicContext';
-import RefinedClassicRenderer from './storefront/refinedClassic/RefinedClassicRenderer';
-import { RefinedClassicProvider } from './storefront/refinedClassic/RefinedClassicContext';
 
 const CATEGORIES = [
   { id: 'classic', label: 'Classic' },
@@ -160,33 +154,6 @@ const StorefrontTemplatesPage = () => {
               description="A clean, minimalist design with serif typography, rounded cards, and soft neutrals inspired by modern recipe cards."
               ProviderComponent={MinimalRecipeProvider}
               RendererComponent={MinimalRecipeRenderer}
-            />
-            <TemplatePreviewCard
-              categoryId="classic"
-              templateSlug="luxury-classic"
-              title="Luxury Classic"
-              label="Classic"
-              description="Sophisticated dark theme with gold accents, elegant serif typography, and premium aesthetics for upscale dining."
-              ProviderComponent={LuxuryClassicProvider}
-              RendererComponent={LuxuryClassicRenderer}
-            />
-            <TemplatePreviewCard
-              categoryId="classic"
-              templateSlug="vibrant-classic"
-              title="Vibrant Classic"
-              label="Classic"
-              description="Energetic design with bright gradients, playful bold typography, and dynamic rounded layouts for fun dining experiences."
-              ProviderComponent={VibrantClassicProvider}
-              RendererComponent={VibrantClassicRenderer}
-            />
-            <TemplatePreviewCard
-              categoryId="classic"
-              templateSlug="refined-classic"
-              title="Refined Classic"
-              label="Classic"
-              description="Professional teal and navy palette with clean lines, structured layouts, and polished typography for business dining."
-              ProviderComponent={RefinedClassicProvider}
-              RendererComponent={RefinedClassicRenderer}
             />
           </div>
         ) : activeTab === 'modern' ? (

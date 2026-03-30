@@ -22,12 +22,6 @@ import MobileCompactMenuRenderer from './mobileCompactMenu/MobileCompactMenuRend
 import { MobileCompactMenuProvider } from './mobileCompactMenu/MobileCompactMenuContext';
 import MobileNativeRenderer from './mobileNative/MobileNativeRenderer';
 import { MobileNativeProvider } from './mobileNative/MobileNativeContext';
-import LuxuryClassicRenderer from './luxuryClassic/LuxuryClassicRenderer';
-import { LuxuryClassicProvider } from './luxuryClassic/LuxuryClassicContext';
-import VibrantClassicRenderer from './vibrantClassic/VibrantClassicRenderer';
-import { VibrantClassicProvider } from './vibrantClassic/VibrantClassicContext';
-import RefinedClassicRenderer from './refinedClassic/RefinedClassicRenderer';
-import { RefinedClassicProvider } from './refinedClassic/RefinedClassicContext';
 
 const TEMPLATE_CONFIG = {
   'base-classic': {
@@ -49,18 +43,6 @@ const TEMPLATE_CONFIG = {
   'minimal-recipe': {
     Provider: MinimalRecipeProvider,
     Renderer: MinimalRecipeRenderer
-  },
-  'luxury-classic': {
-    Provider: LuxuryClassicProvider,
-    Renderer: LuxuryClassicRenderer
-  },
-  'vibrant-classic': {
-    Provider: VibrantClassicProvider,
-    Renderer: VibrantClassicRenderer
-  },
-  'refined-classic': {
-    Provider: RefinedClassicProvider,
-    Renderer: RefinedClassicRenderer
   },
   'mobile-express': {
     Provider: MobileExpressProvider,
