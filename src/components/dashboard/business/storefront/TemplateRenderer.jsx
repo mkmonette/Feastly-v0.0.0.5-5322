@@ -11,6 +11,8 @@ import CTABanner from './sections/CTABanner';
 import Contact from './sections/Contact';
 import Footer from './sections/Footer';
 import { useStorefront } from './StorefrontContext';
+import { ModernDashboardRenderer } from './modernDashboard/ModernDashboardRenderer';
+import { modernDashboardTokens } from './modernDashboardTokens';
 
 /**
  * Helper to compare values based on operator
@@ -90,48 +92,61 @@ const SectionWrapper = ({ sectionId, children }) => {
  * It consumes data from StorefrontContext and ProductContext.
  */
 const TemplateRenderer = () => {
+  const { designTokens, sectionsConfig } = useStorefront();
+
+  if (designTokens?.layout === 'split' && designTokens?.id === 'modernDashboard') {
+    return (
+      <ModernDashboardRenderer
+        tokens={modernDashboardTokens}
+        config={sectionsConfig}
+        products={[]}
+        categories={[]}
+      />
+    );
+  }
+
   return (
     <div className="w-full bg-white">
       <SectionWrapper sectionId="header">
         <Header />
       </SectionWrapper>
-      
+
       <SectionWrapper sectionId="hero">
         <Hero />
       </SectionWrapper>
-      
+
       <SectionWrapper sectionId="about">
         <About />
       </SectionWrapper>
-      
+
       <SectionWrapper sectionId="banner">
         <Banner />
       </SectionWrapper>
-      
+
       <SectionWrapper sectionId="featured">
         <FeaturedProducts />
       </SectionWrapper>
-      
+
       <SectionWrapper sectionId="products">
         <ProductGrid />
       </SectionWrapper>
-      
+
       <SectionWrapper sectionId="gallery">
         <Gallery />
       </SectionWrapper>
-      
+
       <SectionWrapper sectionId="testimonials">
         <Testimonials />
       </SectionWrapper>
-      
+
       <SectionWrapper sectionId="cta">
         <CTABanner />
       </SectionWrapper>
-      
+
       <SectionWrapper sectionId="contact">
         <Contact />
       </SectionWrapper>
-      
+
       <SectionWrapper sectionId="footer">
         <Footer />
       </SectionWrapper>
