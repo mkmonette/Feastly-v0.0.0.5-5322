@@ -47,6 +47,14 @@ const TemplatePreviewCard = ({ categoryId, templateSlug, title, label, descripti
   const Provider = ProviderComponent || StorefrontProvider;
   const Renderer = RendererComponent || TemplateRenderer;
 
+  console.log(`[${templateSlug}] Template Card:`, {
+    hasProviderComponent: !!ProviderComponent,
+    hasRendererComponent: !!RendererComponent,
+    ProviderName: Provider?.name || Provider?.displayName || 'unknown',
+    RendererName: Renderer?.name || Renderer?.displayName || 'unknown',
+    isDefault: !ProviderComponent && !RendererComponent
+  });
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}

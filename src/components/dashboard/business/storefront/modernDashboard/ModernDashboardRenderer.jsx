@@ -11,8 +11,17 @@ import { Footer } from './Footer';
 import { CartPanel } from './CartPanel';
 
 const ModernDashboardRenderer = () => {
+  console.log('[ModernDashboardRenderer] Component rendering');
   const { tokens, filteredProducts, popularProducts, newProducts } = useModernDashboard();
   const { colors, layout } = tokens;
+
+  console.log('[ModernDashboardRenderer] Context values:', {
+    hasTokens: !!tokens,
+    layoutType: layout?.type,
+    leftWidth: layout?.leftWidth,
+    rightWidth: layout?.rightWidth,
+    productsCount: filteredProducts?.length || 0
+  });
 
   const styles = {
     container: {
