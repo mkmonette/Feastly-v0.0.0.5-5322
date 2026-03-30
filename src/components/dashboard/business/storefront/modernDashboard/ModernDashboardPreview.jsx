@@ -3,15 +3,16 @@ import { modernDashboardTokens } from '../modernDashboardTokens';
 
 const ModernDashboardPreview = () => {
   return (
-    <ModernDashboardRenderer
-      tokens={modernDashboardTokens}
-      config={{
-        businessName: 'FoodiePinoy',
-        hero: {
-          title: 'Delicious Filipino Cuisine',
-          subtitle: 'Fresh & Authentic',
-        },
-      }}
+    <div style={{ width: '1920px', height: '1080px', overflow: 'hidden' }}>
+      <ModernDashboardRenderer
+        tokens={modernDashboardTokens}
+        config={{
+          businessName: 'FoodiePinoy',
+          hero: {
+            title: 'Delicious Filipino Cuisine',
+            subtitle: 'Fresh & Authentic',
+          },
+        }}
       products={[
         {
           id: 1,
@@ -55,7 +56,8 @@ const ModernDashboardPreview = () => {
         { id: 'appetizers', name: 'Appetizers' },
         { id: 'desserts', name: 'Desserts' },
       ]}
-    />
+      />
+    </div>
   );
 };
 
