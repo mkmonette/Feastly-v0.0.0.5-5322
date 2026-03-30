@@ -23,6 +23,8 @@ import MobileCompactMenuRenderer from './mobileCompactMenu/MobileCompactMenuRend
 import { MobileCompactMenuProvider, useMobileCompactMenu } from './mobileCompactMenu/MobileCompactMenuContext';
 import MobileNativeRenderer from './mobileNative/MobileNativeRenderer';
 import { MobileNativeProvider, useMobileNative } from './mobileNative/MobileNativeContext';
+import { ModernDashboardRenderer } from './modernDashboard/ModernDashboardRenderer';
+import { ModernDashboardProvider, useModernDashboard } from './modernDashboard/ModernDashboardContext';
 
 const TEMPLATE_CONFIG = {
   'base-classic': {
@@ -42,6 +44,12 @@ const TEMPLATE_CONFIG = {
     Renderer: ModernSplitRenderer,
     useContext: useModernSplitStorefront,
     title: 'Modern Split Template'
+  },
+  'modern-dashboard': {
+    Provider: ModernDashboardProvider,
+    Renderer: ModernDashboardRenderer,
+    useContext: useModernDashboard,
+    title: 'Modern Dashboard Template'
   },
   'warm-culinary': {
     Provider: WarmCulinaryProvider,
