@@ -24,6 +24,8 @@ import { MobileCompactMenuProvider } from './storefront/mobileCompactMenu/Mobile
 import MobileNativeRenderer from './storefront/mobileNative/MobileNativeRenderer';
 import { MobileNativeProvider } from './storefront/mobileNative/MobileNativeContext';
 import ModernDashboardPreview from './storefront/modernDashboard/ModernDashboardPreview';
+import ModernMenuCartRenderer from './storefront/modernMenuCart/ModernMenuCartRenderer';
+import { ModernMenuCartProvider } from './storefront/modernMenuCart/ModernMenuCartContext';
 
 const CATEGORIES = [
   { id: 'classic', label: 'Classic' },
@@ -176,6 +178,15 @@ const StorefrontTemplatesPage = () => {
               description="A clean, dashboard-style UI with soft cards, rounded corners, and premium design inspired by modern food ordering apps."
               ProviderComponent={React.Fragment}
               RendererComponent={ModernDashboardPreview}
+            />
+            <TemplatePreviewCard
+              categoryId="modern"
+              templateSlug="modern-menu-cart"
+              title="Modern Menu Cart"
+              label="Modern"
+              description="A compact, efficient template with content on the left and a full-height cart on the right. Dense, app-like interface perfect for quick ordering."
+              ProviderComponent={ModernMenuCartProvider}
+              RendererComponent={ModernMenuCartRenderer}
             />
           </div>
         ) : activeTab === 'mobile' ? (
