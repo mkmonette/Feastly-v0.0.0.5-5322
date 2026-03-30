@@ -65,6 +65,7 @@ const TemplatePreviewCard = ({ categoryId, templateSlug, title, label, descripti
         {/* Real Scaled Preview */}
         <div className="absolute inset-0 scale-[0.25] origin-top-left pointer-events-none select-none overflow-hidden" style={{ width: '400%', height: '400%' }}>
           <Provider>
+            {console.log(`[${templateSlug}] About to render:`, Renderer.name || Renderer.displayName || 'unknown')}
             <Renderer />
           </Provider>
         </div>
