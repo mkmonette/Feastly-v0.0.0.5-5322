@@ -11,8 +11,6 @@ import CTABanner from './sections/CTABanner';
 import Contact from './sections/Contact';
 import Footer from './sections/Footer';
 import { useStorefront } from './StorefrontContext';
-import { ModernDashboardRenderer } from './modernDashboard/ModernDashboardRenderer';
-import { modernDashboardTokens } from './modernDashboardTokens';
 
 /**
  * Helper to compare values based on operator
@@ -92,18 +90,7 @@ const SectionWrapper = ({ sectionId, children }) => {
  * It consumes data from StorefrontContext and ProductContext.
  */
 const TemplateRenderer = () => {
-  const { designTokens, sectionsConfig } = useStorefront();
-
-  if (designTokens?.layout === 'split' && designTokens?.id === 'modernDashboard') {
-    return (
-      <ModernDashboardRenderer
-        tokens={modernDashboardTokens}
-        config={sectionsConfig}
-        products={[]}
-        categories={[]}
-      />
-    );
-  }
+  const { sectionsConfig } = useStorefront();
 
   return (
     <div className="w-full bg-white">

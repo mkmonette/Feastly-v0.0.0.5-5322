@@ -23,11 +23,6 @@ import MobileCompactMenuRenderer from './storefront/mobileCompactMenu/MobileComp
 import { MobileCompactMenuProvider } from './storefront/mobileCompactMenu/MobileCompactMenuContext';
 import MobileNativeRenderer from './storefront/mobileNative/MobileNativeRenderer';
 import { MobileNativeProvider } from './storefront/mobileNative/MobileNativeContext';
-import ModernDashboardPreview from './storefront/modernDashboard/ModernDashboardPreview';
-import ModernMenuCartRenderer from './storefront/modernMenuCart/ModernMenuCartRenderer';
-import { ModernMenuCartProvider } from './storefront/modernMenuCart/ModernMenuCartContext';
-import ModernSplitCartRenderer from './storefront/modernSplitCart/ModernSplitCartRenderer';
-import { ModernSplitCartStorefrontProvider } from './storefront/modernSplitCart/ModernSplitCartProvider';
 
 const CATEGORIES = [
   { id: 'classic', label: 'Classic' },
@@ -171,33 +166,6 @@ const StorefrontTemplatesPage = () => {
               description="A modern food ordering layout with content on the left and a full-height cart panel on the right."
               ProviderComponent={ModernSplitStorefrontProvider}
               RendererComponent={ModernSplitRenderer}
-            />
-            <TemplatePreviewCard
-              categoryId="modern"
-              templateSlug="modern-dashboard"
-              title="Modern Dashboard"
-              label="Modern"
-              description="A clean, dashboard-style UI with soft cards, rounded corners, and premium design inspired by modern food ordering apps."
-              ProviderComponent={React.Fragment}
-              RendererComponent={ModernDashboardPreview}
-            />
-            <TemplatePreviewCard
-              categoryId="modern"
-              templateSlug="modern-menu-cart"
-              title="Modern Menu Cart"
-              label="Modern"
-              description="A compact, efficient template with content on the left and a full-height cart on the right. Dense, app-like interface perfect for quick ordering."
-              ProviderComponent={ModernMenuCartProvider}
-              RendererComponent={ModernMenuCartRenderer}
-            />
-            <TemplatePreviewCard
-              categoryId="modern"
-              templateSlug="modern-split-cart"
-              title="Modern Split Compact"
-              label="Modern"
-              description="Compact version of Modern Split with tighter spacing and smaller elements. Professional split-view layout optimized for efficiency."
-              ProviderComponent={ModernSplitCartStorefrontProvider}
-              RendererComponent={ModernSplitCartRenderer}
             />
           </div>
         ) : activeTab === 'mobile' ? (
