@@ -20,11 +20,9 @@ const PopularDishes = () => {
       }}
     >
       <Headline
-        title="Popular Dishes"
-        subtitle="Customer favorites you'll love"
-        accentColor={tokens.sectionHighlightColor}
-        textColor={tokens.primaryTextColor}
-        subtitleColor={tokens.sectionTextColor}
+        normalText="Popular Dishes"
+        highlightText=""
+        tokens={{ colors: tokens }}
       />
 
       <div

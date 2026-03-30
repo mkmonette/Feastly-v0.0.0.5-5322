@@ -29,11 +29,10 @@ const About = () => {
         }}
       >
         <Headline
-          title={settings.about.title}
-          subtitle=""
-          accentColor={tokens.sectionHighlightColor}
-          textColor={tokens.primaryTextColor}
-          subtitleColor={tokens.sectionTextColor}
+          normalText={settings.about.title}
+          highlightText=""
+          tokens={{ colors: tokens }}
+          className=""
         />
 
         <p

@@ -20,11 +20,9 @@ const FeaturedProducts = () => {
       }}
     >
       <Headline
-        title="Featured Dishes"
-        subtitle="Our chef's special recommendations"
-        accentColor={tokens.sectionHighlightColor}
-        textColor={tokens.primaryTextColor}
-        subtitleColor={tokens.sectionTextColor}
+        normalText="Featured Dishes"
+        highlightText=""
+        tokens={{ colors: tokens }}
       />
 
       <div

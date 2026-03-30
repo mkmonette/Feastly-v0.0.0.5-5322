@@ -19,11 +19,9 @@ const Testimonials = () => {
       }}
     >
       <Headline
-        title="What Our Customers Say"
-        subtitle="Real reviews from real people"
-        accentColor={tokens.sectionHighlightColor}
-        textColor={tokens.primaryTextColor}
-        subtitleColor={tokens.sectionTextColor}
+        normalText="What Our Customers Say"
+        highlightText=""
+        tokens={{ colors: tokens }}
       />
 
       <div

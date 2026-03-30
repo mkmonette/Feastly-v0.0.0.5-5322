@@ -20,11 +20,9 @@ const ProductGrid = () => {
       }}
     >
       <Headline
-        title="Full Menu"
-        subtitle="Browse our complete selection"
-        accentColor={tokens.sectionHighlightColor}
-        textColor={tokens.primaryTextColor}
-        subtitleColor={tokens.sectionTextColor}
+        normalText="Full Menu"
+        highlightText=""
+        tokens={{ colors: tokens }}
       />
 
       {filteredProducts.length === 0 ? (

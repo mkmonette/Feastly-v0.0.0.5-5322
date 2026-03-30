@@ -20,11 +20,9 @@ const NewItems = () => {
       }}
     >
       <Headline
-        title="New on the Menu"
-        subtitle="Try our latest creations"
-        accentColor={tokens.sectionHighlightColor}
-        textColor={tokens.primaryTextColor}
-        subtitleColor={tokens.sectionTextColor}
+        normalText="New on the Menu"
+        highlightText=""
+        tokens={{ colors: tokens }}
       />
 
       <div
