@@ -176,11 +176,7 @@ const StorefrontTemplatesPage = () => {
               title="Modern Dashboard"
               label="Modern"
               description="A clean, dashboard-style UI with soft cards, rounded corners, and premium design inspired by modern food ordering apps."
-              ProviderComponent={({ children }) => (
-                <ModernDashboardProvider tokens={modernDashboardTokens}>
-                  {children}
-                </ModernDashboardProvider>
-              )}
+              ProviderComponent={React.Fragment}
               RendererComponent={() => (
                 <ModernDashboardRenderer
                   tokens={modernDashboardTokens}
