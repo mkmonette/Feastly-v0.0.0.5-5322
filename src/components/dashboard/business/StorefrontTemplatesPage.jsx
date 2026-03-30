@@ -23,7 +23,7 @@ import MobileCompactMenuRenderer from './storefront/mobileCompactMenu/MobileComp
 import { MobileCompactMenuProvider } from './storefront/mobileCompactMenu/MobileCompactMenuContext';
 import MobileNativeRenderer from './storefront/mobileNative/MobileNativeRenderer';
 import { MobileNativeProvider } from './storefront/mobileNative/MobileNativeContext';
-import { ModernDashboardRenderer } from './storefront/modernDashboard/ModernDashboardRenderer';
+import ModernDashboardRenderer from './storefront/modernDashboard/ModernDashboardRenderer';
 import { ModernDashboardProvider } from './storefront/modernDashboard/ModernDashboardContext';
 
 const CATEGORIES = [

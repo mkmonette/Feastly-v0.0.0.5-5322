@@ -10,7 +10,7 @@ import { About } from './About';
 import { Footer } from './Footer';
 import { CartPanel } from './CartPanel';
 
-export const ModernDashboardRenderer = () => {
+const ModernDashboardRenderer = () => {
   const { tokens, filteredProducts, popularProducts, newProducts } = useModernDashboard();
   const { colors, layout } = tokens;
 
@@ -73,3 +73,6 @@ export const ModernDashboardRenderer = () => {
     </div>
   );
 };
+
+export { ModernDashboardRenderer };
+export default ModernDashboardRenderer;
