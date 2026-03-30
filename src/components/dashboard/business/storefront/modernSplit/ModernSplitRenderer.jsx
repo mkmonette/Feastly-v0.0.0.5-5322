@@ -1,6 +1,6 @@
 import React from 'react';
-import { useStorefront } from './contextBridge';
 import { ModernSplitProvider } from './ModernSplitContext';
+import { useStorefront } from './contextBridge';
 import Header from './Header';
 import Hero from './Hero';
 import FeaturedProducts from './FeaturedProducts';
