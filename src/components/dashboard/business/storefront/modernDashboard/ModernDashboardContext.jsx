@@ -1,5 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
-import { useProducts } from '@/context/ProductContext';
+import React, { createContext, useContext, useState } from 'react';
 import { modernDashboardTokens } from '../modernDashboardTokens';
 
 const ModernDashboardContext = createContext();
@@ -12,8 +11,70 @@ export const useModernDashboard = () => {
   return context;
 };
 
-export const ModernDashboardProvider = ({ children }) => {
-  const { products, categories } = useProducts();
+const MOCK_CATEGORIES = [
+  { id: '1', name: 'Main Dishes' },
+  { id: '2', name: 'Appetizers' },
+  { id: '3', name: 'Desserts' },
+  { id: '4', name: 'Beverages' }
+];
+
+const MOCK_PRODUCTS = [
+  {
+    id: '1',
+    name: 'Chicken Adobo',
+    description: 'Traditional Filipino chicken dish slow-cooked in soy sauce, vinegar, and spices',
+    price: 250,
+    category: '1',
+    image: 'https://images.pexels.com/photos/2338407/pexels-photo-2338407.jpeg?auto=compress&cs=tinysrgb&w=800',
+    featured: true
+  },
+  {
+    id: '2',
+    name: 'Sinigang na Baboy',
+    description: 'Sour tamarind soup with tender pork and fresh vegetables',
+    price: 280,
+    category: '1',
+    image: 'https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&w=800',
+    featured: true
+  },
+  {
+    id: '3',
+    name: 'Lumpia Shanghai',
+    description: 'Crispy Filipino spring rolls filled with seasoned meat and vegetables',
+    price: 150,
+    category: '2',
+    image: 'https://images.pexels.com/photos/2474661/pexels-photo-2474661.jpeg?auto=compress&cs=tinysrgb&w=800'
+  },
+  {
+    id: '4',
+    name: 'Pancit Canton',
+    description: 'Stir-fried noodles with vegetables, meat, and savory sauce',
+    price: 180,
+    category: '1',
+    image: 'https://images.pexels.com/photos/1907244/pexels-photo-1907244.jpeg?auto=compress&cs=tinysrgb&w=800'
+  },
+  {
+    id: '5',
+    name: 'Halo-Halo',
+    description: 'Filipino shaved ice dessert with sweet beans, fruits, and leche flan',
+    price: 120,
+    category: '3',
+    image: 'https://images.pexels.com/photos/1352278/pexels-photo-1352278.jpeg?auto=compress&cs=tinysrgb&w=800'
+  },
+  {
+    id: '6',
+    name: 'Sisig',
+    description: 'Sizzling pork dish with onions, peppers, and calamansi',
+    price: 220,
+    category: '1',
+    image: 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800'
+  }
+];
+
+export const ModernDashboardProvider = ({ children, initialProducts, initialCategories }) => {
+  const products = initialProducts || MOCK_PRODUCTS;
+  const categories = initialCategories || MOCK_CATEGORIES;
+
   const [cart, setCart] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
