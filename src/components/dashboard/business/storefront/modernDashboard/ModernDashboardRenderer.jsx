@@ -1,4 +1,4 @@
-import { ModernDashboardProvider, useModernDashboard } from './ModernDashboardContext';
+import { useModernDashboard } from './ModernDashboardContext';
 import { Header } from './Header';
 import { Hero } from './Hero';
 import { CategoryTabs } from './CategoryTabs';
@@ -10,7 +10,7 @@ import { About } from './About';
 import { Footer } from './Footer';
 import { CartPanel } from './CartPanel';
 
-const ModernDashboardContent = () => {
+export const ModernDashboardRenderer = () => {
   const { tokens, filteredProducts, popularProducts, newProducts } = useModernDashboard();
   const { colors, layout } = tokens;
 
@@ -71,13 +71,5 @@ const ModernDashboardContent = () => {
         <CartPanel />
       </div>
     </div>
-  );
-};
-
-export const ModernDashboardRenderer = ({ products = [], categories = [] }) => {
-  return (
-    <ModernDashboardProvider products={products} categories={categories}>
-      <ModernDashboardContent />
-    </ModernDashboardProvider>
   );
 };
