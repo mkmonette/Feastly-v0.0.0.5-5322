@@ -26,6 +26,8 @@ import { MobileNativeProvider } from './storefront/mobileNative/MobileNativeCont
 import ModernDashboardPreview from './storefront/modernDashboard/ModernDashboardPreview';
 import ModernMenuCartRenderer from './storefront/modernMenuCart/ModernMenuCartRenderer';
 import { ModernMenuCartProvider } from './storefront/modernMenuCart/ModernMenuCartContext';
+import ModernSplitCartRenderer from './storefront/modernSplitCart/ModernSplitCartRenderer';
+import { ModernSplitCartProvider } from './storefront/modernSplitCart/ModernSplitCartContext';
 
 const CATEGORIES = [
   { id: 'classic', label: 'Classic' },
@@ -187,6 +189,15 @@ const StorefrontTemplatesPage = () => {
               description="A compact, efficient template with content on the left and a full-height cart on the right. Dense, app-like interface perfect for quick ordering."
               ProviderComponent={ModernMenuCartProvider}
               RendererComponent={ModernMenuCartRenderer}
+            />
+            <TemplatePreviewCard
+              categoryId="modern"
+              templateSlug="modern-split-cart"
+              title="Modern Split Compact"
+              label="Modern"
+              description="Compact version of Modern Split with tighter spacing and smaller elements. Professional split-view layout optimized for efficiency."
+              ProviderComponent={ModernSplitCartProvider}
+              RendererComponent={ModernSplitCartRenderer}
             />
           </div>
         ) : activeTab === 'mobile' ? (
