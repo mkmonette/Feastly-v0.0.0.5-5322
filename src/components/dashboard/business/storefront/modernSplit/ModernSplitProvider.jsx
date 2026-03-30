@@ -30,6 +30,21 @@ const DEFAULT_SECTIONS = [
     }
   },
   {
+    id: 'about',
+    name: 'About Us',
+    enabled: true,
+    visibility: { enabled: true, devices: ['desktop', 'mobile'], conditions: [] },
+    content: {
+      titlePre: 'Our',
+      titleHighlight: 'Story',
+      description: 'We are passionate about bringing fresh, delicious food right to your doorstep. Quality ingredients and exceptional service are at the heart of everything we do.',
+      buttonText: 'Learn More',
+      experienceYears: '10+',
+      experienceText: 'Years of Excellence',
+      imagePosition: 'left'
+    }
+  },
+  {
     id: 'featured',
     name: 'Featured Products',
     enabled: true,

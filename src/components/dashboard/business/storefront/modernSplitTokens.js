@@ -20,6 +20,7 @@ const modernSplitTokens = {
       semibold: 'font-semibold',
       bold: 'font-bold',
       extrabold: 'font-extrabold',
+      black: 'font-black',
     },
     lineHeights: {
       none: 'leading-none',
@@ -76,6 +77,9 @@ const modernSplitTokens = {
     sectionPadding: 'py-12 md:py-16',
     sectionPaddingLarge: 'py-16 md:py-20',
     gridGap: 'gap-4 md:gap-6',
+    gridGapLarge: 'gap-8 md:gap-12',
+    borderRadiusBase: 'rounded-lg',
+    borderRadiusLarge: 'rounded-xl',
   },
 
   spacing: {
