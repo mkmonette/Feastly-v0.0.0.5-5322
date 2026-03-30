@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ModernDashboardProvider } from './ModernDashboardContext';
+import { useModernDashboard } from './ModernDashboardContext';
 import { Header } from './Header';
 import { Hero } from './Hero';
 import { CategoryTabs } from './CategoryTabs';
@@ -14,7 +14,8 @@ import { Footer } from './Footer';
 import { CartPanel } from './CartPanel';
 import { CartOverlay } from './CartOverlay';
 
-export const ModernDashboardRenderer = ({ tokens, config, products, categories }) => {
+const ModernDashboardContent = ({ config, products, categories }) => {
+  const { tokens } = useModernDashboard();
   const [filteredProducts, setFilteredProducts] = useState(products || []);
   const [selectedCategory, setSelectedCategory] = useState('all');
 
@@ -33,16 +34,15 @@ export const ModernDashboardRenderer = ({ tokens, config, products, categories }
   };
 
   return (
-    <ModernDashboardProvider tokens={tokens}>
-      <div
-        style={{
-          fontFamily: tokens.typography.fontFamily,
-          background: tokens.colors.primaryBg,
-          minHeight: '100vh',
-          display: 'flex',
-          flexDirection: 'column',
-        }}
-      >
+    <div
+      style={{
+        fontFamily: tokens.typography.fontFamily,
+        background: tokens.colors.primaryBg,
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+      }}
+    >
         <Header businessName={config?.businessName} logo={config?.logo} />
 
         <div style={{ display: 'flex', flex: 1 }}>
@@ -99,6 +99,9 @@ export const ModernDashboardRenderer = ({ tokens, config, products, categories }
 
         <CartOverlay />
       </div>
-    </ModernDashboardProvider>
   );
+};
+
+export const ModernDashboardRenderer = (props) => {
+  return <ModernDashboardContent {...props} />;
 };

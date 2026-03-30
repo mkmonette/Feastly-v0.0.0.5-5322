@@ -1,4 +1,6 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, useMemo } from 'react';
+import { modernDashboardTokens } from '../modernDashboardTokens';
+import { mergeTokens } from '../utils/tokenUtils';
 
 const ModernDashboardContext = createContext();
 
@@ -10,7 +12,21 @@ export const useModernDashboard = () => {
   return context;
 };
 
-export const ModernDashboardProvider = ({ children, tokens }) => {
+export const ModernDashboardProvider = ({ children }) => {
+  const [overrideTokens, setOverrideTokens] = useState(() => {
+    try {
+      const saved = localStorage.getItem('modernDashboardOverrideTokens');
+      return saved ? JSON.parse(saved) : {};
+    } catch (e) {
+      console.error("Failed to load modern dashboard tokens", e);
+      return {};
+    }
+  });
+
+  const tokens = useMemo(() => {
+    return mergeTokens(modernDashboardTokens, overrideTokens);
+  }, [overrideTokens]);
+
   const [cart, setCart] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
 
@@ -48,6 +64,11 @@ export const ModernDashboardProvider = ({ children, tokens }) => {
     setCart([]);
   };
 
+  const resetTokens = () => {
+    setOverrideTokens({});
+    localStorage.removeItem('modernDashboardOverrideTokens');
+  };
+
   const cartTotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
 
@@ -55,6 +76,9 @@ export const ModernDashboardProvider = ({ children, tokens }) => {
     <ModernDashboardContext.Provider
       value={{
         tokens,
+        overrideTokens,
+        setOverrideTokens,
+        resetTokens,
         cart,
         cartTotal,
         cartCount,
