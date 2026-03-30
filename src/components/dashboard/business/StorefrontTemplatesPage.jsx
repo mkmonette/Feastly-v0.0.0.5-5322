@@ -27,7 +27,7 @@ import ModernDashboardPreview from './storefront/modernDashboard/ModernDashboard
 import ModernMenuCartRenderer from './storefront/modernMenuCart/ModernMenuCartRenderer';
 import { ModernMenuCartProvider } from './storefront/modernMenuCart/ModernMenuCartContext';
 import ModernSplitCartRenderer from './storefront/modernSplitCart/ModernSplitCartRenderer';
-import { ModernSplitCartProvider } from './storefront/modernSplitCart/ModernSplitCartContext';
+import { ModernSplitCartStorefrontProvider } from './storefront/modernSplitCart/ModernSplitCartProvider';
 
 const CATEGORIES = [
   { id: 'classic', label: 'Classic' },
@@ -196,7 +196,7 @@ const StorefrontTemplatesPage = () => {
               title="Modern Split Compact"
               label="Modern"
               description="Compact version of Modern Split with tighter spacing and smaller elements. Professional split-view layout optimized for efficiency."
-              ProviderComponent={ModernSplitCartProvider}
+              ProviderComponent={ModernSplitCartStorefrontProvider}
               RendererComponent={ModernSplitCartRenderer}
             />
           </div>

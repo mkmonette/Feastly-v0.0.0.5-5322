@@ -1,13 +1,15 @@
-import { useStorefront as useStorefrontBase } from '../StorefrontContext';
+import { useModernSplitCartStorefront } from './ModernSplitCartProvider';
 
-export const useStorefront = useStorefrontBase;
+export const useStorefront = () => {
+  return useModernSplitCartStorefront();
+};
 
 export const useStorefrontTokens = () => {
-  const context = useStorefrontBase();
+  const context = useModernSplitCartStorefront();
   return context?.tokens || {};
 };
 
 export const useStorefrontBusinessData = () => {
-  const context = useStorefrontBase();
+  const context = useModernSplitCartStorefront();
   return context?.businessData || {};
 };
