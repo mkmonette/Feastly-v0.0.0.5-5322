@@ -23,6 +23,8 @@ import MobileCompactMenuRenderer from './storefront/mobileCompactMenu/MobileComp
 import { MobileCompactMenuProvider } from './storefront/mobileCompactMenu/MobileCompactMenuContext';
 import MobileNativeRenderer from './storefront/mobileNative/MobileNativeRenderer';
 import { MobileNativeProvider } from './storefront/mobileNative/MobileNativeContext';
+import ModernMenuCartRenderer from './storefront/modernMenuCart/ModernMenuCartRenderer';
+import { ModernMenuCartProvider } from './storefront/modernMenuCart/ModernMenuCartContext';
 
 const CATEGORIES = [
   { id: 'classic', label: 'Classic' },
@@ -166,6 +168,15 @@ const StorefrontTemplatesPage = () => {
               description="A modern food ordering layout with content on the left and a full-height cart panel on the right."
               ProviderComponent={ModernSplitStorefrontProvider}
               RendererComponent={ModernSplitRenderer}
+            />
+            <TemplatePreviewCard
+              categoryId="modern"
+              templateSlug="modern-menu-cart"
+              title="Modern Menu Cart"
+              label="Modern"
+              description="A warm, friendly food ordering template with rounded elements, compact design, and fixed cart panel inspired by modern delivery apps."
+              ProviderComponent={ModernMenuCartProvider}
+              RendererComponent={ModernMenuCartRenderer}
             />
           </div>
         ) : activeTab === 'mobile' ? (
