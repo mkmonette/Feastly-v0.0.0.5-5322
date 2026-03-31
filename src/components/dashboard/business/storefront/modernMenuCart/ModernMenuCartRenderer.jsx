@@ -42,11 +42,13 @@ function ModernMenuCartContent() {
 
       <div style={{
         display: 'flex',
-        minHeight: '100vh'
+        minHeight: '100vh',
+        flexDirection: 'row'
       }}>
         <div style={{
           flex: 1,
-          paddingRight: '400px'
+          minWidth: 0,
+          overflow: 'hidden'
         }}>
           {isVisible('headerHero') && <HeaderHero />}
           {isVisible('about') && <About />}
@@ -61,16 +63,15 @@ function ModernMenuCartContent() {
         </div>
 
         <div style={{
-          position: 'fixed',
-          right: 0,
-          top: 0,
           width: tokens.layout.cartWidth,
+          flexShrink: 0,
+          position: 'sticky',
+          top: 0,
           height: '100vh',
           overflowY: 'auto',
           backgroundColor: tokens.colors.surface,
           borderLeft: `1px solid ${tokens.colors.border}`,
-          padding: '2rem 1.5rem',
-          zIndex: 100
+          padding: '2rem 1.5rem'
         }}>
           <CartPanel />
         </div>
