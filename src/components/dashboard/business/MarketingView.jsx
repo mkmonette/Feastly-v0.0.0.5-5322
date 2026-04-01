@@ -64,7 +64,7 @@ const MarketingView = () => {
           <div className="inline-flex items-center px-2.5 py-1 rounded-lg bg-orange-100 text-orange-600 text-[10px] font-bold uppercase tracking-wider mb-3">
             <SafeIcon icon={FiTarget} className="mr-1.5" /> Growth Tools
           </div>
-          <h2 className="text-3xl font-extrabold text-gray-900 tracking-tight text-left">Marketing Center</h2>
+          <h2 className="text-3xl font-black text-gray-900 tracking-tight text-left">Marketing Center</h2>
           <p className="text-gray-500 mt-1 max-w-md text-left">
             Boost your Average Order Value (AOV) and conversion with strategic marketing tools.
           </p>

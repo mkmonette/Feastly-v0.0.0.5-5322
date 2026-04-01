@@ -96,10 +96,10 @@ const StorefrontTemplatesPage = () => {
   return (
     <div className="p-8 max-w-7xl mx-auto">
       <header className="mb-12 text-left">
-        <h1 className="text-5xl font-black text-gray-900 tracking-tighter uppercase mb-3">
-          Template Gallery
+        <h1 className="text-3xl font-black text-gray-900 tracking-tight mb-3">
+          Storefront Builder
         </h1>
-        <p className="text-gray-500 font-bold uppercase tracking-widest text-sm max-w-2xl">
+        <p className="text-gray-500 mt-1 max-w-2xl">
           Choose a professionally designed base template to jumpstart your storefront.
         </p>
       </header>

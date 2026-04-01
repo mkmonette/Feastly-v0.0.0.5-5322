@@ -137,8 +137,8 @@ const RoleOverview = ({ role }) => {
       className="p-6 lg:p-10"
     >
       <motion.div variants={item} className="mb-8">
-        <h2 className="text-2xl font-bold text-gray-900">Welcome back, {role}!</h2>
-        <p className="text-gray-500">Here's what's happening with your account today.</p>
+        <h2 className="text-3xl font-black text-gray-900 tracking-tight">Overview</h2>
+        <p className="text-gray-500 mt-1">Here's what's happening with your account today.</p>
       </motion.div>
 
       <motion.div variants={item}>
