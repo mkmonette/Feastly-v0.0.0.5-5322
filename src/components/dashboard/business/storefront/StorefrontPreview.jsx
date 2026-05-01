@@ -22,6 +22,10 @@ import MobileCompactMenuRenderer from './mobileCompactMenu/MobileCompactMenuRend
 import { MobileCompactMenuProvider } from './mobileCompactMenu/MobileCompactMenuContext';
 import MobileNativeRenderer from './mobileNative/MobileNativeRenderer';
 import { MobileNativeProvider } from './mobileNative/MobileNativeContext';
+import ModernMenuCartRenderer from './modernMenuCart/ModernMenuCartRenderer';
+import { ModernMenuCartProvider } from './modernMenuCart/ModernMenuCartContext';
+import MobileYummRenderer from './mobileYumm/MobileYummRenderer';
+import { MobileYummProvider } from './mobileYumm/MobileYummContext';
 
 const TEMPLATE_CONFIG = {
   'base-classic': {
@@ -63,6 +67,14 @@ const TEMPLATE_CONFIG = {
   'quick-order': {
     Provider: QuickOrderProvider,
     Renderer: QuickOrderRenderer
+  },
+  'modern-menu-cart': {
+    Provider: ModernMenuCartProvider,
+    Renderer: ModernMenuCartRenderer
+  },
+  'mobile-yumm': {
+    Provider: MobileYummProvider,
+    Renderer: MobileYummRenderer
   }
 };
 

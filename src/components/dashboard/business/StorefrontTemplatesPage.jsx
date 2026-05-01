@@ -25,6 +25,8 @@ import MobileNativeRenderer from './storefront/mobileNative/MobileNativeRenderer
 import { MobileNativeProvider } from './storefront/mobileNative/MobileNativeContext';
 import ModernMenuCartRenderer from './storefront/modernMenuCart/ModernMenuCartRenderer';
 import { ModernMenuCartProvider } from './storefront/modernMenuCart/ModernMenuCartContext';
+import MobileYummRenderer from './storefront/mobileYumm/MobileYummRenderer';
+import { MobileYummProvider } from './storefront/mobileYumm/MobileYummContext';
 
 const CATEGORIES = [
   { id: 'classic', label: 'Classic' },
@@ -216,6 +218,15 @@ const StorefrontTemplatesPage = () => {
               description="iOS-inspired native app design with compact elements, search, and smooth interactions for app-like experience."
               ProviderComponent={MobileNativeProvider}
               RendererComponent={MobileNativeRenderer}
+            />
+            <TemplatePreviewCard
+              categoryId="mobile"
+              templateSlug="mobile-yumm"
+              title="Mobile Yumm"
+              label="Mobile"
+              description="A vibrant orange food delivery template with hero stats, category tabs, gallery, reviews, and a contact form."
+              ProviderComponent={MobileYummProvider}
+              RendererComponent={MobileYummRenderer}
             />
           </div>
         ) : activeTab === 'ordering_form' ? (

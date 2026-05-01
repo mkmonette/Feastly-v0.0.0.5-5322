@@ -23,6 +23,10 @@ import MobileCompactMenuRenderer from './mobileCompactMenu/MobileCompactMenuRend
 import { MobileCompactMenuProvider, useMobileCompactMenu } from './mobileCompactMenu/MobileCompactMenuContext';
 import MobileNativeRenderer from './mobileNative/MobileNativeRenderer';
 import { MobileNativeProvider, useMobileNative } from './mobileNative/MobileNativeContext';
+import ModernMenuCartRenderer from './modernMenuCart/ModernMenuCartRenderer';
+import { ModernMenuCartProvider, useModernMenuCart } from './modernMenuCart/ModernMenuCartContext';
+import MobileYummRenderer from './mobileYumm/MobileYummRenderer';
+import { MobileYummProvider, useMobileYumm } from './mobileYumm/MobileYummContext';
 
 const TEMPLATE_CONFIG = {
   'base-classic': {
@@ -84,6 +88,18 @@ const TEMPLATE_CONFIG = {
     Renderer: QuickOrderRenderer,
     useContext: useQuickOrder,
     title: 'Quick Order Form Template'
+  },
+  'modern-menu-cart': {
+    Provider: ModernMenuCartProvider,
+    Renderer: ModernMenuCartRenderer,
+    useContext: useModernMenuCart,
+    title: 'Modern Menu Cart Template'
+  },
+  'mobile-yumm': {
+    Provider: MobileYummProvider,
+    Renderer: MobileYummRenderer,
+    useContext: useMobileYumm,
+    title: 'Mobile Yumm Template'
   }
 };
 
