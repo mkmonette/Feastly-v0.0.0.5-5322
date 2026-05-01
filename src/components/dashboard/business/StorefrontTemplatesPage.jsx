@@ -17,6 +17,8 @@ import GroveRenderer from './storefront/grove/GroveRenderer';
 import { GroveProvider } from './storefront/grove/GroveContext';
 import EmberRenderer from './storefront/ember/EmberRenderer';
 import { EmberProvider } from './storefront/ember/EmberContext';
+import HearthRenderer from './storefront/hearth/HearthRenderer';
+import { HearthProvider } from './storefront/hearth/HearthContext';
 import WarmCulinaryRenderer from './storefront/warmCulinary/WarmCulinaryRenderer';
 import { WarmCulinaryProvider } from './storefront/warmCulinary/WarmCulinaryContext';
 import MinimalRecipeRenderer from './storefront/minimalRecipe/MinimalRecipeRenderer';
@@ -252,6 +254,15 @@ const StorefrontTemplatesPage = () => {
               description="Dark late-night dining template with yellow badge logo, full-bleed hero, dark cards, amber category tabs, and calorie badges."
               ProviderComponent={EmberProvider}
               RendererComponent={EmberRenderer}
+            />
+            <TemplatePreviewCard
+              categoryId="ordering_form"
+              templateSlug="hearth"
+              title="Hearth"
+              label="Ordering Form"
+              description="Dark background with white product cards — text and price on top, padded rounded image at the bottom, yellow circular add buttons."
+              ProviderComponent={HearthProvider}
+              RendererComponent={HearthRenderer}
             />
           </div>
         ) : (

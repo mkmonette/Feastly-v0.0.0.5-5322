@@ -16,6 +16,8 @@ import GroveRenderer from './grove/GroveRenderer';
 import { GroveProvider } from './grove/GroveContext';
 import EmberRenderer from './ember/EmberRenderer';
 import { EmberProvider } from './ember/EmberContext';
+import HearthRenderer from './hearth/HearthRenderer';
+import { HearthProvider } from './hearth/HearthContext';
 import WarmCulinaryRenderer from './warmCulinary/WarmCulinaryRenderer';
 import { WarmCulinaryProvider } from './warmCulinary/WarmCulinaryContext';
 import MinimalRecipeRenderer from './minimalRecipe/MinimalRecipeRenderer';
@@ -79,6 +81,10 @@ const TEMPLATE_CONFIG = {
   'ember': {
     Provider: EmberProvider,
     Renderer: EmberRenderer
+  },
+  'hearth': {
+    Provider: HearthProvider,
+    Renderer: HearthRenderer
   },
   'modern-menu-cart': {
     Provider: ModernMenuCartProvider,
