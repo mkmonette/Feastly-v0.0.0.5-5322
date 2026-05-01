@@ -1,0 +1,33 @@
+export const groveTokens = {
+  colors: {
+    primary: '#2D5016',
+    primaryLight: '#3A6B1C',
+    background: '#F0EDE8',
+    sectionAlt: '#E8E4DE',
+    heroOverlay: 'rgba(30,50,20,0.72)',
+    heroBg: '#1E3214',
+    cardBackground: '#FFFFFF',
+    cardBorder: '#E5E0D8',
+    primaryText: '#1A1A1A',
+    mutedText: '#777770',
+    descriptionText: '#555550',
+    navText: '#1A1A1A',
+    buttonPrimary: '#2D5016',
+    buttonText: '#FFFFFF',
+    badgeBg: 'rgba(255,255,255,0.18)',
+    badgeText: '#FFFFFF',
+    calBadgeBg: 'rgba(255,255,255,0.88)',
+    calBadgeText: '#333333',
+    tabActive: '#2D5016',
+    tabActiveText: '#FFFFFF',
+    tabInactiveBorder: '#CCCCCC',
+    tabInactiveText: '#444444',
+    footerBg: '#F0EDE8',
+    footerBorder: '#DDD9D2',
+    heroPrimaryText: '#FFFFFF',
+    heroMutedText: 'rgba(255,255,255,0.72)',
+    heroStatValue: '#FFFFFF',
+    heroStatLabel: 'rgba(255,255,255,0.65)',
+    starColor: '#F5C542'
+  }
+};

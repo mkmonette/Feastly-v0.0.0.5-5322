@@ -13,6 +13,8 @@ import MobileExpressRenderer from './storefront/mobileExpress/MobileExpressRende
 import { MobileExpressProvider } from './storefront/mobileExpress/MobileExpressContext';
 import QuickOrderRenderer from './storefront/quickOrder/QuickOrderRenderer';
 import { QuickOrderProvider } from './storefront/quickOrder/QuickOrderContext';
+import GroveRenderer from './storefront/grove/GroveRenderer';
+import { GroveProvider } from './storefront/grove/GroveContext';
 import WarmCulinaryRenderer from './storefront/warmCulinary/WarmCulinaryRenderer';
 import { WarmCulinaryProvider } from './storefront/warmCulinary/WarmCulinaryContext';
 import MinimalRecipeRenderer from './storefront/minimalRecipe/MinimalRecipeRenderer';
@@ -233,12 +235,12 @@ const StorefrontTemplatesPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <TemplatePreviewCard
               categoryId="ordering_form"
-              templateSlug="quick-order"
-              title="Quick Order Form"
+              templateSlug="grove"
+              title="Grove"
               label="Ordering Form"
-              description="Fast ordering layout with 2-column products on mobile and sticky cart panel on desktop."
-              ProviderComponent={QuickOrderProvider}
-              RendererComponent={QuickOrderRenderer}
+              description="Farm-to-table food ordering template with dark green hero, full-width card images, calorie badges, and category tabs."
+              ProviderComponent={GroveProvider}
+              RendererComponent={GroveRenderer}
             />
           </div>
         ) : (

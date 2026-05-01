@@ -12,6 +12,8 @@ import MobileExpressRenderer from './mobileExpress/MobileExpressRenderer';
 import { MobileExpressProvider } from './mobileExpress/MobileExpressContext';
 import QuickOrderRenderer from './quickOrder/QuickOrderRenderer';
 import { QuickOrderProvider } from './quickOrder/QuickOrderContext';
+import GroveRenderer from './grove/GroveRenderer';
+import { GroveProvider } from './grove/GroveContext';
 import WarmCulinaryRenderer from './warmCulinary/WarmCulinaryRenderer';
 import { WarmCulinaryProvider } from './warmCulinary/WarmCulinaryContext';
 import MinimalRecipeRenderer from './minimalRecipe/MinimalRecipeRenderer';
@@ -67,6 +69,10 @@ const TEMPLATE_CONFIG = {
   'quick-order': {
     Provider: QuickOrderProvider,
     Renderer: QuickOrderRenderer
+  },
+  'grove': {
+    Provider: GroveProvider,
+    Renderer: GroveRenderer
   },
   'modern-menu-cart': {
     Provider: ModernMenuCartProvider,
