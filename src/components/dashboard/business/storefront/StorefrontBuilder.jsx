@@ -19,6 +19,8 @@ import EmberRenderer from './ember/EmberRenderer';
 import { EmberProvider, useEmber } from './ember/EmberContext';
 import HearthRenderer from './hearth/HearthRenderer';
 import { HearthProvider, useHearth } from './hearth/HearthContext';
+import SageRenderer from './sage/SageRenderer';
+import { SageProvider, useSage } from './sage/SageContext';
 import WarmCulinaryRenderer from './warmCulinary/WarmCulinaryRenderer';
 import { WarmCulinaryProvider, useWarmCulinary } from './warmCulinary/WarmCulinaryContext';
 import MinimalRecipeRenderer from './minimalRecipe/MinimalRecipeRenderer';
@@ -112,6 +114,12 @@ const TEMPLATE_CONFIG = {
     Renderer: HearthRenderer,
     useContext: useHearth,
     title: 'Hearth Template'
+  },
+  'sage': {
+    Provider: SageProvider,
+    Renderer: SageRenderer,
+    useContext: useSage,
+    title: 'Sage Template'
   },
   'modern-menu-cart': {
     Provider: ModernMenuCartProvider,

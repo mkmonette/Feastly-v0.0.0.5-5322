@@ -33,6 +33,8 @@ import ModernMenuCartRenderer from './storefront/modernMenuCart/ModernMenuCartRe
 import { ModernMenuCartProvider } from './storefront/modernMenuCart/ModernMenuCartContext';
 import MobileYummRenderer from './storefront/mobileYumm/MobileYummRenderer';
 import { MobileYummProvider } from './storefront/mobileYumm/MobileYummContext';
+import SageRenderer from './storefront/sage/SageRenderer';
+import { SageProvider } from './storefront/sage/SageContext';
 
 const CATEGORIES = [
   { id: 'classic', label: 'Classic' },
@@ -164,6 +166,15 @@ const StorefrontTemplatesPage = () => {
               description="A clean, minimalist design with serif typography, rounded cards, and soft neutrals inspired by modern recipe cards."
               ProviderComponent={MinimalRecipeProvider}
               RendererComponent={MinimalRecipeRenderer}
+            />
+            <TemplatePreviewCard
+              categoryId="classic"
+              templateSlug="sage"
+              title="Sage"
+              label="Classic"
+              description="Dark navy theme with teal accents, split hero, sliding marquee banner, chef's feature card, product grid, gallery, and contact form."
+              ProviderComponent={SageProvider}
+              RendererComponent={SageRenderer}
             />
           </div>
         ) : activeTab === 'modern' ? (
