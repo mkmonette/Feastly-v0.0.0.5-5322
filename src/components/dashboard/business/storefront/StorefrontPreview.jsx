@@ -14,6 +14,8 @@ import QuickOrderRenderer from './quickOrder/QuickOrderRenderer';
 import { QuickOrderProvider } from './quickOrder/QuickOrderContext';
 import GroveRenderer from './grove/GroveRenderer';
 import { GroveProvider } from './grove/GroveContext';
+import EmberRenderer from './ember/EmberRenderer';
+import { EmberProvider } from './ember/EmberContext';
 import WarmCulinaryRenderer from './warmCulinary/WarmCulinaryRenderer';
 import { WarmCulinaryProvider } from './warmCulinary/WarmCulinaryContext';
 import MinimalRecipeRenderer from './minimalRecipe/MinimalRecipeRenderer';
@@ -73,6 +75,10 @@ const TEMPLATE_CONFIG = {
   'grove': {
     Provider: GroveProvider,
     Renderer: GroveRenderer
+  },
+  'ember': {
+    Provider: EmberProvider,
+    Renderer: EmberRenderer
   },
   'modern-menu-cart': {
     Provider: ModernMenuCartProvider,

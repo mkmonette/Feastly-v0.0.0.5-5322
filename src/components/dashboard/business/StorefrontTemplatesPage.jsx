@@ -15,6 +15,8 @@ import QuickOrderRenderer from './storefront/quickOrder/QuickOrderRenderer';
 import { QuickOrderProvider } from './storefront/quickOrder/QuickOrderContext';
 import GroveRenderer from './storefront/grove/GroveRenderer';
 import { GroveProvider } from './storefront/grove/GroveContext';
+import EmberRenderer from './storefront/ember/EmberRenderer';
+import { EmberProvider } from './storefront/ember/EmberContext';
 import WarmCulinaryRenderer from './storefront/warmCulinary/WarmCulinaryRenderer';
 import { WarmCulinaryProvider } from './storefront/warmCulinary/WarmCulinaryContext';
 import MinimalRecipeRenderer from './storefront/minimalRecipe/MinimalRecipeRenderer';
@@ -241,6 +243,15 @@ const StorefrontTemplatesPage = () => {
               description="Farm-to-table food ordering template with dark green hero, full-width card images, calorie badges, and category tabs."
               ProviderComponent={GroveProvider}
               RendererComponent={GroveRenderer}
+            />
+            <TemplatePreviewCard
+              categoryId="ordering_form"
+              templateSlug="ember"
+              title="Ember"
+              label="Ordering Form"
+              description="Dark late-night dining template with yellow badge logo, full-bleed hero, dark cards, amber category tabs, and calorie badges."
+              ProviderComponent={EmberProvider}
+              RendererComponent={EmberRenderer}
             />
           </div>
         ) : (

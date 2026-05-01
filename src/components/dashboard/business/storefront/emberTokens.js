@@ -1,0 +1,30 @@
+export const emberTokens = {
+  colors: {
+    primary: '#F5C542',
+    background: '#1C1C1C',
+    sectionAlt: '#141414',
+    heroOverlay: 'rgba(10,10,10,0.68)',
+    cardBackground: '#252525',
+    cardBorder: '#333333',
+    primaryText: '#FFFFFF',
+    mutedText: '#888888',
+    descriptionText: '#AAAAAA',
+    navText: '#CCCCCC',
+    buttonPrimary: '#2A2A2A',
+    buttonText: '#FFFFFF',
+    buttonBorder: '#444444',
+    badgeBg: 'rgba(255,255,255,0.12)',
+    badgeBorder: 'rgba(255,255,255,0.2)',
+    badgeText: '#FFFFFF',
+    calBadgeBg: 'rgba(0,0,0,0.55)',
+    calBadgeText: '#FFFFFF',
+    tabActive: '#F5C542',
+    tabActiveText: '#111111',
+    tabInactiveBorder: '#3A3A3A',
+    tabInactiveText: '#888888',
+    footerBg: '#141414',
+    footerBorder: '#2A2A2A',
+    starColor: '#F5C542',
+    statSeparator: 'rgba(255,255,255,0.25)'
+  }
+};
