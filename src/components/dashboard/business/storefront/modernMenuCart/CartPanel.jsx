@@ -9,16 +9,20 @@ export default function CartPanel() {
 
   return (
     <div style={{
-      position: 'sticky',
-      top: '2rem',
+      display: 'flex',
+      flexDirection: 'column',
+      height: '100%',
       ...tokens.components.cartPanel,
-      boxShadow: tokens.shadows.cartPanel
+      boxShadow: 'none',
+      borderRadius: 0,
+      padding: 0
     }}>
       <div style={{
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        marginBottom: '1.5rem'
+        marginBottom: '1.5rem',
+        flexShrink: 0
       }}>
         <h2 style={{
           fontSize: tokens.typography.fontSize.xl,
@@ -41,7 +45,7 @@ export default function CartPanel() {
       </div>
 
       <div style={{
-        maxHeight: '400px',
+        flex: 1,
         overflowY: 'auto',
         marginBottom: '1.5rem'
       }}>
@@ -170,6 +174,7 @@ export default function CartPanel() {
       </div>
 
       <div style={{
+        flexShrink: 0,
         padding: '1rem',
         backgroundColor: tokens.colors.surfaceHover,
         borderRadius: tokens.borderRadius.md,

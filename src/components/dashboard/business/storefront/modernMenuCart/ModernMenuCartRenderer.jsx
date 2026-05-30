@@ -68,7 +68,8 @@ function ModernMenuCartContent() {
           position: 'sticky',
           top: 0,
           height: '100vh',
-          overflowY: 'auto',
+          display: 'flex',
+          flexDirection: 'column',
           backgroundColor: tokens.colors.surface,
           borderLeft: `1px solid ${tokens.colors.border}`,
           padding: '2rem 1.5rem'
