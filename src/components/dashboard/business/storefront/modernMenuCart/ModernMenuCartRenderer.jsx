@@ -25,7 +25,8 @@ function ModernMenuCartContent() {
       fontFamily: tokens.typography.fontFamily.primary,
       backgroundColor: tokens.colors.background,
       minHeight: '100vh',
-      position: 'relative'
+      position: 'relative',
+      overflow: 'hidden'
     }}>
       <style>
         {`
@@ -43,7 +44,8 @@ function ModernMenuCartContent() {
       <div style={{
         display: 'flex',
         minHeight: '100vh',
-        flexDirection: 'row'
+        flexDirection: 'row',
+        overflow: 'hidden'
       }}>
         <div style={{
           flex: 1,
@@ -64,7 +66,9 @@ function ModernMenuCartContent() {
 
         <div style={{
           width: tokens.layout.cartWidth,
-          flexShrink: 0,
+          maxWidth: '35%',
+          minWidth: '280px',
+          flexShrink: 1,
           position: 'sticky',
           top: 0,
           height: '100vh',
@@ -72,7 +76,9 @@ function ModernMenuCartContent() {
           flexDirection: 'column',
           backgroundColor: tokens.colors.surface,
           borderLeft: `1px solid ${tokens.colors.border}`,
-          padding: '2rem 1.5rem'
+          padding: '2rem 1.5rem',
+          boxSizing: 'border-box',
+          overflow: 'hidden'
         }}>
           <CartPanel />
         </div>
