@@ -35,6 +35,8 @@ import MobileYummRenderer from './storefront/mobileYumm/MobileYummRenderer';
 import { MobileYummProvider } from './storefront/mobileYumm/MobileYummContext';
 import SageRenderer from './storefront/sage/SageRenderer';
 import { SageProvider } from './storefront/sage/SageContext';
+import ModernBiteRenderer from './storefront/modernBite/ModernBiteRenderer';
+import { ModernBiteProvider } from './storefront/modernBite/ModernBiteContext';
 
 const CATEGORIES = [
   { id: 'classic', label: 'Classic' },
@@ -179,6 +181,15 @@ const StorefrontTemplatesPage = () => {
           </div>
         ) : activeTab === 'modern' ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <TemplatePreviewCard
+              categoryId="modern"
+              templateSlug="modern-bite"
+              title="Modern Bite"
+              label="Modern"
+              description="A fresh and vibrant template with a fluid layout and full-height fixed cart panel."
+              ProviderComponent={ModernBiteProvider}
+              RendererComponent={ModernBiteRenderer}
+            />
             <TemplatePreviewCard
               categoryId="modern"
               templateSlug="modern-split"

@@ -34,6 +34,8 @@ import ModernMenuCartRenderer from './modernMenuCart/ModernMenuCartRenderer';
 import { ModernMenuCartProvider } from './modernMenuCart/ModernMenuCartContext';
 import MobileYummRenderer from './mobileYumm/MobileYummRenderer';
 import { MobileYummProvider } from './mobileYumm/MobileYummContext';
+import ModernBiteRenderer from './modernBite/ModernBiteRenderer';
+import { ModernBiteProvider } from './modernBite/ModernBiteContext';
 
 const TEMPLATE_CONFIG = {
   'base-classic': {
@@ -47,6 +49,10 @@ const TEMPLATE_CONFIG = {
   'modern-split': {
     Provider: ModernSplitStorefrontProvider,
     Renderer: ModernSplitRenderer
+  },
+  'modern-bite': {
+    Provider: ModernBiteProvider,
+    Renderer: ModernBiteRenderer
   },
   'warm-culinary': {
     Provider: WarmCulinaryProvider,
