@@ -14,9 +14,9 @@ const CartPanel = () => {
 
   return (
     <>
-      <div className="hidden lg:block lg:sticky lg:top-0 lg:h-screen lg:overflow-y-auto border-l" style={{ borderColor: colors.cartBorder, backgroundColor: colors.cartBackground }}>
-        <div className="p-6">
-          <div className="flex items-center justify-between mb-6">
+      <div className="hidden lg:flex lg:flex-col lg:sticky lg:top-0 lg:h-screen border-l" style={{ borderColor: colors.cartBorder, backgroundColor: colors.cartBackground }}>
+        <div className="p-6 border-b flex-shrink-0" style={{ borderColor: colors.cartBorder }}>
+          <div className="flex items-center justify-between">
             <h2 className={`${typography.scale.h4} ${typography.weights.bold} ${typography.fontPrimary}`} style={{ color: colors.textPrimary }}>
               Your Cart
             </h2>
@@ -26,7 +26,9 @@ const CartPanel = () => {
               </span>
             </div>
           </div>
+        </div>
 
+        <div className="flex-1 overflow-y-auto p-6">
           {cart.length === 0 ? (
             <div className="text-center py-12">
               <SafeIcon icon={FiIcons.FiShoppingCart} className="text-6xl mx-auto mb-4" style={{ color: colors.textMuted }} />
@@ -87,45 +89,46 @@ const CartPanel = () => {
                   </div>
                 </div>
               ))}
-
-              <div className="pt-6 border-t space-y-4" style={{ borderColor: colors.border }}>
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between">
-                    <span className={`${typography.scale.body} ${typography.fontSecondary}`} style={{ color: colors.textSecondary }}>
-                      Subtotal
-                    </span>
-                    <span className={`${typography.scale.body} ${typography.weights.semibold} ${typography.fontPrimary}`} style={{ color: colors.textPrimary }}>
-                      {formatCurrency(total)}
-                    </span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className={`${typography.scale.body} ${typography.fontSecondary}`} style={{ color: colors.textSecondary }}>
-                      Tax
-                    </span>
-                    <span className={`${typography.scale.body} ${typography.weights.semibold} ${typography.fontPrimary}`} style={{ color: colors.textPrimary }}>
-                      {formatCurrency(total * 0.1)}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="flex items-center justify-between pt-4 border-t" style={{ borderColor: colors.border }}>
-                  <span className={`${typography.scale.h5} ${typography.weights.bold} ${typography.fontPrimary}`} style={{ color: colors.textPrimary }}>
-                    Total
-                  </span>
-                  <span className={`${typography.scale.h5} ${typography.weights.bold} ${typography.fontPrimary}`} style={{ color: colors.accent }}>
-                    {formatCurrency(total * 1.1)}
-                  </span>
-                </div>
-
-                <button
-                  className={`w-full py-4 rounded-lg ${typography.scale.body} ${typography.weights.semibold} transition-all hover:opacity-90 ${typography.fontSecondary}`}
-                  style={{ backgroundColor: colors.accent, color: colors.textInverse }}
-                >
-                  Checkout
-                </button>
-              </div>
             </div>
           )}
+        </div>
+
+        <div className="flex-shrink-0 p-6 border-t space-y-4" style={{ borderColor: colors.border, backgroundColor: colors.cartBackground }}>
+          <div className="space-y-2">
+            <div className="flex items-center justify-between">
+              <span className={`${typography.scale.body} ${typography.fontSecondary}`} style={{ color: colors.textSecondary }}>
+                Subtotal
+              </span>
+              <span className={`${typography.scale.body} ${typography.weights.semibold} ${typography.fontPrimary}`} style={{ color: colors.textPrimary }}>
+                {formatCurrency(total)}
+              </span>
+            </div>
+            <div className="flex items-center justify-between">
+              <span className={`${typography.scale.body} ${typography.fontSecondary}`} style={{ color: colors.textSecondary }}>
+                Tax
+              </span>
+              <span className={`${typography.scale.body} ${typography.weights.semibold} ${typography.fontPrimary}`} style={{ color: colors.textPrimary }}>
+                {formatCurrency(total * 0.1)}
+              </span>
+            </div>
+          </div>
+
+          <div className="flex items-center justify-between pt-4 border-t" style={{ borderColor: colors.border }}>
+            <span className={`${typography.scale.h5} ${typography.weights.bold} ${typography.fontPrimary}`} style={{ color: colors.textPrimary }}>
+              Total
+            </span>
+            <span className={`${typography.scale.h5} ${typography.weights.bold} ${typography.fontPrimary}`} style={{ color: colors.accent }}>
+              {formatCurrency(total * 1.1)}
+            </span>
+          </div>
+
+          <button
+            className={`w-full py-4 rounded-lg ${typography.scale.body} ${typography.weights.semibold} transition-all ${typography.fontSecondary} ${cart.length === 0 ? 'cursor-not-allowed opacity-40' : 'hover:opacity-90'}`}
+            style={cart.length > 0 ? { backgroundColor: colors.accent, color: colors.textInverse } : { backgroundColor: colors.border, color: colors.textMuted }}
+            disabled={cart.length === 0}
+          >
+            Checkout
+          </button>
         </div>
       </div>
 
