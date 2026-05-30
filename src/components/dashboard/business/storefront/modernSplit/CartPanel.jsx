@@ -16,7 +16,7 @@ const CartPanel = () => {
     <>
       <div className="hidden lg:flex lg:flex-col lg:sticky lg:top-0 lg:h-screen border-l" style={{ borderColor: colors.cartBorder, backgroundColor: colors.cartBackground }}>
         <div className="h-20 px-4 border-b flex-shrink-0 flex items-center justify-between" style={{ borderColor: colors.cartBorder }}>
-          <h2 className={`${typography.scale.h5} ${typography.weights.bold} ${typography.fontPrimary}`} style={{ color: colors.textPrimary }}>
+          <h2 className={`${typography.scale.body} ${typography.weights.semibold} ${typography.fontPrimary}`} style={{ color: colors.textPrimary }}>
             Your Cart
           </h2>
           <div className="w-7 h-7 rounded-full flex items-center justify-center" style={{ backgroundColor: colors.accent }}>
