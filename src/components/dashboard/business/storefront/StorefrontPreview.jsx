@@ -34,6 +34,8 @@ import ModernMenuCartRenderer from './modernMenuCart/ModernMenuCartRenderer';
 import { ModernMenuCartProvider } from './modernMenuCart/ModernMenuCartContext';
 import MobileYummRenderer from './mobileYumm/MobileYummRenderer';
 import { MobileYummProvider } from './mobileYumm/MobileYummContext';
+import MobileNeonRenderer from './mobileNeon/MobileNeonRenderer';
+import { MobileNeonProvider } from './mobileNeon/MobileNeonContext';
 import ModernBiteRenderer from './modernBite/ModernBiteRenderer';
 import { ModernBiteProvider } from './modernBite/ModernBiteContext';
 
@@ -105,6 +107,10 @@ const TEMPLATE_CONFIG = {
   'mobile-yumm': {
     Provider: MobileYummProvider,
     Renderer: MobileYummRenderer
+  },
+  'mobile-neon': {
+    Provider: MobileNeonProvider,
+    Renderer: MobileNeonRenderer
   }
 };
 
