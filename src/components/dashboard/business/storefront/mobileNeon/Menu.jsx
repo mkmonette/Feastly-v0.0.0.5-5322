@@ -66,14 +66,14 @@ const Menu = () => {
         </div>
       )}
 
-      <div className="flex flex-col gap-3">
+      <div className="grid grid-cols-2 gap-3">
         {displayProducts.map(product => (
           <div
             key={product.id}
-            className="rounded-2xl overflow-hidden"
+            className="rounded-2xl overflow-hidden flex flex-col"
             style={{ backgroundColor: tokens.colors.cardBackground, border: `1px solid ${tokens.colors.border}` }}
           >
-            <div className="relative w-full" style={{ height: '130px' }}>
+            <div className="relative w-full" style={{ height: '120px' }}>
               <img
                 src={product.image || 'https://images.pexels.com/photos/1639562/pexels-photo-1639562.jpeg'}
                 alt={product.name}
@@ -82,28 +82,28 @@ const Menu = () => {
               {product.calories && (
                 <div
                   className="absolute top-2 left-2 px-2 py-0.5 rounded-full text-[9px] font-black"
-                  style={{ backgroundColor: 'rgba(0,0,0,0.6)', color: tokens.colors.primary }}
+                  style={{ backgroundColor: 'rgba(0,0,0,0.65)', color: tokens.colors.primary }}
                 >
                   {product.calories} cal
                 </div>
               )}
             </div>
-            <div className="px-3 py-2.5 flex items-center justify-between">
-              <div>
-                <p className="text-sm font-black leading-tight line-clamp-1" style={{ color: tokens.colors.primaryText }}>
-                  {product.name}
-                </p>
-                <span className="text-sm font-black" style={{ color: tokens.colors.primary }}>
+            <div className="p-2.5 flex flex-col flex-1">
+              <p className="text-xs font-black leading-tight line-clamp-2 mb-1" style={{ color: tokens.colors.primaryText }}>
+                {product.name}
+              </p>
+              <div className="flex items-center justify-between mt-auto">
+                <span className="text-xs font-black" style={{ color: tokens.colors.primary }}>
                   {formatCurrency(product.price)}
                 </span>
+                <button
+                  onClick={() => addToCart(product)}
+                  className="w-7 h-7 rounded-lg flex items-center justify-center transition-all hover:scale-110 active:scale-95"
+                  style={{ backgroundColor: tokens.colors.primary }}
+                >
+                  <SafeIcon icon={FiIcons.FiPlus} className="text-xs" style={{ color: tokens.colors.secondary }} />
+                </button>
               </div>
-              <button
-                onClick={() => addToCart(product)}
-                className="w-8 h-8 rounded-full flex items-center justify-center transition-all hover:scale-110 active:scale-95 shrink-0 ml-3"
-                style={{ backgroundColor: tokens.colors.primary }}
-              >
-                <SafeIcon icon={FiIcons.FiPlus} className="text-sm" style={{ color: tokens.colors.secondary }} />
-              </button>
             </div>
           </div>
         ))}
