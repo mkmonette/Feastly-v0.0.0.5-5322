@@ -12,7 +12,8 @@ export default function CartPanel() {
       display: 'flex',
       flexDirection: 'column',
       height: '100%',
-      ...tokens.components.cartPanel,
+      width: '100%',
+      boxSizing: 'border-box',
       boxShadow: 'none',
       borderRadius: 0,
       padding: 0
