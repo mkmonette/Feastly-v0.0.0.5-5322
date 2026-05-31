@@ -39,6 +39,8 @@ import SageRenderer from './storefront/sage/SageRenderer';
 import { SageProvider } from './storefront/sage/SageContext';
 import ModernBiteRenderer from './storefront/modernBite/ModernBiteRenderer';
 import { ModernBiteProvider } from './storefront/modernBite/ModernBiteContext';
+import MobileAuroraRenderer from './storefront/mobileAurora/MobileAuroraRenderer';
+import { MobileAuroraProvider } from './storefront/mobileAurora/MobileAuroraContext';
 
 const CATEGORIES = [
   { id: 'classic', label: 'Classic' },
@@ -213,6 +215,15 @@ const StorefrontTemplatesPage = () => {
           </div>
         ) : activeTab === 'mobile' ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <TemplatePreviewCard
+              categoryId="mobile"
+              templateSlug="mobile-aurora"
+              title="Mobile Aurora"
+              label="Mobile · New"
+              description="A premium light-themed mobile template with an aurora gradient hero, glassmorphism stats, floating product cards, and a sticky cart pill."
+              ProviderComponent={MobileAuroraProvider}
+              RendererComponent={MobileAuroraRenderer}
+            />
             <TemplatePreviewCard
               categoryId="mobile"
               templateSlug="mobile-express"

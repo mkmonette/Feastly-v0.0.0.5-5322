@@ -7,6 +7,8 @@ import Benefits from '@/components/sections/Benefits';
 import Footer from '@/components/layout/Footer';
 import AuthPage from '@/components/auth/AuthPage';
 import DashboardLayout from '@/components/dashboard/DashboardLayout';
+import MobileAuroraRenderer from '@/components/dashboard/business/storefront/mobileAurora/MobileAuroraRenderer';
+import { MobileAuroraProvider } from '@/components/dashboard/business/storefront/mobileAurora/MobileAuroraContext';
 import { ProductProvider } from '@/context/ProductContext';
 
 function HomePage({ setView }) {
@@ -44,6 +46,12 @@ function App() {
       <Router>
         <div className="min-h-screen bg-white">
           <Routes>
+            <Route path="/preview/mobile-aurora" element={
+              <MobileAuroraProvider>
+                <MobileAuroraRenderer />
+              </MobileAuroraProvider>
+            } />
+
             <Route path="/" element={
               user ? <Navigate to="/dashboard" replace /> : <HomePage setView={(v) => window.location.hash = `#/${v}`} />
             } />

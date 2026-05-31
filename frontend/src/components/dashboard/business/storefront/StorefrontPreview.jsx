@@ -38,6 +38,8 @@ import MobileNeonRenderer from './mobileNeon/MobileNeonRenderer';
 import { MobileNeonProvider } from './mobileNeon/MobileNeonContext';
 import ModernBiteRenderer from './modernBite/ModernBiteRenderer';
 import { ModernBiteProvider } from './modernBite/ModernBiteContext';
+import MobileAuroraRenderer from './mobileAurora/MobileAuroraRenderer';
+import { MobileAuroraProvider } from './mobileAurora/MobileAuroraContext';
 
 const TEMPLATE_CONFIG = {
   'base-classic': {
@@ -111,6 +113,10 @@ const TEMPLATE_CONFIG = {
   'mobile-neon': {
     Provider: MobileNeonProvider,
     Renderer: MobileNeonRenderer
+  },
+  'mobile-aurora': {
+    Provider: MobileAuroraProvider,
+    Renderer: MobileAuroraRenderer
   }
 };
 

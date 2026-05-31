@@ -37,6 +37,8 @@ import MobileYummRenderer from './mobileYumm/MobileYummRenderer';
 import { MobileYummProvider, useMobileYumm } from './mobileYumm/MobileYummContext';
 import MobileNeonRenderer from './mobileNeon/MobileNeonRenderer';
 import { MobileNeonProvider, useMobileNeon } from './mobileNeon/MobileNeonContext';
+import MobileAuroraRenderer from './mobileAurora/MobileAuroraRenderer';
+import { MobileAuroraProvider, useMobileAurora } from './mobileAurora/MobileAuroraContext';
 
 const TEMPLATE_CONFIG = {
   'base-classic': {
@@ -140,6 +142,12 @@ const TEMPLATE_CONFIG = {
     Renderer: MobileNeonRenderer,
     useContext: useMobileNeon,
     title: 'Mobile Neon Template'
+  },
+  'mobile-aurora': {
+    Provider: MobileAuroraProvider,
+    Renderer: MobileAuroraRenderer,
+    useContext: useMobileAurora,
+    title: 'Mobile Aurora Template'
   }
 };
 
