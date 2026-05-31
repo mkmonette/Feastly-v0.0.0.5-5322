@@ -45,6 +45,8 @@ import CitrusRenderer from './storefront/citrus/CitrusRenderer';
 import { CitrusProvider } from './storefront/citrus/CitrusContext';
 import BentoRenderer from './storefront/bento/BentoRenderer';
 import { BentoProvider } from './storefront/bento/BentoContext';
+import VelvetRenderer from './storefront/velvet/VelvetRenderer';
+import { VelvetProvider } from './storefront/velvet/VelvetContext';
 
 const CATEGORIES = [
   { id: 'classic', label: 'Classic' },
@@ -302,6 +304,15 @@ const StorefrontTemplatesPage = () => {
               description="Magazine-style modular grid: a featured 'chef's pick' tile, a coral promo card, and pastel mini-tiles for each dish. Slide-out right-side cart panel."
               ProviderComponent={BentoProvider}
               RendererComponent={BentoRenderer}
+            />
+            <TemplatePreviewCard
+              categoryId="ordering_form"
+              templateSlug="velvet"
+              title="Velvet"
+              label="Ordering · New"
+              description="A luxe fine-dining ordering form: deep aubergine + champagne gold, editorial serif typography, leader-dot menu lines, hover-reveal dish photos, and a sticky 'Place order' card with a 10% service charge breakdown."
+              ProviderComponent={VelvetProvider}
+              RendererComponent={VelvetRenderer}
             />
             <TemplatePreviewCard
               categoryId="ordering_form"

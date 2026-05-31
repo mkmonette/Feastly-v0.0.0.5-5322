@@ -13,6 +13,8 @@ import CitrusRenderer from '@/components/dashboard/business/storefront/citrus/Ci
 import { CitrusProvider } from '@/components/dashboard/business/storefront/citrus/CitrusContext';
 import BentoRenderer from '@/components/dashboard/business/storefront/bento/BentoRenderer';
 import { BentoProvider } from '@/components/dashboard/business/storefront/bento/BentoContext';
+import VelvetRenderer from '@/components/dashboard/business/storefront/velvet/VelvetRenderer';
+import { VelvetProvider } from '@/components/dashboard/business/storefront/velvet/VelvetContext';
 import { ProductProvider } from '@/context/ProductContext';
 
 function HomePage({ setView }) {
@@ -64,6 +66,11 @@ function App() {
               <BentoProvider>
                 <BentoRenderer />
               </BentoProvider>
+            } />
+            <Route path="/preview/velvet" element={
+              <VelvetProvider>
+                <VelvetRenderer />
+              </VelvetProvider>
             } />
 
             <Route path="/" element={

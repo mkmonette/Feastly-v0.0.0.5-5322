@@ -43,6 +43,8 @@ import CitrusRenderer from './citrus/CitrusRenderer';
 import { CitrusProvider, useCitrus } from './citrus/CitrusContext';
 import BentoRenderer from './bento/BentoRenderer';
 import { BentoProvider, useBento } from './bento/BentoContext';
+import VelvetRenderer from './velvet/VelvetRenderer';
+import { VelvetProvider, useVelvet } from './velvet/VelvetContext';
 
 const TEMPLATE_CONFIG = {
   'base-classic': {
@@ -164,6 +166,12 @@ const TEMPLATE_CONFIG = {
     Renderer: BentoRenderer,
     useContext: useBento,
     title: 'Bento Template'
+  },
+  'velvet': {
+    Provider: VelvetProvider,
+    Renderer: VelvetRenderer,
+    useContext: useVelvet,
+    title: 'Velvet Template'
   }
 };
 
