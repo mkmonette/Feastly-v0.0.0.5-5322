@@ -24,65 +24,54 @@ function ModernMenuCartContent() {
     <div style={{
       fontFamily: tokens.typography.fontFamily.primary,
       backgroundColor: tokens.colors.background,
-      minHeight: '100vh',
-      position: 'relative',
-      overflowX: 'hidden'
+      height: '100vh',
+      display: 'flex',
+      flexDirection: 'row',
+      overflow: 'hidden'
     }}>
       <style>
         {`
           @keyframes marquee {
-            0% {
-              transform: translateX(0);
-            }
-            100% {
-              transform: translateX(-50%);
-            }
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
           }
         `}
       </style>
 
+      {/* Scrollable content column */}
       <div style={{
-        display: 'flex',
-        alignItems: 'stretch',
-        flexDirection: 'row',
-        minHeight: '100vh'
+        flex: 1,
+        minWidth: 0,
+        overflowY: 'auto',
+        overflowX: 'hidden'
       }}>
-        <div style={{
-          flex: 1,
-          minWidth: 0,
-          overflow: 'hidden'
-        }}>
-          {isVisible('headerHero') && <HeaderHero />}
-          {isVisible('about') && <About />}
-          {isVisible('banner') && <Banner />}
-          {isVisible('featured') && <FeaturedProducts />}
-          {isVisible('products') && <ProductGrid />}
-          {isVisible('gallery') && <Gallery />}
-          {isVisible('testimonials') && <Testimonials />}
-          {isVisible('cta') && <CTABanner />}
-          {isVisible('contact') && <Contact />}
-          {isVisible('footer') && <Footer />}
-        </div>
+        {isVisible('headerHero') && <HeaderHero />}
+        {isVisible('about') && <About />}
+        {isVisible('banner') && <Banner />}
+        {isVisible('featured') && <FeaturedProducts />}
+        {isVisible('products') && <ProductGrid />}
+        {isVisible('gallery') && <Gallery />}
+        {isVisible('testimonials') && <Testimonials />}
+        {isVisible('cta') && <CTABanner />}
+        {isVisible('contact') && <Contact />}
+        {isVisible('footer') && <Footer />}
+      </div>
 
-        <div style={{
-          width: tokens.layout.cartWidth,
-          maxWidth: '380px',
-          flexShrink: 0,
-          flexBasis: tokens.layout.cartWidth,
-          position: 'sticky',
-          top: 0,
-          height: '100vh',
-          display: 'flex',
-          flexDirection: 'column',
-          backgroundColor: tokens.colors.surface,
-          borderLeft: `1px solid ${tokens.colors.border}`,
-          padding: '2rem 1.5rem',
-          boxSizing: 'border-box',
-          overflowY: 'auto',
-          overflowX: 'hidden'
-        }}>
-          <CartPanel />
-        </div>
+      {/* Fixed cart column — does not scroll with content */}
+      <div style={{
+        width: tokens.layout.cartWidth,
+        maxWidth: '380px',
+        flexShrink: 0,
+        display: 'flex',
+        flexDirection: 'column',
+        backgroundColor: tokens.colors.surface,
+        borderLeft: `1px solid ${tokens.colors.border}`,
+        padding: '2rem 1.5rem',
+        boxSizing: 'border-box',
+        overflowY: 'auto',
+        overflowX: 'hidden'
+      }}>
+        <CartPanel />
       </div>
     </div>
   );
