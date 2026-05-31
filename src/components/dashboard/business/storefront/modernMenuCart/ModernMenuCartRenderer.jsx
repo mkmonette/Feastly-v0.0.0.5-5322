@@ -48,7 +48,8 @@ function ModernMenuCartContent() {
       }}>
         <div style={{
           flex: 1,
-          minWidth: 0
+          minWidth: 0,
+          overflow: 'hidden'
         }}>
           {isVisible('headerHero') && <HeaderHero />}
           {isVisible('about') && <About />}
