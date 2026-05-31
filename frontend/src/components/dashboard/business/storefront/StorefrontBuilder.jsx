@@ -41,6 +41,8 @@ import MobileAuroraRenderer from './mobileAurora/MobileAuroraRenderer';
 import { MobileAuroraProvider, useMobileAurora } from './mobileAurora/MobileAuroraContext';
 import CitrusRenderer from './citrus/CitrusRenderer';
 import { CitrusProvider, useCitrus } from './citrus/CitrusContext';
+import BentoRenderer from './bento/BentoRenderer';
+import { BentoProvider, useBento } from './bento/BentoContext';
 
 const TEMPLATE_CONFIG = {
   'base-classic': {
@@ -156,6 +158,12 @@ const TEMPLATE_CONFIG = {
     Renderer: CitrusRenderer,
     useContext: useCitrus,
     title: 'Citrus Template'
+  },
+  'bento': {
+    Provider: BentoProvider,
+    Renderer: BentoRenderer,
+    useContext: useBento,
+    title: 'Bento Template'
   }
 };
 

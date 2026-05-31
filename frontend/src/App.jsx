@@ -11,6 +11,8 @@ import MobileAuroraRenderer from '@/components/dashboard/business/storefront/mob
 import { MobileAuroraProvider } from '@/components/dashboard/business/storefront/mobileAurora/MobileAuroraContext';
 import CitrusRenderer from '@/components/dashboard/business/storefront/citrus/CitrusRenderer';
 import { CitrusProvider } from '@/components/dashboard/business/storefront/citrus/CitrusContext';
+import BentoRenderer from '@/components/dashboard/business/storefront/bento/BentoRenderer';
+import { BentoProvider } from '@/components/dashboard/business/storefront/bento/BentoContext';
 import { ProductProvider } from '@/context/ProductContext';
 
 function HomePage({ setView }) {
@@ -57,6 +59,11 @@ function App() {
               <CitrusProvider>
                 <CitrusRenderer />
               </CitrusProvider>
+            } />
+            <Route path="/preview/bento" element={
+              <BentoProvider>
+                <BentoRenderer />
+              </BentoProvider>
             } />
 
             <Route path="/" element={

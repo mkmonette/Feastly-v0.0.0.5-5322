@@ -43,6 +43,8 @@ import MobileAuroraRenderer from './storefront/mobileAurora/MobileAuroraRenderer
 import { MobileAuroraProvider } from './storefront/mobileAurora/MobileAuroraContext';
 import CitrusRenderer from './storefront/citrus/CitrusRenderer';
 import { CitrusProvider } from './storefront/citrus/CitrusContext';
+import BentoRenderer from './storefront/bento/BentoRenderer';
+import { BentoProvider } from './storefront/bento/BentoContext';
 
 const CATEGORIES = [
   { id: 'classic', label: 'Classic' },
@@ -291,6 +293,15 @@ const StorefrontTemplatesPage = () => {
               description="Bright cream-and-tangerine single-page ordering form with a brutalist serif hero, sticky category tabs, image-disc dish cards, and a sticky desktop order sidebar."
               ProviderComponent={CitrusProvider}
               RendererComponent={CitrusRenderer}
+            />
+            <TemplatePreviewCard
+              categoryId="ordering_form"
+              templateSlug="bento"
+              title="Bento"
+              label="Ordering · New"
+              description="Magazine-style modular grid: a featured 'chef's pick' tile, a coral promo card, and pastel mini-tiles for each dish. Slide-out right-side cart panel."
+              ProviderComponent={BentoProvider}
+              RendererComponent={BentoRenderer}
             />
             <TemplatePreviewCard
               categoryId="ordering_form"
