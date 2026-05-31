@@ -15,6 +15,8 @@ import BentoRenderer from '@/components/dashboard/business/storefront/bento/Bent
 import { BentoProvider } from '@/components/dashboard/business/storefront/bento/BentoContext';
 import VelvetRenderer from '@/components/dashboard/business/storefront/velvet/VelvetRenderer';
 import { VelvetProvider } from '@/components/dashboard/business/storefront/velvet/VelvetContext';
+import SaffronRenderer from '@/components/dashboard/business/storefront/saffron/SaffronRenderer';
+import { SaffronProvider } from '@/components/dashboard/business/storefront/saffron/SaffronContext';
 import { ProductProvider } from '@/context/ProductContext';
 
 function HomePage({ setView }) {
@@ -71,6 +73,11 @@ function App() {
               <VelvetProvider>
                 <VelvetRenderer />
               </VelvetProvider>
+            } />
+            <Route path="/preview/saffron" element={
+              <SaffronProvider>
+                <SaffronRenderer />
+              </SaffronProvider>
             } />
 
             <Route path="/" element={

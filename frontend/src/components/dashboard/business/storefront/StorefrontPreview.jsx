@@ -46,6 +46,8 @@ import BentoRenderer from './bento/BentoRenderer';
 import { BentoProvider } from './bento/BentoContext';
 import VelvetRenderer from './velvet/VelvetRenderer';
 import { VelvetProvider } from './velvet/VelvetContext';
+import SaffronRenderer from './saffron/SaffronRenderer';
+import { SaffronProvider } from './saffron/SaffronContext';
 
 const TEMPLATE_CONFIG = {
   'base-classic': {
@@ -135,6 +137,10 @@ const TEMPLATE_CONFIG = {
   'velvet': {
     Provider: VelvetProvider,
     Renderer: VelvetRenderer
+  },
+  'saffron': {
+    Provider: SaffronProvider,
+    Renderer: SaffronRenderer
   }
 };
 

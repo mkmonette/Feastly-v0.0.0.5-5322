@@ -47,6 +47,8 @@ import BentoRenderer from './storefront/bento/BentoRenderer';
 import { BentoProvider } from './storefront/bento/BentoContext';
 import VelvetRenderer from './storefront/velvet/VelvetRenderer';
 import { VelvetProvider } from './storefront/velvet/VelvetContext';
+import SaffronRenderer from './storefront/saffron/SaffronRenderer';
+import { SaffronProvider } from './storefront/saffron/SaffronContext';
 
 const CATEGORIES = [
   { id: 'classic', label: 'Classic' },
@@ -313,6 +315,15 @@ const StorefrontTemplatesPage = () => {
               description="A luxe fine-dining ordering form: deep aubergine + champagne gold, editorial serif typography, leader-dot menu lines, hover-reveal dish photos, and a sticky 'Place order' card with a 10% service charge breakdown."
               ProviderComponent={VelvetProvider}
               RendererComponent={VelvetRenderer}
+            />
+            <TemplatePreviewCard
+              categoryId="ordering_form"
+              templateSlug="saffron"
+              title="Saffron"
+              label="Ordering · New"
+              description="Modern fast-casual ordering form with a photo-led hero, a horizontal 'Popular picks' rail (ranked + rated), and an 'Our menu' grid with sticky food-category tabs. Slide-out cart drawer."
+              ProviderComponent={SaffronProvider}
+              RendererComponent={SaffronRenderer}
             />
             <TemplatePreviewCard
               categoryId="ordering_form"
