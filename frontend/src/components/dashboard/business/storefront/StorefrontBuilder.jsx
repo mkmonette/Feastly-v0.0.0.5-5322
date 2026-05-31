@@ -47,6 +47,8 @@ import VelvetRenderer from './velvet/VelvetRenderer';
 import { VelvetProvider, useVelvet } from './velvet/VelvetContext';
 import SaffronRenderer from './saffron/SaffronRenderer';
 import { SaffronProvider, useSaffron } from './saffron/SaffronContext';
+import LumenRenderer from './lumen/LumenRenderer';
+import { LumenProvider, useLumen } from './lumen/LumenContext';
 
 const TEMPLATE_CONFIG = {
   'base-classic': {
@@ -180,6 +182,12 @@ const TEMPLATE_CONFIG = {
     Renderer: SaffronRenderer,
     useContext: useSaffron,
     title: 'Saffron Template'
+  },
+  'lumen': {
+    Provider: LumenProvider,
+    Renderer: LumenRenderer,
+    useContext: useLumen,
+    title: 'Lumen Template'
   }
 };
 

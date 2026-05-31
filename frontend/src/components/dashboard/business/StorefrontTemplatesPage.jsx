@@ -49,6 +49,8 @@ import VelvetRenderer from './storefront/velvet/VelvetRenderer';
 import { VelvetProvider } from './storefront/velvet/VelvetContext';
 import SaffronRenderer from './storefront/saffron/SaffronRenderer';
 import { SaffronProvider } from './storefront/saffron/SaffronContext';
+import LumenRenderer from './storefront/lumen/LumenRenderer';
+import { LumenProvider } from './storefront/lumen/LumenContext';
 
 const CATEGORIES = [
   { id: 'classic', label: 'Classic' },
@@ -324,6 +326,15 @@ const StorefrontTemplatesPage = () => {
               description="Modern fast-casual ordering form with a photo-led hero, a horizontal 'Popular picks' rail (ranked + rated), and an 'Our menu' grid with sticky food-category tabs. Slide-out cart drawer."
               ProviderComponent={SaffronProvider}
               RendererComponent={SaffronRenderer}
+            />
+            <TemplatePreviewCard
+              categoryId="ordering_form"
+              templateSlug="lumen"
+              title="Lumen"
+              label="Ordering · New"
+              description="A bright, modern light-mode counterpart to Hearth — same Header / Hero / Popular Picks / Our Menu / Footer sections, indigo + coral palette, sticky food-category tabs, ranked popular rail, and a slide-out cart drawer."
+              ProviderComponent={LumenProvider}
+              RendererComponent={LumenRenderer}
             />
             <TemplatePreviewCard
               categoryId="ordering_form"

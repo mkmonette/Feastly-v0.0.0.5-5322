@@ -17,6 +17,8 @@ import VelvetRenderer from '@/components/dashboard/business/storefront/velvet/Ve
 import { VelvetProvider } from '@/components/dashboard/business/storefront/velvet/VelvetContext';
 import SaffronRenderer from '@/components/dashboard/business/storefront/saffron/SaffronRenderer';
 import { SaffronProvider } from '@/components/dashboard/business/storefront/saffron/SaffronContext';
+import LumenRenderer from '@/components/dashboard/business/storefront/lumen/LumenRenderer';
+import { LumenProvider } from '@/components/dashboard/business/storefront/lumen/LumenContext';
 import { ProductProvider } from '@/context/ProductContext';
 
 function HomePage({ setView }) {
@@ -78,6 +80,11 @@ function App() {
               <SaffronProvider>
                 <SaffronRenderer />
               </SaffronProvider>
+            } />
+            <Route path="/preview/lumen" element={
+              <LumenProvider>
+                <LumenRenderer />
+              </LumenProvider>
             } />
 
             <Route path="/" element={
