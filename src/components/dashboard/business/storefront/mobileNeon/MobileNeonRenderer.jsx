@@ -1,5 +1,5 @@
 import React from 'react';
-import { MobileNeonProvider, useMobileNeon } from './MobileNeonContext';
+import { useMobileNeon } from './MobileNeonContext';
 import Header from './Header';
 import Hero from './Hero';
 import WhyUs from './WhyUs';
@@ -62,7 +62,7 @@ const SectionWrapper = ({ sectionId, children }) => {
   return <div className={visibilityClasses}>{children}</div>;
 };
 
-const MobileNeonContent = () => {
+const MobileNeonRenderer = () => {
   const { tokens } = useMobileNeon();
 
   return (
@@ -115,14 +115,6 @@ const MobileNeonContent = () => {
         <CartDrawer />
       </div>
     </div>
-  );
-};
-
-const MobileNeonRenderer = () => {
-  return (
-    <MobileNeonProvider>
-      <MobileNeonContent />
-    </MobileNeonProvider>
   );
 };
 
