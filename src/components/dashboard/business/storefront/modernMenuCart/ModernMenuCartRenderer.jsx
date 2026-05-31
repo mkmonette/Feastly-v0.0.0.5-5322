@@ -25,8 +25,7 @@ function ModernMenuCartContent() {
       fontFamily: tokens.typography.fontFamily.primary,
       backgroundColor: tokens.colors.background,
       minHeight: '100vh',
-      position: 'relative',
-      overflow: 'hidden'
+      position: 'relative'
     }}>
       <style>
         {`
@@ -43,14 +42,13 @@ function ModernMenuCartContent() {
 
       <div style={{
         display: 'flex',
-        minHeight: '100vh',
+        alignItems: 'stretch',
         flexDirection: 'row',
-        overflow: 'hidden'
+        minHeight: '100vh'
       }}>
         <div style={{
           flex: 1,
-          minWidth: 0,
-          overflow: 'hidden'
+          minWidth: 0
         }}>
           {isVisible('headerHero') && <HeaderHero />}
           {isVisible('about') && <About />}
@@ -68,7 +66,7 @@ function ModernMenuCartContent() {
           width: tokens.layout.cartWidth,
           maxWidth: '35%',
           minWidth: '280px',
-          flexShrink: 1,
+          flexShrink: 0,
           position: 'sticky',
           top: 0,
           height: '100vh',
@@ -78,7 +76,7 @@ function ModernMenuCartContent() {
           borderLeft: `1px solid ${tokens.colors.border}`,
           padding: '2rem 1.5rem',
           boxSizing: 'border-box',
-          overflow: 'hidden'
+          overflowY: 'auto'
         }}>
           <CartPanel />
         </div>
