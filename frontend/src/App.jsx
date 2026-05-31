@@ -9,6 +9,8 @@ import AuthPage from '@/components/auth/AuthPage';
 import DashboardLayout from '@/components/dashboard/DashboardLayout';
 import MobileAuroraRenderer from '@/components/dashboard/business/storefront/mobileAurora/MobileAuroraRenderer';
 import { MobileAuroraProvider } from '@/components/dashboard/business/storefront/mobileAurora/MobileAuroraContext';
+import CitrusRenderer from '@/components/dashboard/business/storefront/citrus/CitrusRenderer';
+import { CitrusProvider } from '@/components/dashboard/business/storefront/citrus/CitrusContext';
 import { ProductProvider } from '@/context/ProductContext';
 
 function HomePage({ setView }) {
@@ -50,6 +52,11 @@ function App() {
               <MobileAuroraProvider>
                 <MobileAuroraRenderer />
               </MobileAuroraProvider>
+            } />
+            <Route path="/preview/citrus" element={
+              <CitrusProvider>
+                <CitrusRenderer />
+              </CitrusProvider>
             } />
 
             <Route path="/" element={

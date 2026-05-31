@@ -40,6 +40,8 @@ import ModernBiteRenderer from './modernBite/ModernBiteRenderer';
 import { ModernBiteProvider } from './modernBite/ModernBiteContext';
 import MobileAuroraRenderer from './mobileAurora/MobileAuroraRenderer';
 import { MobileAuroraProvider } from './mobileAurora/MobileAuroraContext';
+import CitrusRenderer from './citrus/CitrusRenderer';
+import { CitrusProvider } from './citrus/CitrusContext';
 
 const TEMPLATE_CONFIG = {
   'base-classic': {
@@ -117,6 +119,10 @@ const TEMPLATE_CONFIG = {
   'mobile-aurora': {
     Provider: MobileAuroraProvider,
     Renderer: MobileAuroraRenderer
+  },
+  'citrus': {
+    Provider: CitrusProvider,
+    Renderer: CitrusRenderer
   }
 };
 

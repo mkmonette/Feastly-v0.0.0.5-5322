@@ -41,6 +41,8 @@ import ModernBiteRenderer from './storefront/modernBite/ModernBiteRenderer';
 import { ModernBiteProvider } from './storefront/modernBite/ModernBiteContext';
 import MobileAuroraRenderer from './storefront/mobileAurora/MobileAuroraRenderer';
 import { MobileAuroraProvider } from './storefront/mobileAurora/MobileAuroraContext';
+import CitrusRenderer from './storefront/citrus/CitrusRenderer';
+import { CitrusProvider } from './storefront/citrus/CitrusContext';
 
 const CATEGORIES = [
   { id: 'classic', label: 'Classic' },
@@ -281,6 +283,15 @@ const StorefrontTemplatesPage = () => {
           </div>
         ) : activeTab === 'ordering_form' ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <TemplatePreviewCard
+              categoryId="ordering_form"
+              templateSlug="citrus"
+              title="Citrus"
+              label="Ordering · New"
+              description="Bright cream-and-tangerine single-page ordering form with a brutalist serif hero, sticky category tabs, image-disc dish cards, and a sticky desktop order sidebar."
+              ProviderComponent={CitrusProvider}
+              RendererComponent={CitrusRenderer}
+            />
             <TemplatePreviewCard
               categoryId="ordering_form"
               templateSlug="grove"

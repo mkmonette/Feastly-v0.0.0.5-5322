@@ -39,6 +39,8 @@ import MobileNeonRenderer from './mobileNeon/MobileNeonRenderer';
 import { MobileNeonProvider, useMobileNeon } from './mobileNeon/MobileNeonContext';
 import MobileAuroraRenderer from './mobileAurora/MobileAuroraRenderer';
 import { MobileAuroraProvider, useMobileAurora } from './mobileAurora/MobileAuroraContext';
+import CitrusRenderer from './citrus/CitrusRenderer';
+import { CitrusProvider, useCitrus } from './citrus/CitrusContext';
 
 const TEMPLATE_CONFIG = {
   'base-classic': {
@@ -148,6 +150,12 @@ const TEMPLATE_CONFIG = {
     Renderer: MobileAuroraRenderer,
     useContext: useMobileAurora,
     title: 'Mobile Aurora Template'
+  },
+  'citrus': {
+    Provider: CitrusProvider,
+    Renderer: CitrusRenderer,
+    useContext: useCitrus,
+    title: 'Citrus Template'
   }
 };
 

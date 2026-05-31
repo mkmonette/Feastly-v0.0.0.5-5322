@@ -36,6 +36,22 @@
 - Quick standalone preview route: **`/preview/mobile-aurora`** (added in `App.jsx`) — bypasses the heavy templates list and is great for sharing/screenshots.
 - All `data-testid` attributes are added to interactive elements (aurora-header-cart-btn, aurora-hero-cta, aurora-featured-add-{id}, aurora-menu-chip-*, aurora-menu-add-{id}, aurora-cart-pill, aurora-cart-checkout, etc.).
 
+### 2026-01-31 — New ordering-form template: **Citrus**
+- Files under `/app/frontend/src/components/dashboard/business/storefront/`:
+  - `citrusTokens.js` — cream `#FFF7EC` background, tangerine `#FF6B35` primary, forest `#1B4332` accent, sun `#FFC857` highlight, thick `1.5px #1A1A1A` borders (brutalist), deep ink text.
+  - `citrus/CitrusContext.jsx` — provider with cart, fulfillment toggle (pickup / delivery — adds ₱49 fee), section config.
+  - `citrus/CitrusRenderer.jsx` — 2-column desktop layout: menu (left) + sticky order sidebar (right). Stacks on mobile + bottom action bar.
+  - Sections: `Header` (sticky, kitchen-info), `HeroStrip` (asymmetric – big serif headline left, dark "Today at the kitchen" facts panel right with "Now serving" tangerine bar), `MenuBoard` (sticky category tabs, image-disc dish cards with on-hover "Add to order" chip), `OrderSidebar` (sticky desktop cart with Pickup/Delivery toggle, line items, qty steppers, promo banner, totals, Checkout CTA), `Footer` (dark with brand + visit info + socials), `MobileCartSheet` (mobile bottom action bar + slide-up sheet that reuses OrderSidebar).
+- Registered in 3 places:
+  - `StorefrontTemplatesPage.jsx` (Ordering Form category, first card "Ordering · New")
+  - `StorefrontPreview.jsx` (`/storefront/templates/ordering_form/citrus/preview`)
+  - `StorefrontBuilder.jsx`  (`/storefront/templates/ordering_form/citrus/edit`)
+- Quick standalone preview route: **`/preview/citrus`** in `App.jsx`.
+- `data-testid` on all interactive elements (citrus-menu-item-{id}, citrus-fulfillment-pickup/delivery, citrus-cart-inc/dec/{id}, citrus-checkout-btn, citrus-mobile-cart-bar, citrus-mobile-sheet, etc.).
+- Verified: ESLint passes, `vite build` succeeds (730+ modules, 0 errors), live screenshot renders correctly with sample products from `ProductContext` (Truffle Burger + Margherita Pizza added to cart, ₱1,549.00 total displayed).
+
+### 2026-01-31 — Mobile Aurora details (kept for reference)
+
 ### Visual identity of Mobile Aurora (filling a gap in the lineup)
 - Premium **light** theme (the rest of mobile is mostly dark/orange).
 - **Aurora gradient** hero (peach → pink → violet → sky), glassmorphism stats card overlapping the hero.
