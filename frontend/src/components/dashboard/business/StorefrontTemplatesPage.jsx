@@ -51,6 +51,8 @@ import SaffronRenderer from './storefront/saffron/SaffronRenderer';
 import { SaffronProvider } from './storefront/saffron/SaffronContext';
 import LumenRenderer from './storefront/lumen/LumenRenderer';
 import { LumenProvider } from './storefront/lumen/LumenContext';
+import MosaicRenderer from './storefront/mosaic/MosaicRenderer';
+import { MosaicProvider } from './storefront/mosaic/MosaicContext';
 
 const CATEGORIES = [
   { id: 'classic', label: 'Classic' },
@@ -335,6 +337,15 @@ const StorefrontTemplatesPage = () => {
               description="A bright, modern light-mode counterpart to Hearth — same Header / Hero / Popular Picks / Our Menu / Footer sections, indigo + coral palette, sticky food-category tabs, ranked popular rail, and a slide-out cart drawer."
               ProviderComponent={LumenProvider}
               RendererComponent={LumenRenderer}
+            />
+            <TemplatePreviewCard
+              categoryId="ordering_form"
+              templateSlug="mosaic"
+              title="Mosaic"
+              label="Ordering · New"
+              description="Bento's tile design language adapted to a Popular Picks rail + Our Menu with sticky food-category tabs. Same mini 2×2 logo, pastel tiles, coral promo strip, and slide-out cart panel."
+              ProviderComponent={MosaicProvider}
+              RendererComponent={MosaicRenderer}
             />
             <TemplatePreviewCard
               categoryId="ordering_form"

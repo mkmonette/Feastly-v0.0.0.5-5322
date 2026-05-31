@@ -19,6 +19,8 @@ import SaffronRenderer from '@/components/dashboard/business/storefront/saffron/
 import { SaffronProvider } from '@/components/dashboard/business/storefront/saffron/SaffronContext';
 import LumenRenderer from '@/components/dashboard/business/storefront/lumen/LumenRenderer';
 import { LumenProvider } from '@/components/dashboard/business/storefront/lumen/LumenContext';
+import MosaicRenderer from '@/components/dashboard/business/storefront/mosaic/MosaicRenderer';
+import { MosaicProvider } from '@/components/dashboard/business/storefront/mosaic/MosaicContext';
 import { ProductProvider } from '@/context/ProductContext';
 
 function HomePage({ setView }) {
@@ -85,6 +87,11 @@ function App() {
               <LumenProvider>
                 <LumenRenderer />
               </LumenProvider>
+            } />
+            <Route path="/preview/mosaic" element={
+              <MosaicProvider>
+                <MosaicRenderer />
+              </MosaicProvider>
             } />
 
             <Route path="/" element={

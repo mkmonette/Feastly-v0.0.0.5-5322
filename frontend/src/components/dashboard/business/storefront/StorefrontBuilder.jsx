@@ -49,6 +49,8 @@ import SaffronRenderer from './saffron/SaffronRenderer';
 import { SaffronProvider, useSaffron } from './saffron/SaffronContext';
 import LumenRenderer from './lumen/LumenRenderer';
 import { LumenProvider, useLumen } from './lumen/LumenContext';
+import MosaicRenderer from './mosaic/MosaicRenderer';
+import { MosaicProvider, useMosaic } from './mosaic/MosaicContext';
 
 const TEMPLATE_CONFIG = {
   'base-classic': {
@@ -188,6 +190,12 @@ const TEMPLATE_CONFIG = {
     Renderer: LumenRenderer,
     useContext: useLumen,
     title: 'Lumen Template'
+  },
+  'mosaic': {
+    Provider: MosaicProvider,
+    Renderer: MosaicRenderer,
+    useContext: useMosaic,
+    title: 'Mosaic Template'
   }
 };
 
