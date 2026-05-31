@@ -33,6 +33,8 @@ import ModernMenuCartRenderer from './storefront/modernMenuCart/ModernMenuCartRe
 import { ModernMenuCartProvider } from './storefront/modernMenuCart/ModernMenuCartContext';
 import MobileYummRenderer from './storefront/mobileYumm/MobileYummRenderer';
 import { MobileYummProvider } from './storefront/mobileYumm/MobileYummContext';
+import MobileNeonRenderer from './storefront/mobileNeon/MobileNeonRenderer';
+import { MobileNeonProvider } from './storefront/mobileNeon/MobileNeonContext';
 import SageRenderer from './storefront/sage/SageRenderer';
 import { SageProvider } from './storefront/sage/SageContext';
 import ModernBiteRenderer from './storefront/modernBite/ModernBiteRenderer';
@@ -255,6 +257,15 @@ const StorefrontTemplatesPage = () => {
               description="A vibrant orange food delivery template with hero stats, category tabs, gallery, reviews, and a contact form."
               ProviderComponent={MobileYummProvider}
               RendererComponent={MobileYummRenderer}
+            />
+            <TemplatePreviewCard
+              categoryId="mobile"
+              templateSlug="mobile-neon"
+              title="Mobile Neon"
+              label="Mobile"
+              description="A dark-themed late-night food delivery template with neon green accents, category menu, gallery, reviews, and a midnight CTA."
+              ProviderComponent={MobileNeonProvider}
+              RendererComponent={MobileNeonRenderer}
             />
           </div>
         ) : activeTab === 'ordering_form' ? (
