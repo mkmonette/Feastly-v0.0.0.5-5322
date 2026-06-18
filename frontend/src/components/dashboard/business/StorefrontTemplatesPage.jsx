@@ -9,6 +9,7 @@ import ModernClassicRenderer from './storefront/modernClassic/ModernClassicRende
 import { ModernClassicProvider } from './storefront/modernClassic/ModernClassicContext';
 import ModernSplitRenderer from './storefront/modernSplit/ModernSplitRenderer';
 import { ModernSplitStorefrontProvider } from './storefront/modernSplit/ModernSplitProvider';
+import ModernFluxRenderer from './storefront/modernFlux/ModernFluxRenderer';
 import MobileExpressRenderer from './storefront/mobileExpress/MobileExpressRenderer';
 import { MobileExpressProvider } from './storefront/mobileExpress/MobileExpressContext';
 import QuickOrderRenderer from './storefront/quickOrder/QuickOrderRenderer';
@@ -223,6 +224,15 @@ const StorefrontTemplatesPage = () => {
               description="A warm, friendly food ordering template with rounded elements, compact design, and fixed cart panel inspired by modern delivery apps."
               ProviderComponent={ModernMenuCartProvider}
               RendererComponent={ModernMenuCartRenderer}
+            />
+            <TemplatePreviewCard
+              categoryId="modern"
+              templateSlug="modern-flux"
+              title="Modern Flux"
+              label="Modern · New"
+              description="A flipped Modern Split: left full-height cart, right content (Header / Hero / About / Popular Picks / Our Menu / Gallery / Testimonials / CTA / Contact / Footer). Same sections as the other Modern templates."
+              ProviderComponent={ModernSplitStorefrontProvider}
+              RendererComponent={ModernFluxRenderer}
             />
           </div>
         ) : activeTab === 'mobile' ? (
